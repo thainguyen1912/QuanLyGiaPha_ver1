@@ -1,46 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+import Enity.Account;
+import Model.Account_DAO;
+import Model.DBConnection;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author thain
- */
-public class Welcome extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+public class Register extends HttpServlet {
+
+    final int roleManagerDefault=1;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Welcome</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Welcome at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        request.setCharacterEncoding("UTF-8");
+        String userName=request.getParameter("username");
+        String passWord1=request.getParameter("password1");
+        String passWord2=request.getParameter("password2");
+        if(passWord1.equals(passWord2)==false){
+            request.setAttribute("PasswordFalse", "Mật Khẩu Bạn Nhập Không Giống Nhau");
+            RequestDispatcher rd=request.getRequestDispatcher("register.jsp");
+            rd.forward(request, response);
+        }
+        else{
+            DBConnection db=new DBConnection();
+            Account_DAO acc_dao=new Account_DAO(db);
+            if(acc_dao.getOneAccountByUserName(userName)!=null){
+                request.setAttribute("UserNameExist", "Tài Khoản Này Đã Tồn Tại");
+                RequestDispatcher rd=request.getRequestDispatcher("register.jsp");
+                rd.forward(request, response);
+            }
+            else{
+                acc_dao.Insert(new Account(userName, passWord1, roleManagerDefault));
+                request.setAttribute("CreateSuccess", "Bạn Vừa Tạo Tài Khoản Thành Công");
+                RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+                rd.forward(request, response);
+            }
         }
     }
 

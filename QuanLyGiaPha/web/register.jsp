@@ -21,7 +21,7 @@
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="Register" method="post">
                         <span class="login100-form-title">
                             Đăng ký Mới
                         </span>
@@ -30,21 +30,27 @@
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 validate-input m-b-16" data-validate = "Nhập mật khẩu">
-                            <input class="input100" type="password" name="pass" placeholder="Nhập mật khẩu">
+                            <input class="input100" type="password" name="password1" placeholder="Nhập mật khẩu">
                             <span class="focus-input100"></span>
                         </div>
                         <div class="wrap-input100 validate-input" data-validate = "Nhập lại mật khẩu">
-                            <input class="input100" type="password" name="pass" placeholder="Nhập lại mật khẩu">
+                            <input class="input100" type="password" name="password2" placeholder="Nhập lại mật khẩu">
                             <span class="focus-input100"></span>
                         </div>
-                        <div class="text-right p-t-13 p-b-23">
-
+                        <div class="text-center p-t-13 p-b-23">
+                            <p class="txt3">
+                                <%=request.getAttribute("PasswordFalse")==null?"":request.getAttribute("PasswordFalse") %>
+                                <%=request.getAttribute("UserNameExist")==null?"":request.getAttribute("UserNameExist") %>
+                            </p>
                         </div>
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
                                 Đăng ký
                             </button>
                         </div>
+                        
+                        
+                        
                     </form>
                     <div class="container-login100-form-btn" style="width: 60%; margin-left: 20%">
                         <button class="login100-form-btn" onclick="location.href = 'login.jsp';">

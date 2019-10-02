@@ -12,11 +12,23 @@ public class ParentAge {
     private String anniversary;
     private String history;
     private String note;
-    private String image;
     private Date dateCreate;
     private String userName;
 
-    public ParentAge(int id, String name, String ancestor, String address, String anniversary, String history, String note, String image, Date dateCreate, String userName) {
+    public ParentAge(String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String userName) {
+        this.name = name;
+        this.ancestor = ancestor;
+        this.address = address;
+        this.anniversary = anniversary;
+        this.history = history;
+        this.note = note;
+        this.dateCreate = dateCreate;
+        this.userName = userName;
+    }
+
+    
+    
+    public ParentAge(int id, String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String userName) {
         this.id = id;
         this.name = name;
         this.ancestor = ancestor;
@@ -24,7 +36,6 @@ public class ParentAge {
         this.anniversary = anniversary;
         this.history = history;
         this.note = note;
-        this.image = image;
         this.dateCreate = dateCreate;
         this.userName = userName;
     }
@@ -85,14 +96,6 @@ public class ParentAge {
         this.note = note;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public Date getDateCreate() {
         return dateCreate;
     }
@@ -108,6 +111,8 @@ public class ParentAge {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    
     
     
 }
