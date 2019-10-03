@@ -1,3 +1,5 @@
+<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Account"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="app-header header-shadow">
     <div class="app-header__logo">
@@ -31,9 +33,12 @@
         </span>
     </div>   
     <div class="app-header__content">
-        <div class="app-header-left">
-            <div class="tenho" style="font-weight: bold;margin-left: 343px;font-size: 30px;">
-                PHÙNG VĂN
+        <div class="app-header-left" style="width: 75%">
+            <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
+                <%
+                    ParentAge par=(ParentAge)session.getAttribute("Parentage");
+                %>
+                <%=par.getName() %>
             </div> 
         </div>
         <div class="app-header-right">
@@ -43,7 +48,7 @@
                         <div class="widget-content-left">
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="./public/assets/images/avatars/1.jpg" alt="">
+                                    <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -56,7 +61,10 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                Alina Mclourd
+                                <%
+                                    Account acc=(Account)session.getAttribute("Account");
+                                %>
+                                <%=acc.getUserName() %>
                             </div>
                             <!-- <div class="widget-subheading">
                                 VP People Manager

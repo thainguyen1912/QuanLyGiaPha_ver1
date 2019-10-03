@@ -34,19 +34,19 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dòng họ</li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a href="parentage_info.jsp" class="mm-active">
                         <i class=""></i>
                         Thông tin dòng họ
                     </a>
                 </li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a href="index.html" class="">
                         <i class=""></i>
                         Quản lý phả đồ
                     </a>
                 </li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a href="index.html" class="">
                         <i class=""></i>
                         Album Ảnh
                     </a>

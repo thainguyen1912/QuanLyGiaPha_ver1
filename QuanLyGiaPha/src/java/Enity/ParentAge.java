@@ -13,9 +13,12 @@ public class ParentAge {
     private String history;
     private String note;
     private Date dateCreate;
+    private String headName;
+    private String headAddress;
+    private String headNumberPhone;
     private String userName;
 
-    public ParentAge(String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String userName) {
+    public ParentAge(String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
         this.name = name;
         this.ancestor = ancestor;
         this.address = address;
@@ -23,12 +26,13 @@ public class ParentAge {
         this.history = history;
         this.note = note;
         this.dateCreate = dateCreate;
+        this.headName = headName;
+        this.headAddress = headAddress;
+        this.headNumberPhone = headNumberPhone;
         this.userName = userName;
     }
 
-    
-    
-    public ParentAge(int id, String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String userName) {
+    public ParentAge(int id, String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
         this.id = id;
         this.name = name;
         this.ancestor = ancestor;
@@ -37,6 +41,9 @@ public class ParentAge {
         this.history = history;
         this.note = note;
         this.dateCreate = dateCreate;
+        this.headName = headName;
+        this.headAddress = headAddress;
+        this.headNumberPhone = headNumberPhone;
         this.userName = userName;
     }
 
@@ -104,6 +111,30 @@ public class ParentAge {
         this.dateCreate = dateCreate;
     }
 
+    public String getHeadName() {
+        return headName;
+    }
+
+    public void setHeadName(String headName) {
+        this.headName = headName;
+    }
+
+    public String getHeadAddress() {
+        return headAddress;
+    }
+
+    public void setHeadAddress(String headAddress) {
+        this.headAddress = headAddress;
+    }
+
+    public String getHeadNumberPhone() {
+        return headNumberPhone;
+    }
+
+    public void setHeadNumberPhone(String headNumberPhone) {
+        this.headNumberPhone = headNumberPhone;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -112,7 +143,5 @@ public class ParentAge {
         this.userName = userName;
     }
 
-    
-    
     
 }

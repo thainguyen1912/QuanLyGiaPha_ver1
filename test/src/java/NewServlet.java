@@ -1,49 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-package Controller;
-
-import Enity.Account;
-import Enity.ParentAge;
-import Model.DBConnection;
-import Model.ParentAge_DAO;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import javax.servlet.RequestDispatcher;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author thain
+ */
+public class NewServlet extends HttpServlet {
 
-public class CreateParentage extends HttpServlet {
-
-    DBConnection db=new DBConnection();
-    ParentAge_DAO par_dao=new ParentAge_DAO(db);
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String parentageName=request.getParameter("parentagename");
-        String address=request.getParameter("address");
-        HttpSession session=request.getSession();
-        Account acc=(Account)session.getAttribute("Account");
-        String userName=acc.getUserName();
-        //getdatenow
-        LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        Date dateNow=(Date.valueOf(date.format(formatter)));
-        //
-        ParentAge par=new ParentAge(parentageName, null, address, null, null, null, dateNow, null, null, null, userName);
-        par_dao.Insert(par);
-        
-        session.setAttribute("Parentage", par);
-        
-        RequestDispatcher rd=request.getRequestDispatcher("parentage_info.jsp");
-        rd.forward(request, response);
-        
-        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet NewServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -12,6 +12,10 @@
         <servlet-name>CreateParentage</servlet-name>
         <servlet-class>Controller.CreateParentage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateParentageInfo</servlet-name>
+        <servlet-class>Controller.UpdateParentageInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CreateParentage</servlet-name>
         <url-pattern>/CreateParentage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateParentageInfo</servlet-name>
+        <url-pattern>/UpdateParentageInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

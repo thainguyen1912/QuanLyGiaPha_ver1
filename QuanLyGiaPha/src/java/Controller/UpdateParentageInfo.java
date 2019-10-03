@@ -1,47 +1,32 @@
 
 package Controller;
 
-import Enity.Account;
-import Enity.ParentAge;
-import Model.DBConnection;
-import Model.ParentAge_DAO;
 import java.io.IOException;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
-public class CreateParentage extends HttpServlet {
+public class UpdateParentageInfo extends HttpServlet {
 
-    DBConnection db=new DBConnection();
-    ParentAge_DAO par_dao=new ParentAge_DAO(db);
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        String parentageName=request.getParameter("parentagename");
+        
+        String name=request.getParameter("name");
+        String ancestor=request.getParameter("ancestor");
         String address=request.getParameter("address");
-        HttpSession session=request.getSession();
-        Account acc=(Account)session.getAttribute("Account");
-        String userName=acc.getUserName();
-        //getdatenow
-        LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        Date dateNow=(Date.valueOf(date.format(formatter)));
-        //
-        ParentAge par=new ParentAge(parentageName, null, address, null, null, null, dateNow, null, null, null, userName);
-        par_dao.Insert(par);
+        Date anniversary=Date.valueOf(request.getParameter("anniversary"));
+        String history=request.getParameter("history");
+        String note=request.getParameter("note");
+        String headName=request.getParameter("headname");
+        String headaddress=request.getParameter("headaddress");
+        String headnumberphone=request.getParameter("headnumberphone");
         
-        session.setAttribute("Parentage", par);
-        
-        RequestDispatcher rd=request.getRequestDispatcher("parentage_info.jsp");
-        rd.forward(request, response);
         
         
     }

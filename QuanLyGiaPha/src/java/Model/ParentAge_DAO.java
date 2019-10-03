@@ -33,8 +33,11 @@ public class ParentAge_DAO {
                 String history=rs.getString("history");
                 String note=rs.getString("note");
                 Date date=rs.getDate("datecreate");
+                String headName=rs.getString("headname");
+                String headAddress=rs.getString("headaddress");
+                String headNumberPhone=rs.getString("headnumberphone");
                 String userName=rs.getString("username");
-                par=new ParentAge(id, name, ancestor, address, anniversary, history, note, date, userName);
+                par=new ParentAge(name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
             }
         } catch (SQLException ex) { 
             Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -44,8 +47,8 @@ public class ParentAge_DAO {
     
     public int Insert(ParentAge par){
         int n=0;
-        String sql="insert into quanlygiapha.parentage(name, ancestor, address, anniversary, history, note, datecreate, username) "
-                + " values(?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql="insert into quanlygiapha.parentage(name, ancestor, address, anniversary, history, note, datecreate, headname, headaddress, headnumberphone, username) "
+                + " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pre=connect.prepareStatement(sql);
             pre.setString(1, par.getName());
@@ -55,7 +58,10 @@ public class ParentAge_DAO {
             pre.setString(5, par.getHistory());
             pre.setString(6, par.getNote());
             pre.setDate(7, par.getDateCreate());
-            pre.setString(8, par.getUserName());
+            pre.setString(8, par.getHeadName());
+            pre.setString(9, par.getHeadName());
+            pre.setString(10, par.getHeadAddress());
+            pre.setString(11, par.getHeadNumberPhone());
             n=pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
