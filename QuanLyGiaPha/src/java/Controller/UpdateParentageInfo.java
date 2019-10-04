@@ -1,12 +1,18 @@
 
 package Controller;
 
+import Enity.Account;
+import Enity.ParentAge;
+import Model.DBConnection;
+import Model.ParentAge_DAO;
 import java.io.IOException;
 import java.sql.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class UpdateParentageInfo extends HttpServlet {
@@ -27,8 +33,25 @@ public class UpdateParentageInfo extends HttpServlet {
         String headaddress=request.getParameter("headaddress");
         String headnumberphone=request.getParameter("headnumberphone");
         
+        HttpSession session=request.getSession();
+        Account acc=(Account)session.getAttribute("Account");
+        ParentAge par_session = (ParentAge) session.getAttribute("Parentage");
         
+        Date dateCreate=par_session.getDateCreate();
+        String userName=acc.getUserName();
         
+        ParentAge par=new ParentAge(name, ancestor, address, anniversary, history, note, dateCreate, headName, headaddress, headnumberphone, userName);
+        
+        DBConnection db=new DBConnection();
+        ParentAge_DAO par_dao=new ParentAge_DAO(db);
+        par_dao.Update(par);
+        
+        ParentAge par_session_update=par_dao.getOneParentAge(userName);
+        session.setAttribute("Parentage", par_session_update);
+        
+        request.setAttribute("UpdateParentageSuccess", "Bạn Vừa Cập Nhật Thông Tin Thành Công");
+        RequestDispatcher rd=request.getRequestDispatcher("parentage_info.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

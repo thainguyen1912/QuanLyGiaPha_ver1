@@ -9,7 +9,7 @@ public class ParentAge {
     private String name;
     private String ancestor;
     private String address;
-    private String anniversary;
+    private Date anniversary;
     private String history;
     private String note;
     private Date dateCreate;
@@ -18,7 +18,7 @@ public class ParentAge {
     private String headNumberPhone;
     private String userName;
 
-    public ParentAge(String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
+    public ParentAge(String name, String ancestor, String address, Date anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
         this.name = name;
         this.ancestor = ancestor;
         this.address = address;
@@ -32,7 +32,7 @@ public class ParentAge {
         this.userName = userName;
     }
 
-    public ParentAge(int id, String name, String ancestor, String address, String anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
+    public ParentAge(int id, String name, String ancestor, String address, Date anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
         this.id = id;
         this.name = name;
         this.ancestor = ancestor;
@@ -79,11 +79,11 @@ public class ParentAge {
         this.address = address;
     }
 
-    public String getAnniversary() {
+    public Date getAnniversary() {
         return anniversary;
     }
 
-    public void setAnniversary(String anniversary) {
+    public void setAnniversary(Date anniversary) {
         this.anniversary = anniversary;
     }
 

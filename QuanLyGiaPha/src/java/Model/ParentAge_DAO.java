@@ -29,7 +29,7 @@ public class ParentAge_DAO {
                 String name=rs.getString("name");
                 String ancestor =rs.getString("ancestor");
                 String address=rs.getString("address");
-                String anniversary=rs.getString("anniversary");
+                Date anniversary=rs.getDate("anniversary");
                 String history=rs.getString("history");
                 String note=rs.getString("note");
                 Date date=rs.getDate("datecreate");
@@ -54,14 +54,38 @@ public class ParentAge_DAO {
             pre.setString(1, par.getName());
             pre.setString(2, par.getAncestor());
             pre.setString(3, par.getAddress());
-            pre.setString(4, par.getAnniversary());
+            pre.setDate(4, par.getAnniversary());
             pre.setString(5, par.getHistory());
             pre.setString(6, par.getNote());
             pre.setDate(7, par.getDateCreate());
             pre.setString(8, par.getHeadName());
-            pre.setString(9, par.getHeadName());
-            pre.setString(10, par.getHeadAddress());
-            pre.setString(11, par.getHeadNumberPhone());
+            pre.setString(9, par.getHeadAddress());
+            pre.setString(10, par.getHeadNumberPhone());
+            pre.setString(11, par.getUserName());
+            n=pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    
+    public int Update(ParentAge par){
+        int n=0;
+        String sql="update quanlygiapha.parentage set name=?, ancestor=?, address=?, anniversary=?, history=?, note=?, "
+                + "datecreate=?, headname=?, headaddress=?, headnumberphone=? where username=?";
+        try {
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setString(1, par.getName());
+            pre.setString(2, par.getAncestor());
+            pre.setString(3, par.getAddress());
+            pre.setDate(4, par.getAnniversary());
+            pre.setString(5, par.getHistory());
+            pre.setString(6, par.getNote());
+            pre.setDate(7, par.getDateCreate());
+            pre.setString(8, par.getHeadName());
+            pre.setString(9, par.getHeadAddress());
+            pre.setString(10, par.getHeadNumberPhone());
+            pre.setString(11, par.getUserName());
             n=pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);

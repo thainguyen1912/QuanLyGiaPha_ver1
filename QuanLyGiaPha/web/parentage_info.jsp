@@ -22,7 +22,19 @@
                                         <div class="col-md-4 mb-3">
                                         </div>
                                         <div class="col-md-4 mb-3" style="text-align: center">
-                                            <h5>Ngày Tạo : <%=par.getDateCreate() %></h5>
+                                            <h6 class="text-primary">
+                                                <%=request.getAttribute("UpdateParentageSuccess")==null?"":request.getAttribute("UpdateParentageSuccess") %>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row" style="">
+                                        <div class="col-md-4 mb-3">
+                                        </div>
+                                        <div class="col-md-4 mb-3" style="text-align: center">
+                                            <h6>
+                                                Ngày Tạo : <%=par.getDateCreate() %>
+                                            </h6>
                                         </div>
                                     </div>
                                     <div class="form-row" style="margin-bottom: 4%">
@@ -36,7 +48,7 @@
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip02">Tổ Tiên</label>
-                                            <input type="text" class="form-control" id="validationTooltip02" name="ancestor" value="" required>
+                                            <input type="text" class="form-control" id="validationTooltip02" name="ancestor" value="<%=par.getAncestor()%>" required>
                                             <div class="invalid-tooltip">
                                                 Bạn Chưa Nhập Tên Tổ Tiên
                                             </div>
@@ -53,21 +65,21 @@
                                     <div class="form-row" style="margin-bottom: 4%">
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip04">Ngày Giỗ</label>
-                                            <input type="date" class="form-control" id="validationTooltip04" name="anniversary" value="" required>
+                                            <input type="date" class="form-control" id="validationTooltip04" name="anniversary" value="<%=par.getAnniversary()%>" required>
                                             <div class="invalid-tooltip">
                                                 Bạn Chưa Nhập Ngày Giỗ
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip05">Lịch Sử Dòng Họ</label>
-                                            <input type="text" class="form-control" id="validationTooltip05" name="history" value="" required>
+                                            <input type="text" class="form-control" id="validationTooltip05" name="history" value="<%=par.getHistory()%>" required>
                                             <div class="invalid-tooltip">
                                                 Bạn Chưa Nhập Lịch Sử
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip06">Ghi Chú Thêm</label>
-                                            <input type="text" class="form-control" id="validationTooltip06" name="note" value="">
+                                            <input type="text" class="form-control" id="validationTooltip06" name="note" value="<%=par.getNote()%>">
                                             <div class="valid-tooltip">
                                                 Bạn Có Thể Bỏ Qua Trường Này
                                             </div>
@@ -76,21 +88,21 @@
                                     <div class="form-row" style="margin-bottom: 4%">
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip07">Tên Trưởng Họ</label>
-                                            <input type="text" class="form-control" id="validationTooltip07" name="headname" value="" required>
+                                            <input type="text" class="form-control" id="validationTooltip07" name="headname" value="<%=par.getHeadName()%>" required>
                                             <div class="invalid-tooltip">
                                                 Bạn Chưa Nhập Tên
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip08">Địa Chỉ Trưởng Họ</label>
-                                            <input type="text" class="form-control" id="validationTooltip08" name="headaddress" value="" required>
+                                            <input type="text" class="form-control" id="validationTooltip08" name="headaddress" value="<%=par.getHeadAddress()%>" required>
                                             <div class="invalid-tooltip">
                                                 Bạn Chưa Nhập Địa Chỉ
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="validationTooltip09">Số Điện Thoại Trưởng Họ</label>
-                                            <input type="text" class="form-control" id="validationTooltip09" name="headnumberphone" value="">
+                                            <input type="text" class="form-control" id="validationTooltip09" name="headnumberphone" value="<%=par.getHeadNumberPhone()%>">
                                             <div class="valid-tooltip">
                                                 Bạn Có Thể Bỏ Qua Trường Này 
                                             </div>
