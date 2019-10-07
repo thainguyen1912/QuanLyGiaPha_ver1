@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
     
@@ -60,7 +60,7 @@
     <script src="vendor/daterangepicker/moment.min.js"></script>
     <script src="vendor/daterangepicker/daterangepicker.js"></script>
     <script src="vendor/countdowntime/countdowntime.js"></script>
-    <script src="login.js"></script>
+    <script src="js/login.js"></script>
 
 </body>
 </html>
