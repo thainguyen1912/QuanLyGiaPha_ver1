@@ -52,7 +52,7 @@
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item">Thông tin tài khoản</button>
+                                    <a href="NewServlet"><button type="button" tabindex="0" class="dropdown-item">Thông tin tài khoản</button></a>
                                     <button type="button" tabindex="0" class="dropdown-item">Đổi mật khẩu</button>
                                     <button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button>
 
