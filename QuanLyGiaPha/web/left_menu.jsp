@@ -1,4 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    String value="";
+    try{
+        value=request.getParameter("value").toString();
+        System.out.println(value);
+    }
+    catch(Exception e){
+        
+    }
+%>
 <div class="app-sidebar sidebar-shadow">
     <div class="app-header__logo">
         <div class="logo-src"></div>
@@ -29,18 +39,19 @@
                 </span>
             </button>
         </span>
-    </div>    <div class="scrollbar-sidebar">
+    </div>
+    <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dòng họ</li>
                 <li>
-                    <a href="parentage_info.jsp" class="mm-active">
+                    <a href="parentage_info.jsp?value=parentage_info" class="<%=value.equals("parentage_info")?"mm-active":"" %>">
                         <i class=""></i>
                         Thông tin dòng họ
                     </a>
                 </li>
                 <li>
-                    <a href="index.html" class="">
+                    <a href="Parentage_Treeview?value=parentage_treeview" class="<%=value.equals("parentage_treeview")?"mm-active":"" %>"> 
                         <i class=""></i>
                         Quản lý phả đồ
                     </a>

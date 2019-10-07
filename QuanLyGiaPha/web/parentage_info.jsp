@@ -2,13 +2,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     ParentAge par = (ParentAge) session.getAttribute("Parentage");
+    request.setAttribute("value", "parentage_info");
 %>
 <!doctype html>
 <html lang="en">
     <jsp:include page="import.jsp" />
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <jsp:include page="header.jsp" /> 
+            <jsp:include page="header.jsp" />
             <jsp:include page="setting_ui.jsp" />
             <div class="app-main">
                 <jsp:include page="left_menu.jsp" />
@@ -20,6 +21,7 @@
                                 <form class="needs-validation" novalidate action="UpdateParentageInfo" method="post">
                                     <div class="form-row" style="">
                                         <div class="col-md-4 mb-3">
+                                            <a href="first_individual.jsp"></a>
                                         </div>
                                         <div class="col-md-4 mb-3" style="text-align: center">
                                             <h6 class="text-primary">

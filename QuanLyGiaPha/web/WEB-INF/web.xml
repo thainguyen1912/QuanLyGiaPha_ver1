@@ -16,6 +16,10 @@
         <servlet-name>UpdateParentageInfo</servlet-name>
         <servlet-class>Controller.UpdateParentageInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Parentage_Treeview</servlet-name>
+        <servlet-class>Controller.Parentage_Treeview</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -32,11 +36,21 @@
         <servlet-name>UpdateParentageInfo</servlet-name>
         <url-pattern>/UpdateParentageInfo</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Parentage_Treeview</servlet-name>
+        <url-pattern>/Parentage_Treeview</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
