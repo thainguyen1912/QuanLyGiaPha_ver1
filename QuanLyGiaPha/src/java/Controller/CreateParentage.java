@@ -38,6 +38,11 @@ public class CreateParentage extends HttpServlet {
         ParentAge par=new ParentAge(parentageName, null, address, null, null, null, dateNow, null, null, null, userName);
         par_dao.Insert(par);
         
+        String ancestorName=request.getParameter("ancestorname");
+        Date datebirth=Date.valueOf(request.getParameter("datebirth"));
+        Date datedeath=Date.valueOf(request.getParameter("datedeath"));
+        
+        
         session.setAttribute("Parentage", par);
         
         RequestDispatcher rd=request.getRequestDispatcher("parentage_info.jsp");

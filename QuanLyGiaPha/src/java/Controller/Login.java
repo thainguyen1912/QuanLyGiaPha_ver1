@@ -46,6 +46,7 @@ public class Login extends HttpServlet {
             }
             else{
                 session.setAttribute("Parentage", par);
+                request.setAttribute("value", "parentage_info");
                 RequestDispatcher rd=request.getRequestDispatcher("parentage_info.jsp");
                 rd.forward(request, response);
             }
