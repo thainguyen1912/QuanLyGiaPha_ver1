@@ -12,6 +12,6 @@ public class Individual_DAO {
     }
     public int Insert(Individual ind){
         int n=0;
-        String sql="insert into "
+        return n;
     }
 }
