@@ -27,9 +27,6 @@
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <jsp:include page="page_title.jsp" />
-                        <div class="main-card mb-3 card" style="width: 100%">
-                            <button class="mb-2 mr-2 btn btn-warning">Warning
-                                        </button>
                             <%
                                 for(Individual ind : arr_ind){
                                     int doiThu=ind.getBranch().split("-").length;
@@ -38,9 +35,12 @@
                                     for(int i=1;i<=doiThu;i++){
                                         margin+=8;
                                     }
-                                    temp+="<button class=\"mb-2 mr-2 btn btn-info\" style=\"width: 16%;text-align: left;margin-left:"+margin+"%;\"><div class=\"col-md-2\" style=\"width:60%\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><span style=\"margin-left:6%\">" + ind.getName() + "</span></button>";
-                                                        
-                                                            
+                                    temp+="<button class=\"mb-2 mr-2 btn-transition btn btn-outline-info\">"+doiThu+"</button>" ;
+                                    temp+="<button class=\"mb-2 mr-2 btn btn-info\" style=\"width: 12%;margin-left:"+margin+"%;\"><div class=\"col-md-2\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><span>" + ind.getName() + "</span></button>";
+//                                    edit
+                                    temp+="<a href=\"index.jsp\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-warning\"><i class=\"pe-7s-tools\" style=\"font-size: 1.6rem\"></i></button></a>" ;                
+//                                    delete
+                                    temp+="<button class=\"mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.6rem\"></i></button>" ;                          
                                                     
                                             
                                     temp+="<br>";
@@ -51,7 +51,6 @@
                                 }
                             %>
                         </div>
-                    </div>
                     <jsp:include page="footer.jsp" />
                 </div>
             </div>

@@ -45,7 +45,7 @@
                 <li class="app-sidebar__heading">Dòng họ</li>
                 <li>
                     <a href="parentage_info.jsp?value=parentage_info" class="<%=value.equals("parentage_info")?"mm-active":"" %>">
-                        <i class=""></i>
+                        <i class="metismenu-icon pe-7s-note"></i>
                         Thông tin dòng họ
                     </a>
                 </li>
