@@ -3,7 +3,6 @@
     String value="";
     try{
         value=request.getAttribute("value").toString();
-        System.out.println(value);
     }
     catch(Exception e){
         
@@ -51,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="parentage_treeview.jsp?value=parentage_treeview" class="<%=value.equals("parentage_treeview")?"mm-active":"" %>"> 
+                    <a href="ParentageViewTree?value=parentage_treeview" class="<%=value.equals("parentage_treeview")?"mm-active":"" %>"> 
                         <i class=""></i>
                         Quản lý phả đồ
                     </a>

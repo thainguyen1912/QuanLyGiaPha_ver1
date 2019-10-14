@@ -1,4 +1,3 @@
-
 package Model;
 
 import java.sql.Connection;
@@ -16,7 +15,7 @@ public class DBConnection {
     }
     
     public DBConnection(){
-        String driver = "com.mysql.cj.jdbc.Driver";
+        String driver = "com.mysql.jdbc.Driver";
         String connection = "jdbc:mysql://localhost:3306/quanlygiapha";
         String user = "root";
         String password = "2411";

@@ -76,23 +76,23 @@ DROP TABLE IF EXISTS `individual`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `individual` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idparentage` int(11) NOT NULL,
+  `idparentage` int(11) DEFAULT NULL,
   `name` varchar(45) NOT NULL,
-  `wifeorhusbandname` varchar(45) NOT NULL,
+  `wifeorhusbandname` varchar(45) DEFAULT NULL,
   `datebirth` date DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `datedeath` date DEFAULT NULL,
-  `childth` int(11) NOT NULL,
+  `childth` int(11) DEFAULT NULL,
   `idfather` int(11) NOT NULL,
-  `fatherfloor` int(11) NOT NULL,
-  `gender` int(11) NOT NULL,
+  `fatherfloor` int(11) DEFAULT NULL,
+  `gender` int(11) DEFAULT NULL,
   `branch` varchar(45) NOT NULL,
   `avatar` varchar(45) DEFAULT NULL,
   `moreinfo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_indi_parentage_idx` (`idparentage`),
   CONSTRAINT `fk_indi_parentage` FOREIGN KEY (`idparentage`) REFERENCES `parentage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,6 +101,7 @@ CREATE TABLE `individual` (
 
 LOCK TABLES `individual` WRITE;
 /*!40000 ALTER TABLE `individual` DISABLE KEYS */;
+INSERT INTO `individual` VALUES (1,2,'Bùi Văn Nam1','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,0,NULL,NULL,'1',NULL,NULL),(2,2,'Bùi Văn Nam2','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,1,NULL,NULL,'1-2',NULL,NULL),(3,2,'Bùi Văn Nam3','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,1,NULL,NULL,'1-3',NULL,NULL),(4,2,'Bùi Văn Nam4','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,2,NULL,NULL,'1-2-4',NULL,NULL),(5,2,'Bùi Văn Nam5','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,2,NULL,NULL,'1-2-5',NULL,NULL),(6,2,'Bùi Văn Nam6','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,3,NULL,NULL,'1-3-6',NULL,NULL),(7,2,'Bùi Văn Nam7','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,3,NULL,NULL,'1-3-7',NULL,NULL),(8,2,'Bùi Văn Nam8','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,4,NULL,NULL,'1-2-4-8',NULL,NULL),(9,2,'Bùi Văn Nam9','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,6,NULL,NULL,'1-3-6-9',NULL,NULL),(10,2,'Bùi Văn Nam10','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,6,NULL,NULL,'1-3-6-10',NULL,NULL),(11,2,'Bùi Văn Nam11','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,7,NULL,NULL,'1-3-7-11',NULL,NULL),(12,2,'Bùi Văn Nam12','Bùi Thị Nam','1998-12-12',0,'1998-12-12',NULL,3,NULL,NULL,'1-3-12',NULL,NULL);
 /*!40000 ALTER TABLE `individual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-07 15:38:11
+-- Dump completed on 2019-10-14 15:08:16

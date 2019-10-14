@@ -17,9 +17,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(value = "/Login")
 public class Login extends HttpServlet {
 
-    DBConnection db = new DBConnection();
-    Account_DAO acc_dao = new Account_DAO(db);
-    ParentAge_DAO par_dao = new ParentAge_DAO(db);
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,10 +34,18 @@ public class Login extends HttpServlet {
             rd.forward(request, response);
         } else {
             if(value.equals("CheckLogin")){
+                DBConnection db = new DBConnection();
+                Account_DAO acc_dao = new Account_DAO(db);
+                ParentAge_DAO par_dao = new ParentAge_DAO(db);
                 String userName = request.getParameter("username");
                 String passWord = request.getParameter("password");
-                Account acc = null;
-                acc = acc_dao.getOneAccount(userName, passWord);
+                Account acc=null;
+                try{
+                    acc = acc_dao.getOneAccount(userName, passWord);
+                }
+                catch(Exception e){
+                }
+                
                 if (acc == null) {
                     request.setAttribute("LoginFalse", "Tên Tài Khoản Hoặc Mật Khẩu Không Đúng!");
                     RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
@@ -51,8 +57,7 @@ public class Login extends HttpServlet {
                     ParentAge par = null;
                     par = par_dao.getOneParentAge(userName);
                     if (par == null) {
-                        RequestDispatcher rd = request.getRequestDispatcher("first_create_parentage.jsp");
-                        rd.forward(request, response);
+                        response.sendRedirect("CreateParentage?value=CreatePage");
                     } else {
                         session.setAttribute("Parentage", par);
                         response.sendRedirect("ParentageInfo");

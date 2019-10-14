@@ -35,6 +35,7 @@ public class Account_DAO {
         ResultSet rs=null;
         try {
             rs=connect.createStatement().executeQuery(sql);
+            if(rs==null) System.out.println("null");
             if(rs.next()){
                 String UserName=rs.getString("username");
                 String PassWord=rs.getString("password");

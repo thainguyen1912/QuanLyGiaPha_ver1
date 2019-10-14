@@ -37,7 +37,7 @@ public class ParentAge_DAO {
                 String headAddress=rs.getString("headaddress");
                 String headNumberPhone=rs.getString("headnumberphone");
                 String userName=rs.getString("username");
-                par=new ParentAge(name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
+                par=new ParentAge(id,name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
             }
         } catch (SQLException ex) { 
             Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);

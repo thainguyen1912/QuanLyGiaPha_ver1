@@ -9,23 +9,53 @@ public class Individual {
     private int idIndividual;
     private int idParentAge;
     private String name;
-    private int gender;
+    private String wifeOrHusbandName;
     private Date dateBirth;
+    private int status;
     private Date dateDeath;
+    private int childth;
+    private int idFather;
+    private int fatherFloor;
+    private int gender;
     private String branch;
     private String avatar;
+    private String moreInfo;
 
-    public Individual(int idIndividual, int idParentAge, String name, int gender, Date dateBirth, Date dateDeath, String branch, String avatar) {
+    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, String avatar, String moreInfo) {
         this.idIndividual = idIndividual;
         this.idParentAge = idParentAge;
         this.name = name;
-        this.gender = gender;
+        this.wifeOrHusbandName = wifeOrHusbandName;
         this.dateBirth = dateBirth;
+        this.status = status;
         this.dateDeath = dateDeath;
+        this.childth = childth;
+        this.idFather = idFather;
+        this.fatherFloor = fatherFloor;
+        this.gender = gender;
         this.branch = branch;
         this.avatar = avatar;
+        this.moreInfo = moreInfo;
     }
 
+    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, String avatar, String moreInfo) {
+        this.idParentAge = idParentAge;
+        this.name = name;
+        this.wifeOrHusbandName = wifeOrHusbandName;
+        this.dateBirth = dateBirth;
+        this.status = status;
+        this.dateDeath = dateDeath;
+        this.childth = childth;
+        this.idFather = idFather;
+        this.fatherFloor = fatherFloor;
+        this.gender = gender;
+        this.branch = branch;
+        this.avatar = avatar;
+        this.moreInfo = moreInfo;
+    }
+
+    
+    
     public int getIdIndividual() {
         return idIndividual;
     }
@@ -50,12 +80,12 @@ public class Individual {
         this.name = name;
     }
 
-    public int getGender() {
-        return gender;
+    public String getWifeOrHusbandName() {
+        return wifeOrHusbandName;
     }
 
-    public void setGender(int gender) {
-        this.gender = gender;
+    public void setWifeOrHusbandName(String wifeOrHusbandName) {
+        this.wifeOrHusbandName = wifeOrHusbandName;
     }
 
     public Date getDateBirth() {
@@ -66,12 +96,52 @@ public class Individual {
         this.dateBirth = dateBirth;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public Date getDateDeath() {
         return dateDeath;
     }
 
     public void setDateDeath(Date dateDeath) {
         this.dateDeath = dateDeath;
+    }
+
+    public int getChildth() {
+        return childth;
+    }
+
+    public void setChildth(int childth) {
+        this.childth = childth;
+    }
+
+    public int getIdFather() {
+        return idFather;
+    }
+
+    public void setIdFather(int idFather) {
+        this.idFather = idFather;
+    }
+
+    public int getFatherFloor() {
+        return fatherFloor;
+    }
+
+    public void setFatherFloor(int fatherFloor) {
+        this.fatherFloor = fatherFloor;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
     public String getBranch() {
@@ -90,7 +160,13 @@ public class Individual {
         this.avatar = avatar;
     }
 
-    
-    
+    public String getMoreInfo() {
+        return moreInfo;
+    }
+
+    public void setMoreInfo(String moreInfo) {
+        this.moreInfo = moreInfo;
+    }
+
     
 }
