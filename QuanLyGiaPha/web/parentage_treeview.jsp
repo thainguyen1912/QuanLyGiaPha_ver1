@@ -36,7 +36,7 @@
                                         margin+=8;
                                     }
                                     temp+="<button class=\"mb-2 mr-2 btn-transition btn btn-outline-info\">"+doiThu+"</button>" ;
-                                    temp+="<button class=\"mb-2 mr-2 btn btn-info\" style=\"width: 12%;margin-left:"+margin+"%;\"><div class=\"col-md-2\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><span>" + ind.getName() + "</span></button>";
+                                    temp+="<button class=\"mb-2 mr-2 btn btn-info\" style=\"width: 18%;margin-left:"+margin+"%;\"><div class=\"col-md-2\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><span>" + ind.getName() + "</span></button>";
 //                                    edit
                                     temp+="<a href=\"index.jsp\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-warning\"><i class=\"pe-7s-tools\" style=\"font-size: 1.6rem\"></i></button></a>" ;                
 //                                    delete
