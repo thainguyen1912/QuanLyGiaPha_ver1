@@ -52,9 +52,9 @@
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <a href="NewServlet"><button type="button" tabindex="0" class="dropdown-item">Thông tin tài khoản</button></a>
-                                    <button type="button" tabindex="0" class="dropdown-item">Đổi mật khẩu</button>
-                                    <button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button>
+                                    <button type="button" tabindex="0" class="dropdown-item"><a href="account.jsp">Thông tin tài khoản</a></button>
+                                    <button type="button" tabindex="0" class="dropdown-item"><a href="changepw.jsp">Đổi mật khẩu</a></button>
+                                    <button type="button" tabindex="0" class="dropdown-item"><a href="login.jsp">Đăng xuất</a></button>
 
                                 </div>
                             </div>

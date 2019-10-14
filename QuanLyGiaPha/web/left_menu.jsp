@@ -45,19 +45,19 @@
                 <li class="app-sidebar__heading">Dòng họ</li>
                 <li>
                     <a href="parentage_info.jsp?value=parentage_info" class="<%=value.equals("parentage_info")?"mm-active":"" %>">
-                        <i class="metismenu-icon pe-7s-note"></i>
+                        <i class="metismenu-icon pe-7s-notebook"></i>
                         Thông tin dòng họ
                     </a>
                 </li>
                 <li>
                     <a href="ParentageViewTree?value=parentage_treeview" class="<%=value.equals("parentage_treeview")?"mm-active":"" %>"> 
-                        <i class=""></i>
+                        <i class="metismenu-icon pe-7s-network"></i>
                         Quản lý phả đồ
                     </a>
                 </li>
                 <li>
                     <a href="index.html" class="">
-                        <i class=""></i>
+                        <i class="metismenu-icon pe-7s-album"></i>
                         Album Ảnh
                     </a>
                 </li>
@@ -65,167 +65,37 @@
                 <li class="app-sidebar__heading">Tin tức</li>
                 <li>
                     <a href="#">
-                        <i class=""></i>
+                        <i class="metismenu-icon pe-7s-note"></i>
                         Viết bài
                         <i class=""></i>
                     </a>
-                    <!-- <ul
-                    >
-                        <li>
-                            <a href="elements-buttons-standard.html">
-                                <i class="metismenu-icon"></i>
-                                Buttons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-dropdowns.html">
-                                <i class="metismenu-icon">
-                                </i>Dropdowns
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-icons.html">
-                                <i class="metismenu-icon">
-                                </i>Icons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-badges-labels.html">
-                                <i class="metismenu-icon">
-                                </i>Badges
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-cards.html">
-                                <i class="metismenu-icon">
-                                </i>Cards
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-list-group.html">
-                                <i class="metismenu-icon">
-                                </i>List Groups
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-navigation.html">
-                                <i class="metismenu-icon">
-                                </i>Navigation Menus
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-utilities.html">
-                                <i class="metismenu-icon">
-                                </i>Utilities
-                            </a>
-                        </li>
-                    </ul> -->
+                    
                 </li>
                 <li>
                     <a href="#">
-                        <i class=""></i>
+                        <i class="metismenu-icon pe-7s-helm"></i>
                         Quản lý tin tức
                         <i class=""></i>
                     </a>
-                    <!-- <ul
-                    >
-                        <li>
-                            <a href="components-tabs.html">
-                                <i class="metismenu-icon">
-                                </i>Tabs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-accordions.html">
-                                <i class="metismenu-icon">
-                                </i>Accordions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-notifications.html">
-                                <i class="metismenu-icon">
-                                </i>Notifications
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-modals.html">
-                                <i class="metismenu-icon">
-                                </i>Modals
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-progress-bar.html">
-                                <i class="metismenu-icon">
-                                </i>Progress Bar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-tooltips-popovers.html">
-                                <i class="metismenu-icon">
-                                </i>Tooltips &amp; Popovers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-carousel.html">
-                                <i class="metismenu-icon">
-                                </i>Carousel
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-calendar.html">
-                                <i class="metismenu-icon">
-                                </i>Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-pagination.html">
-                                <i class="metismenu-icon">
-                                </i>Pagination
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-scrollable-elements.html">
-                                <i class="metismenu-icon">
-                                </i>Scrollable
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-maps.html">
-                                <i class="metismenu-icon">
-                                </i>Maps
-                            </a>
-                        </li>
-                    </ul> -->
+                    
                 </li>
-                <!-- <li  >
-                    <a href="tables-regular.html">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Tables
-                    </a>
-                </li> -->
-                <!-- <li class="app-sidebar__heading">Tin nhắn</li>
-                <li>
-                    <a href="dashboard-boxes.html">
-                        <i class="metismenu-icon pe-7s-display2"></i>
-                        Dashboard Boxes
-                    </a>
-                </li> -->
+                
                 <li class="app-sidebar__heading">Tin nhắn</li>
                 <li>
                     <a href="forms-controls.html">
-                        <i class="">
+                        <i class="metismenu-icon pe-7s-note">
                         </i>Soạn tin nhắn
                     </a>
                 </li>
                 <li>
                     <a href="forms-layouts.html">
-                        <i class="">
+                        <i class="metismenu-icon pe-7s-paper-plane">
                         </i>Hộp thư đến
                     </a>
                 </li>
                 <li>
                     <a href="forms-validation.html">
-                        <i class="">
+                        <i class="metismenu-icon pe-7s-shuffle">
                         </i>Tin đã gửi
                     </a>
                 </li>
