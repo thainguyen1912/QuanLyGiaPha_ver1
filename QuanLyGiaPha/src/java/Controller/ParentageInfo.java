@@ -14,16 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet(value = "/ParentageInfo")
 public class ParentageInfo extends HttpServlet {
 
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        request.setAttribute("value", "parentage_info");
+
+        request.setAttribute("title", "parentage_info");
         RequestDispatcher rd = request.getRequestDispatcher("parentage_info.jsp");
         rd.forward(request, response);
     }

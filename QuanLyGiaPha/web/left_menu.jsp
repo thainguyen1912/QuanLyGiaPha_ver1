@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    String value="";
+    String title="";
     try{
-        value=request.getAttribute("value").toString();
+        title=request.getAttribute("title").toString();
     }
     catch(Exception e){
         
@@ -44,13 +44,13 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dòng họ</li>
                 <li>
-                    <a href="parentage_info.jsp?value=parentage_info" class="<%=value.equals("parentage_info")?"mm-active":"" %>">
+                    <a href="ParentageInfo?title=parentage_info" class="<%=title.equals("parentage_info")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-notebook"></i>
                         Thông tin dòng họ
                     </a>
                 </li>
                 <li>
-                    <a href="ParentageViewTree?value=parentage_treeview" class="<%=value.equals("parentage_treeview")?"mm-active":"" %>"> 
+                    <a href="ParentageViewTree?title=parentage_treeview" class="<%=title.equals("parentage_treeview")?"mm-active":"" %>"> 
                         <i class="metismenu-icon pe-7s-network"></i>
                         Quản lý phả đồ
                     </a>
