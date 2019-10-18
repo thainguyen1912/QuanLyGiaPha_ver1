@@ -47,7 +47,7 @@
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left">
                             <div class="btn-group">
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0">
                                     <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>

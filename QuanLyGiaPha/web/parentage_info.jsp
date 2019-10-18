@@ -2,7 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     ParentAge par = (ParentAge) session.getAttribute("Parentage");
-    request.setAttribute("value", "parentage_info");
+    request.setAttribute("title", "parentage_info");
 %>
 <!doctype html>
 <html lang="en">

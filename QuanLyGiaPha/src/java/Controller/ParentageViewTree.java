@@ -10,7 +10,6 @@ import Enity.ParentAge;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +35,7 @@ public class ParentageViewTree extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
         //value parentage_viewtree
-            request.setAttribute("value", request.getParameter("value"));
+            request.setAttribute("title", request.getParameter("title"));
         //
         //get all individual
             DBConnection db=new DBConnection();
