@@ -14,7 +14,7 @@
             <div class="app-main">
                 <jsp:include page="left_menu.jsp" />
                 <div class="app-main__outer">
-                   
+                        
                     
                 </div>
             </div>

@@ -54,10 +54,19 @@
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.jsp" class="nav-link">Trang Chủ</a></li>
-                        <li class="nav-item"><a href="parentageVN.jsp" class="nav-link">Gia Phả Việt Nam</a></li>
-                        <li class="nav-item"><a href="news.jsp" class="nav-link">Tin Tức</a></li>
-                        <li class="nav-item"><a href="about.jsp" class="nav-link">Giới Thiệu</a></li>
-                        <li class="nav-item"><a href="index.jsp" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gia Phả Việt Nam</a>
+                            <!-- <div class="dropdown-menu" aria-labelledby="dropdown04">
+                              <a class="dropdown-item" href="shop.html">Shop</a>
+                              <a class="dropdown-item" href="wishlist.html">Wishlist</a>
+                              <a class="dropdown-item" href="product-single.html">Single Product</a>
+                              <a class="dropdown-item" href="cart.html">Cart</a>
+                              <a class="dropdown-item" href="checkout.html">Checkout</a>
+                            </div> -->
+                        </li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">Tin Tức</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Giới Thiệu</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
                         <!-- 	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li> -->
                     </ul>
                 </div>
@@ -128,10 +137,10 @@
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2">Trang chủ</h2>
                             <ul class="list-unstyled">
-                                <li><a href="parentageVN.jsp" class="py-2 d-block">Gia phả Việt Nam</a></li>
-                                <li><a href="news.jsp" class="py-2 d-block">Tin Tức</a></li>
-                                <li><a href="about.jsp" class="py-2 d-block">Giới Thiệu</a></li>
-                                <li><a href="index.jsp" class="py-2 d-block">Liên hệ - Góp ý</a></li>
+                                <li><a href="#" class="py-2 d-block">Gia phả Việt Nam</a></li>
+                                <li><a href="#" class="py-2 d-block">Tin Tức</a></li>
+                                <li><a href="#" class="py-2 d-block">Giới Thiệu</a></li>
+                                <li><a href="#" class="py-2 d-block">Liên hệ - Góp ý</a></li>
                             </ul>
                         </div>
                     </div>

@@ -55,50 +55,48 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.jsp" class="nav-link">Trang Chủ</a></li>
                         <li class="nav-item"><a href="parentageVN.jsp" class="nav-link">Gia Phả Việt Nam</a></li>
-                        <li class="nav-item"><a href="news.jsp" class="nav-link">Tin Tức</a></li>
-                        <li class="nav-item"><a href="about.jsp" class="nav-link">Giới Thiệu</a></li>
-                        <li class="nav-item"><a href="index.jsp" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
-                        <!-- 	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li> -->
+                        <li class="nav-item"><a href="about.html" class="nav-link">Tin Tức</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Giới Thiệu</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- END nav -->
 
-        <section id="home-section" class="hero">
-            <div class="home-slider owl-carousel">
-                <div class="slider-item" style="background-image: url(images/nth1.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                            <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2">Dễ Dàng Quản lý Gia Phả </h1>
-                                <h2 class="subheading mb-4">Tiện Lợi &amp; Chính Xác</h2>
-                                <p><a href="Login?value=LoginPage" class="btn btn-primary">Đăng nhập</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider-item" style="background-image: url(images/nth2.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                            <div class="col-sm-12 ftco-animate text-center">
-                                <h1 class="mb-2">Tin tức Mới nhất của các Dòng họ </h1>
-                                <h2 class="subheading mb-4">Nhanh Chóng &amp; Hữu Ích</h2>
-                                <p><a href="#" class="btn btn-primary">Đăng nhập</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+       <div class="hero-wrap hero-bread" style="background-image: url('images/58005.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+          	
+                <h1 class="mb-0 bread" style="font-family: serif ; font-size: 50px">LỜI GIỚI THIỆU</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/aboutVN.jpg);">
+						<a href="https://youtu.be/fpUfIisBhIs" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+							<span class="icon-play"></span>
+						</a>
+					</div>
+					<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate fadeInUp ftco-animated">
+	          <div class="heading-section-bold mb-4 mt-md-5">
+	          	<div class="ml-md-0">
+                            <h2 class="mb-4" style="font-family: sans-serif">Chào Mừng bạn đến với Website GIAPHAVIETNAM</h2>
+	            </div>
+	          </div>
+	          <div class="pb-md-5">
+	          	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+							<p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                                                        <p><a href="login.jsp" class="btn btn-primary">Đăng Nhập</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+    </section>
 
         <hr>
 
@@ -128,10 +126,10 @@
                         <div class="ftco-footer-widget mb-4 ml-md-5">
                             <h2 class="ftco-heading-2">Trang chủ</h2>
                             <ul class="list-unstyled">
-                                <li><a href="parentageVN.jsp" class="py-2 d-block">Gia phả Việt Nam</a></li>
-                                <li><a href="news.jsp" class="py-2 d-block">Tin Tức</a></li>
-                                <li><a href="about.jsp" class="py-2 d-block">Giới Thiệu</a></li>
-                                <li><a href="index.jsp" class="py-2 d-block">Liên hệ - Góp ý</a></li>
+                                <li><a href="#" class="py-2 d-block">Gia phả Việt Nam</a></li>
+                                <li><a href="#" class="py-2 d-block">Tin Tức</a></li>
+                                <li><a href="#" class="py-2 d-block">Giới Thiệu</a></li>
+                                <li><a href="#" class="py-2 d-block">Liên hệ - Góp ý</a></li>
                             </ul>
                         </div>
                     </div>
