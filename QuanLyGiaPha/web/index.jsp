@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
-
+<%
+    System.out.println("nguyễn");
+    
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>

@@ -1,15 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+import Enity.Individual;
+import Model.DBConnection;
+import Model.Individual_DAO;
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 
-@WebServlet(value= "/EditIndividual")
+@WebServlet("/EditIndividual")
+@MultipartConfig(maxFileSize = 16177215)
 public class EditIndividual extends HttpServlet {
 
    
@@ -35,8 +38,9 @@ public class EditIndividual extends HttpServlet {
             rd.forward(request, response);
         }
         if(value.equals("Process")){
+            int id=Integer.valueOf(request.getParameter("id"));
             String name=request.getParameter("name");
-            String gender=request.getParameter("gender");
+            int gender=Integer.valueOf(request.getParameter("gender").toString());
             int childth=Integer.valueOf(request.getParameter("childth"));
             String wifeOrHusbandName=request.getParameter("wifeorhusbandname");
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
@@ -47,12 +51,21 @@ public class EditIndividual extends HttpServlet {
             } catch (Exception e) {
             }
             String moreInfo=request.getParameter("moreinfo");
-            Part part=request.getPart("avatar");
-            System.out.println(part.toString());
-
-            request.setAttribute("value", "edit_individual");
-            RequestDispatcher rd=request.getRequestDispatcher("edit_individual.jsp");
-            rd.forward(request, response);
+            
+            Part filePart=request.getPart("avatar");
+            InputStream inputSteam=null;
+            
+            if(filePart!=null){
+                inputSteam=filePart.getInputStream();
+            }
+            DBConnection db=new DBConnection();
+            Individual_DAO ind_dao=new Individual_DAO(db);
+            Individual ind=new Individual(id, id, name, wifeOrHusbandName, dateBirth, datedeath==null?0:1, datedeath, childth, id, id, gender, null, null, moreInfo);
+            ind_dao.update(ind, inputSteam);
+//            Individual ind=new Individual(id, id, name, wifeOrHusbandName, dateBirth, datedeath==null?0:1, datedeath, childth, id, id, gender, null, null, moreInfo);
+//            DBConnection db=new DBConnection();
+//            Individual_DAO ind_dao=new Individual_DAO(db);
+//            ind_dao.update(ind, fis, image);
         }
     }
 
@@ -94,5 +107,4 @@ public class EditIndividual extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
