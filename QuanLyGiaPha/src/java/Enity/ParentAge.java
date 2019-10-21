@@ -143,5 +143,8 @@ public class ParentAge {
         this.userName = userName;
     }
 
-    
+    @Override
+    public String toString() {
+        return "ParentAge{" + "id=" + id + ", name=" + name + ", ancestor=" + ancestor + ", address=" + address + ", anniversary=" + anniversary + ", history=" + history + ", note=" + note + ", dateCreate=" + dateCreate + ", headName=" + headName + ", headAddress=" + headAddress + ", headNumberPhone=" + headNumberPhone + ", userName=" + userName + '}';
+    }
 }

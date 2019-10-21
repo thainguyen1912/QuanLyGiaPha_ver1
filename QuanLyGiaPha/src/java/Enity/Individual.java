@@ -2,6 +2,7 @@
 
 package Enity;
 
+import java.sql.Blob;
 import java.sql.Date;
 
 
@@ -18,10 +19,10 @@ public class Individual {
     private int fatherFloor;
     private int gender;
     private String branch;
-    private String avatar;
+    private Blob avatar;
     private String moreInfo;
 
-    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, String avatar, String moreInfo) {
+    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, Blob avatar, String moreInfo) {
         this.idIndividual = idIndividual;
         this.idParentAge = idParentAge;
         this.name = name;
@@ -38,7 +39,7 @@ public class Individual {
         this.moreInfo = moreInfo;
     }
 
-    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, String avatar, String moreInfo) {
+    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, Blob avatar, String moreInfo) {
         this.idParentAge = idParentAge;
         this.name = name;
         this.wifeOrHusbandName = wifeOrHusbandName;
@@ -53,7 +54,9 @@ public class Individual {
         this.avatar = avatar;
         this.moreInfo = moreInfo;
     }
+    
 
+    
     
     
     public int getIdIndividual() {
@@ -152,11 +155,11 @@ public class Individual {
         this.branch = branch;
     }
 
-    public String getAvatar() {
+    public Blob getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(Blob avatar) {
         this.avatar = avatar;
     }
 
@@ -168,5 +171,6 @@ public class Individual {
         this.moreInfo = moreInfo;
     }
 
+    
     
 }

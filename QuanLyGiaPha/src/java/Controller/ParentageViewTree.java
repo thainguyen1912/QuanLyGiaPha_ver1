@@ -10,6 +10,7 @@ import Enity.ParentAge;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,7 +62,7 @@ public class ParentageViewTree extends HttpServlet {
                     int fatherFloor=rs.getInt(10);
                     int gender=rs.getInt(11);
                     String brand=rs.getString(12);
-                    String avatar=rs.getString(13);
+                    Blob avatar=rs.getBlob(13);
                     String moreInfo=rs.getString(14);
                     Individual ind=new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, status, dateDeath, childth, idFather, fatherFloor, gender, brand, avatar, moreInfo);
                     arr_ind.add(ind);

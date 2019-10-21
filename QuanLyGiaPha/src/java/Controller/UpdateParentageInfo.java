@@ -21,6 +21,7 @@ public class UpdateParentageInfo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("utf-8");
 
         String name = request.getParameter("name");
         String ancestor = request.getParameter("ancestor");
@@ -31,7 +32,7 @@ public class UpdateParentageInfo extends HttpServlet {
         String headName = request.getParameter("headname");
         String headaddress = request.getParameter("headaddress");
         String headnumberphone = request.getParameter("headnumberphone");
-
+        
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("Account");
         ParentAge par_session = (ParentAge) session.getAttribute("Parentage");
@@ -41,6 +42,7 @@ public class UpdateParentageInfo extends HttpServlet {
 
         ParentAge par = new ParentAge(name, ancestor, address, anniversary, history, note, dateCreate, headName, headaddress, headnumberphone, userName);
 
+        
         DBConnection db = new DBConnection();
         ParentAge_DAO par_dao = new ParentAge_DAO(db);
         par_dao.Update(par);
