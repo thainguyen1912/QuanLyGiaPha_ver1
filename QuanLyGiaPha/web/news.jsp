@@ -54,61 +54,208 @@
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.jsp" class="nav-link">Trang Chủ</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gia Phả Việt Nam</a>
-                            <!-- <div class="dropdown-menu" aria-labelledby="dropdown04">
-                              <a class="dropdown-item" href="shop.html">Shop</a>
-                              <a class="dropdown-item" href="wishlist.html">Wishlist</a>
-                              <a class="dropdown-item" href="product-single.html">Single Product</a>
-                              <a class="dropdown-item" href="cart.html">Cart</a>
-                              <a class="dropdown-item" href="checkout.html">Checkout</a>
-                            </div> -->
-                        </li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">Tin Tức</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Giới Thiệu</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
-                        <!-- 	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li> -->
+                        <li class="nav-item"><a href="parentageVN.jsp" class="nav-link">Gia Phả Việt Nam</a></li>
+                        <li class="nav-item"><a href="news.jsp" class="nav-link">Tin Tức</a></li>
+                        <li class="nav-item"><a href="about.jsp" class="nav-link">Giới Thiệu</a></li>
+                        <li class="nav-item"><a href="index.jsp" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- END nav -->
 
-        <section id="home-section" class="hero">
-            <div class="home-slider owl-carousel">
-                <div class="slider-item" style="background-image: url(images/nth1.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                            <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2">Dễ Dàng Quản lý Gia Phả </h1>
-                                <h2 class="subheading mb-4">Tiện Lợi &amp; Chính Xác</h2>
-                                <p><a href="Login?value=LoginPage" class="btn btn-primary">Đăng nhập</a></p>
-                            </div>
-
-                        </div>
-                    </div>
+       <div class="hero-wrap hero-bread" style="background-image: url('images/58005.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+          	
+                <h1 class="mb-0 bread" style="font-family: serif ; font-size: 50px">TIN TỨC</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ftco-animate fadeInUp ftco-animated">
+						<div class="row">
+							<div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
+		            <div class="blog-entry align-self-stretch d-md-flex">
+		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post1.jpg');">
+		              </a>
+		              <div class="text d-block pl-md-4">
+		              	<div class="meta mb-3">
+		                  <div><a href="#">November 21, 2019</a></div>
+		                  <div><a href="#">Admin</a></div>
+		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+		                </div>
+		                <h3 class="heading"><a href="#">Gia Phả là gì? Hình thức lập Gia Phả và Tộc Phả</a></h3>
+		                <p>Gia phả hay gia phổ là bản ghi chép tên họ, tuổi tác, ngày giỗ, vai trò và công đức của cha mẹ, ông bà, tiên tổ và mộ phần của một gia đình lớn hay một dòng họ.</p>
+		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
+		            <div class="blog-entry align-self-stretch d-md-flex">
+		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post2.jpg');">
+		              </a>
+		              <div class="text d-block pl-md-4">
+		              	<div class="meta mb-3">
+		                  <div><a href="#">October 10, 2019</a></div>
+		                  <div><a href="#">Admin</a></div>
+		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 5</a></div>
+		                </div>
+		                <h3 class="heading"><a href="#">Dựng gia phả, giải toả khúc mắc lịch sử</a></h3>
+		                <p>Các dòng họ là một phần của lịch sử dân tộc, qua đó, những người dựng gia phả đã giải tỏa nhiều tồn nghi do quá khứ để lại hay tìm được mộ phần của những người có công với nước vốn thất lạc hàng trăm năm.</p>
+		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex ftco-animate">
+		            <div class="blog-entry align-self-stretch d-md-flex">
+		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post3.jpg');">
+		              </a>
+		              <div class="text d-block pl-md-4">
+		              	<div class="meta mb-3">
+		                  <div><a href="#">October 04, 2019</a></div>
+		                  <div><a href="#">Admin</a></div>
+		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 4</a></div>
+		                </div>
+		                <h3 class="heading"><a href="#">Tại sao phải mừng tuổi, lì xì đầu năm?</a></h3>
+		                <p>Mừng tuổi đầu năm là phong tục phổ biến ở các nước Á Đông. Vậy nguồn gốc, ý nghĩa của phong tục lì xì đầu năm là gì và tại sao lại phải mừng tuổi và lì xì đầu năm?</p>
+		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex ftco-animate">
+		            <div class="blog-entry align-self-stretch d-md-flex">
+		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post4.jpg');">
+		              </a>
+		              <div class="text d-block pl-md-4">
+		              	<div class="meta mb-3">
+		                  <div><a href="#">July 20, 2019</a></div>
+		                  <div><a href="#">Admin</a></div>
+		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+		                </div>
+		                <h3 class="heading"><a href="#">Họ Trần có nguồn gốc và gia phả mộ tổ ở đâu?</a></h3>
+		                <p>Học sử Việt Nam, chúng ta đều biết năm 1285, trước sức mạnh to lớn của giặc Nguyên Mông mở cuộc chiến tranh lần thứ hai xâm lược Việt Nam, Chiêu Quốc vương Trần Ích Tắc đã khiếp sợ đầu hàng kẻ thù, được vua Nguyên là Hốt Tất Liệt phong làm An Nam quốc vương.</p>
+		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex ftco-animate">
+		            <div class="blog-entry align-self-stretch d-md-flex">
+		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post5.jpg');">
+		              </a>
+		              <div class="text d-block pl-md-4">
+		              	<div class="meta mb-3">
+		                  <div><a href="#">July 15, 2019</a></div>
+		                  <div><a href="#">Admin</a></div>
+		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+		                </div>
+		                <h3 class="heading"><a href="#">Những lưu ý cần nhớ khi xây dựng gia phả</a></h3>
+		                <p>Hiện nay có rất nhiều người muốn tạo lập lại gia phả của dòng tộc mình nhưng lại không biết bắt đầu từ đâu. Vậy thì hãy ghi nhớ những lưu ý trong khi xây dựng gia phả để có thể thực hiện một cách dễ dàng.</p>
+		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex ftco-animate">
+		            <div class="blog-entry align-self-stretch d-md-flex">
+		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post6.jpg');">
+		              </a>
+		              <div class="text d-block pl-md-4">
+		              	<div class="meta mb-3">
+		                  <div><a href="#">July 12, 2019</a></div>
+		                  <div><a href="#">Admin</a></div>
+		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+		                </div>
+		                <h3 class="heading"><a href="#">8 Phong tục KHÔNG THỂ THIẾU của người Việt trong ngày Tết</a></h3>
+		                <p>Tết là dịp để mọi người sum họp, để nhìn về một năm đã qua và hướng đến một năm mới an khang thịnh vượng. Trong ngày Tết có rất nhiều phong tục đẹp hãy cùng chúng tôi tìm hiểu nhé!</p>
+		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+		              </div>
+		            </div>
+		          </div>
+						</div>
+          </div> <!-- .col-md-8 -->
+          <div class="col-lg-4 sidebar ftco-animate fadeInUp ftco-animated">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon ion-ios-search"></span>
+                  <input type="text" class="form-control" placeholder="Search...">
                 </div>
-
-                <div class="slider-item" style="background-image: url(images/nth2.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container">
-                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                            <div class="col-sm-12 ftco-animate text-center">
-                                <h1 class="mb-2">Tin tức Mới nhất của các Dòng họ </h1>
-                                <h2 class="subheading mb-4">Nhanh Chóng &amp; Hữu Ích</h2>
-                                <p><a href="#" class="btn btn-primary">Đăng nhập</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+              </form>
             </div>
-        </section>
+            <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
+            	<h3 class="heading">Categories</h3>
+              <ul class="categories">
+                <li><a href="#">Vegetables <span>(12)</span></a></li>
+                <li><a href="#">Fruits <span>(22)</span></a></li>
+                <li><a href="#">Juice <span>(37)</span></a></li>
+                <li><a href="#">Dries <span>(42)</span></a></li>
+              </ul>
+            </div>
 
+            <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
+              <h3 class="heading">Recent Blog</h3>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading">Tag Cloud</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">fruits</a>
+                <a href="#" class="tag-cloud-link">tomatoe</a>
+                <a href="#" class="tag-cloud-link">mango</a>
+                <a href="#" class="tag-cloud-link">apple</a>
+                <a href="#" class="tag-cloud-link">carrots</a>
+                <a href="#" class="tag-cloud-link">orange</a>
+                <a href="#" class="tag-cloud-link">pepper</a>
+                <a href="#" class="tag-cloud-link">eggplant</a>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading">Paragraph</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
         <hr>
 
         

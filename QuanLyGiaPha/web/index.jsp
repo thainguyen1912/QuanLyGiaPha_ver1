@@ -57,7 +57,6 @@
                         <li class="nav-item"><a href="news.jsp" class="nav-link">Tin Tức</a></li>
                         <li class="nav-item"><a href="about.jsp" class="nav-link">Giới Thiệu</a></li>
                         <li class="nav-item"><a href="index.jsp" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
-                        <!-- 	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li> -->
                     </ul>
                 </div>
             </div>
