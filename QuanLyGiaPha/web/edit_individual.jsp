@@ -13,7 +13,6 @@
     int idIndividual = Integer.valueOf(request.getAttribute("idIndividual").toString());
     Individual ind = ind_dao.getIndividualById(idIndividual);
     request.setAttribute("individual", ind);//send to editindividual to update infomation
-    
 %>
 <!doctype html>
 <html lang="en">
@@ -103,10 +102,10 @@
                                                 <div>
                                                     <div style="float: left; width: 40%">
                                                         <div>
-                                                            <div class="file-upload" style="width: 90%;">
+                                                            <div class="file-upload" style="width: 85%;">
 
                                                                 <div style="margin-bottom: 10%">
-                                                                    <img style="max-width: 100%" src="image.jsp" alt="your image" />
+                                                                    <img style="max-width: 100%" src="images/<%=ind.getAvatar()==null?"imagenotfound.png":ind.getAvatar() %>" alt="your image" />
                                                                 </div>
 
                                                                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Thay Đổi Ảnh</button>

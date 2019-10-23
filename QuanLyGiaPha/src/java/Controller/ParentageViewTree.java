@@ -62,7 +62,7 @@ public class ParentageViewTree extends HttpServlet {
                     int fatherFloor=rs.getInt(10);
                     int gender=rs.getInt(11);
                     String brand=rs.getString(12);
-                    Blob avatar=rs.getBlob(13);
+                    String avatar=rs.getString(13);
                     String moreInfo=rs.getString(14);
                     Individual ind=new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, status, dateDeath, childth, idFather, fatherFloor, gender, brand, avatar, moreInfo);
                     arr_ind.add(ind);

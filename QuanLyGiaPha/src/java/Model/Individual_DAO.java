@@ -85,7 +85,7 @@ public class Individual_DAO {
                 int fatherFloor = rs.getInt(10);
                 int gender = rs.getInt(11);
                 String brand = rs.getString(12);
-                Blob avatar = rs.getBlob(13);
+                String avatar = rs.getString(13);
                 String moreInfo = rs.getString(14);
                 Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, status, dateDeath, childth, idFather, fatherFloor, gender, brand, avatar, moreInfo);
                 arr_ind.add(ind);
@@ -95,6 +95,36 @@ public class Individual_DAO {
         }
         return arr_ind;
     }
+    public ArrayList<Individual> getListChildByIdParentage(int idpar) {
+        ArrayList<Individual> arr_ind = new ArrayList<Individual>();
+        String sql = "select * from quanlygiapha.individual where idparentage='" + idpar + "'";
+        ResultSet rs = null;
+        try {
+            rs = connect.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                int idParentage = rs.getInt(2);
+                String name = rs.getString(3);
+                String wifeOrHusbandName = rs.getString(4);
+                Date dateBirth = rs.getDate(5);
+                int status = rs.getInt(6);
+                Date dateDeath = rs.getDate(7);
+                int childth = rs.getInt(8);
+                int idFather = rs.getInt(9);
+                int fatherFloor = rs.getInt(10);
+                int gender = rs.getInt(11);
+                String brand = rs.getString(12);
+                String avatar = rs.getString(13);
+                String moreInfo = rs.getString(14);
+                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, status, dateDeath, childth, idFather, fatherFloor, gender, brand, avatar, moreInfo);
+                arr_ind.add(ind);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr_ind;
+    }
+    
     public Individual getIndividualById(int idIndividual){
         Individual ind=null;
         String sql="select * from quanlygiapha.individual where id='"+idIndividual+"'";
@@ -113,7 +143,7 @@ public class Individual_DAO {
                 int fatherFloor = rs.getInt(10);
                 int gender = rs.getInt(11);
                 String brand = rs.getString(12);
-                Blob avatar = rs.getBlob(13);
+                String avatar = rs.getString(13);
                 String moreInfo = rs.getString(14);
                 ind=new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, status, dateDeath, childth, idFather, fatherFloor, gender, brand, avatar, moreInfo);
             }
@@ -132,7 +162,7 @@ public class Individual_DAO {
         }
         return rs;
     }
-    public int update(Individual ind, InputStream inputSteam){
+    public int update(Individual ind){
         int n=0;
         String sql="update quanlygiapha.individual set name=?, wifeorhusbandname=?, datebirth=?, status=?, datedeath=?,childth=?, gender=?, avatar=?, moreinfo=? where id=?";
         try {
@@ -144,7 +174,7 @@ public class Individual_DAO {
             pre.setDate(5, ind.getDateDeath());
             pre.setInt(6, ind.getChildth());
             pre.setInt(7, ind.getGender());
-            pre.setBlob(8, inputSteam);
+            pre.setString(8, ind.getAvatar());
             pre.setString(9, ind.getMoreInfo());
             pre.setInt(10, ind.getIdIndividual());
             n=pre.executeUpdate();

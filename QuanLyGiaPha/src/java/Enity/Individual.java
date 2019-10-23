@@ -19,10 +19,10 @@ public class Individual {
     private int fatherFloor;
     private int gender;
     private String branch;
-    private Blob avatar;
+    private String avatar;
     private String moreInfo;
 
-    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, Blob avatar, String moreInfo) {
+    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, String avatar, String moreInfo) {
         this.idIndividual = idIndividual;
         this.idParentAge = idParentAge;
         this.name = name;
@@ -39,7 +39,7 @@ public class Individual {
         this.moreInfo = moreInfo;
     }
 
-    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, Blob avatar, String moreInfo) {
+    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, int status, Date dateDeath, int childth, int idFather, int fatherFloor, int gender, String branch, String avatar, String moreInfo) {
         this.idParentAge = idParentAge;
         this.name = name;
         this.wifeOrHusbandName = wifeOrHusbandName;
@@ -155,11 +155,11 @@ public class Individual {
         this.branch = branch;
     }
 
-    public Blob getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Blob avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
