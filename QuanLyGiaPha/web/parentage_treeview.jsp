@@ -2,7 +2,6 @@
 <%@page import="Model.DBConnection"%>
 <%@page import="Model.Individual_DAO"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="PrintfTree.PrintTree"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
@@ -93,7 +92,7 @@
 //                                    delete
                                 temp += "<a href=\"edit_individual.jsp\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.6rem\"></i></button></a>";
 //                                    add
-                                temp += "<a href=\"AddIndividual?id="+arr_ind.get(i).getIdIndividual() +"\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-info\"><i class=\"pe-7s-add-user\" style=\"font-size: 1.6rem\"></i></button></a>";
+                                temp += "<a href=\"AddIndividual?value=Redirect&id="+arr_ind.get(i).getIdIndividual() +"\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-info\"><i class=\"pe-7s-add-user\" style=\"font-size: 1.6rem\"></i></button></a>";
                                 temp+="</div></div>";
                                 temp += "<br>";
                         %>

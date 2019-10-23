@@ -94,8 +94,7 @@
                                                             Thông Tin Thêm
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <textarea name="moreinfo" id="moreinfo" class="form-control"><%=ind.getMoreInfo() == null ? "Không Có" : ind.getMoreInfo()%>
-                                                            </textarea>
+                                                            <textarea name="moreinfo" id="moreinfo" class="form-control"><%=ind.getMoreInfo() == null ? "Không Có" : ind.getMoreInfo()%></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

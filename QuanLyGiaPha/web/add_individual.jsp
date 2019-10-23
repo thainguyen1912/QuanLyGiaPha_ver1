@@ -8,7 +8,9 @@
 <%@page import="Enity.ParentAge"%>
 
 <%
-    
+    DBConnection db = new DBConnection();
+    Individual_DAO ind_dao = new Individual_DAO(db);
+    Individual ind = new Individual();
 %>
 <!doctype html>
 <html lang="en">
@@ -29,7 +31,7 @@
                             <div class="tab-pane tabs-animation fade active show" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
-                                        <form class="" style="width: 100%" action="EditIndividual?value=Process" method="post" enctype="multipart/form-data">
+                                        <form class="" style="width: 100%" action="AddIndividual?value=Process" method="post" enctype="multipart/form-data">
                                             <div>
                                                 <div style="width: 60%; float: left">
                                                     <div class="position-relative row form-group">
@@ -37,8 +39,8 @@
                                                             Họ Và Tên
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="" name="id" id="id" placeholder="" type="text" class="form-control" hidden="true">
-                                                            <input value="" name="name" id="name" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=ind.getIdIndividual() %>" name="id" id="id" placeholder="" type="text" class="form-control" hidden="true">
+                                                            <input value="<%=ind.getName()%>" name="name" id="name" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -47,8 +49,8 @@
                                                         </label>
                                                         <div class="col-sm-10">
                                                             <select name="gender" id="gender" class="form-control">
-                                                                <option value="1" >Nam</option>
-                                                                <option value="0" >Nữ</option>
+                                                                <option value="1" <%=ind.getGender() == 1 ? "selected" : ""%>>Nam</option>
+                                                                <option value="0" <%=ind.getGender() == 0 ? "selected" : ""%>>Nữ</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -57,7 +59,7 @@
                                                             Con Thứ
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="" name="childth" id="childth" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=ind.getChildth()%>" name="childth" id="childth" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -65,7 +67,7 @@
                                                             Tên Vợ
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="" name="wifeorhusbandname" id="wifeorhusbandname" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=ind.getWifeOrHusbandName()%>" name="wifeorhusbandname" id="wifeorhusbandname" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -73,7 +75,7 @@
                                                             Ngày Sinh
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="" name="datebirth" id="datebirth" placeholder="" type="date" class="form-control">
+                                                            <input value="<%=ind.getDateBirth()%>" name="datebirth" id="datebirth" placeholder="" type="date" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -81,7 +83,7 @@
                                                             Ngày Mất
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="" name="datedeath" id="datedeath" placeholder="" type="date" class="form-control">
+                                                            <input value="<%=ind.getDateDeath()%>" name="datedeath" id="datedeath" placeholder="" type="date" class="form-control">
                                                         </div>
                                                     </div>
 
@@ -90,8 +92,7 @@
                                                             Thông Tin Thêm
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <textarea name="moreinfo" id="moreinfo" class="form-control">
-                                                            </textarea>
+                                                            <textarea name="moreinfo" id="moreinfo" class="form-control"><%=ind.getMoreInfo() == null ? "Không Có" : ind.getMoreInfo()%></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,7 +102,7 @@
                                                             <div class="file-upload" style="width: 85%;">
 
                                                                 <div style="margin-bottom: 10%">
-                                                                    <img style="max-width: 100%" src="images/imagenotfound.png" alt="your image" />
+                                                                    <img style="max-width: 100%" src="images/<%=ind.getAvatar()==null?"imagenotfound.png":ind.getAvatar() %>" alt="your image" />
                                                                 </div>
 
                                                                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Thay Đổi Ảnh</button>
