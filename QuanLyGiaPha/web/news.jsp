@@ -144,20 +144,7 @@
 		            </div>
 		          </div>
 		          <div class="col-md-12 d-flex ftco-animate">
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single.html" class="block-20" style="background-image: url('images/post5.jpg');">
-		              </a>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-		                  <div><a href="#">July 15, 2019</a></div>
-		                  <div><a href="#">Admin</a></div>
-		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		                </div>
-		                <h3 class="heading"><a href="#">Những lưu ý cần nhớ khi xây dựng gia phả</a></h3>
-		                <p>Hiện nay có rất nhiều người muốn tạo lập lại gia phả của dòng tộc mình nhưng lại không biết bắt đầu từ đâu. Vậy thì hãy ghi nhớ những lưu ý trong khi xây dựng gia phả để có thể thực hiện một cách dễ dàng.</p>
-		                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-		              </div>
-		            </div>
+		            
 		          </div>
 		          <div class="col-md-12 d-flex ftco-animate">
 		            <div class="blog-entry align-self-stretch d-md-flex">
@@ -182,26 +169,26 @@
               <form action="#" class="search-form">
                 <div class="form-group">
                   <span class="icon ion-ios-search"></span>
-                  <input type="text" class="form-control" placeholder="Search...">
+                  <input type="text" class="form-control" placeholder="Tìm kiếm...">
                 </div>
               </form>
             </div>
             <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
-            	<h3 class="heading">Categories</h3>
+            	<h3 class="heading">Thể loại</h3>
               <ul class="categories">
-                <li><a href="#">Vegetables <span>(12)</span></a></li>
-                <li><a href="#">Fruits <span>(22)</span></a></li>
-                <li><a href="#">Juice <span>(37)</span></a></li>
-                <li><a href="#">Dries <span>(42)</span></a></li>
+                <li><a href="#">Gia Phả <span>(12)</span></a></li>
+                <li><a href="#">Phong Tục <span>(22)</span></a></li>
+                <li><a href="#">Khuyến Học <span>(37)</span></a></li>
+                <li><a href="#">Tin Lạ <span>(42)</span></a></li>
               </ul>
             </div>
 
             <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
-              <h3 class="heading">Recent Blog</h3>
+              <h3 class="heading">Tin tức mới nhất</h3>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/post1.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading-1"><a href="#">Gia Phả là gì? Hình thức lập Gia Phả và Tộc Phả</a></h3>
                   <div class="meta">
                     <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -210,9 +197,9 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/post2.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading-1"><a href="#">Dựng Gia Phả, giải toả khúc mắc lịch sử</a></h3>
                   <div class="meta">
                     <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -221,9 +208,31 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(images/post3.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 class="heading-1"><a href="#">Tại sao phải mừng tuổi, lì xì đầu năm?</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/post4.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">Họ Trần có nguồn gốc và gia phả mộ Tổ ở đâu?</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/post6.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">8 phong tục KHÔNG THỂ THIẾU của người Việt trong ngày Tết</a></h3>
                   <div class="meta">
                     <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -234,22 +243,24 @@
             </div>
 
             <div class="sidebar-box ftco-animate">
-              <h3 class="heading">Tag Cloud</h3>
+              <h3 class="heading">Từ khoá tìm kiếm nhiều nhất</h3>
               <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">fruits</a>
-                <a href="#" class="tag-cloud-link">tomatoe</a>
-                <a href="#" class="tag-cloud-link">mango</a>
-                <a href="#" class="tag-cloud-link">apple</a>
-                <a href="#" class="tag-cloud-link">carrots</a>
-                <a href="#" class="tag-cloud-link">orange</a>
-                <a href="#" class="tag-cloud-link">pepper</a>
-                <a href="#" class="tag-cloud-link">eggplant</a>
+                <a href="#" class="tag-cloud-link">gia phả</a>
+                <a href="#" class="tag-cloud-link">họ Nguyễn</a>
+                <a href="#" class="tag-cloud-link">Tết</a>
+                <a href="#" class="tag-cloud-link">họ Trần</a>
+                <a href="#" class="tag-cloud-link">họ Văn</a>
+                <a href="#" class="tag-cloud-link">họ Phùng</a>
+                <a href="#" class="tag-cloud-link">họ Dương</a>
+                <a href="#" class="tag-cloud-link">phong tục</a>
               </div>
             </div>
 
             <div class="sidebar-box ftco-animate">
-              <h3 class="heading">Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              <h3 class="heading">Các bạn thân mến!</h3>
+              <p> Bậc tiền nhân từ xưa đã dạy : "Mọi vật tự trời sinh, mọi người đều có Tổ tiên, uống nước phải nhớ nguồn, đó là đạo lý cương thường vạn cổ. Đất nước có sử sách, biên cương được củng cố. Nhà có Gia phả lưu giữ phát huy công đức Tổ Tiên"
+
+</p>
             </div>
           </div>
 
