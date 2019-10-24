@@ -219,4 +219,24 @@ public class Individual_DAO {
         }
         return n;
     }
+    public boolean checkChild(int idFather){
+        String sql="select id from quanlygiapha.individual where idfather='"+idFather+"'";
+        try {
+            ResultSet rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()) return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    public int deleteIndividual(int id){
+        int n=0;
+        String sql="delete from quanlygiapha.individual where id='"+id+"'";
+        try {
+            n=connect.createStatement().executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 }

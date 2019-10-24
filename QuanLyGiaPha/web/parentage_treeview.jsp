@@ -28,12 +28,26 @@
                         <jsp:include page="page_title.jsp" />
 
                         
-<!--                        <div class="collapse show" id="a">
-                            <div class="mt-3">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-                            </div>
-                        </div>-->
-                        
+                        <div style="text-align: center; margin-bottom: 2%">
+                            <h6 style="color: red">
+                                <%=request.getAttribute("delete-error")==null?"": request.getAttribute("delete-error")%>
+                            </h6>
+                            <h6 style="color: green">
+                                <%=request.getAttribute("delete-success")==null?"": request.getAttribute("delete-success")%>
+                            </h6>
+                        </div>
+                                        <div class="dropdown d-inline-block">
+                                            <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-info">Info</button>
+                                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                                <button type="button" tabindex="0" class="dropdown-item">Menus</button>
+                                                <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                                <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                                <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                                <div tabindex="-1" class="dropdown-divider"></div>
+                                                <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                            </div>
+                                        </div>   
+                            
                         <%      
                             int doiThu=0;
                             int doiCaoNhat=arr_ind.get(arr_ind.size()-1).getBranch().split("-").length;
@@ -83,16 +97,23 @@
                                 
                                 temp+="<div class=\"collapse show\" id=\""+id+"\">";
                                 temp+="<div style=\"margin-bottom:-1%\">";
-                                temp += "<button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target='"+target+"' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">+</button>";
+                                temp += "<button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target='"+target+"' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">"+doiThu+"</button>";
                                 
-                                temp += "<button class=\"mb-2 mr-2 btn btn-info\" style=\"width: 18%;margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><p style=\"float:right; margin-bottom:0; margin-top:2.5%\">" + arr_ind.get(i).getName() + "</p></button>";
+                                temp += "<a href=\"EditIndividual?value=Redirect&idIndividual="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"mb-2 mr-2 btn btn-info\" style=\"width: 18%;margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><p style=\"float:right; margin-bottom:0; margin-top:2.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
+
+                                
+
+                                temp+="<div class=\"dropdown d-inline-block\"><button type=\button\" aria-haspopup=\"true\" aria-expanded=\"false\" data-toggle=\"dropdown\" class=\"mb-2 mr-2 dropdown-toggle btn btn-outline-info\"></button><div tabindex=\"-1\" role=\"menu\" aria-hidden=\"true\" class=\"dropdown-menu\">";
+
+
 //                                    edit
-                                temp += "<a href=\"EditIndividual?value=Redirect&idIndividual="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-warning\"><i class=\"pe-7s-tools\" style=\"font-size: 1.2rem\"></i></button></a>";
+                                temp += "<a href=\"EditIndividual?value=Redirect&idIndividual="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning\"><i class=\"pe-7s-tools\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Sửa</span></i></button></a>";
 //                                    delete
-                                temp += "<a href=\"edit_individual.jsp\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.2rem\"></i></button></a>";
+                                temp += "<a onclick=\"return xacNhan()\" href=\"DeleteIndividual?id="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Xóa</span></i></button></a>";
 //                                    add
-                                temp += "<a href=\"AddIndividual?value=Redirect&id="+arr_ind.get(i).getIdIndividual() +"\"><button class=\"mb-2 mr-2 btn-transition btn btn-outline-info\"><i class=\"pe-7s-add-user\" style=\"font-size: 1.2rem\"></i></button></a>";
-                                temp+="</div></div>";
+                                temp += "<a href=\"AddIndividual?value=Redirect&id="+arr_ind.get(i).getIdIndividual() +"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info\"><i class=\"pe-7s-add-user\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Thêm Con</span></i></button></a>";
+                                
+                                temp+="</div></div></div></div>";
                                 temp += "<br>";
                         %>
                         <%=temp%>

@@ -11,4 +11,13 @@
         <meta name="msapplication-tap-highlight" content="no">
         <link href="main.css" rel="stylesheet">
         <link href="css/treeview.css" rel="stylesheet">
+        <script type="text/javascript">
+            function xacNhan() {
+                var re = confirm("Bạn có muốn tiếp tục không ?")
+                if (re == true) {
+                    return true;
+                } else
+                    return false;
+            }
+        </script>
 </head>
