@@ -196,5 +196,27 @@ public class Individual_DAO {
         }
         return n;
     }
-    
+    public int maxId(int parentageId){
+        int n=0;
+        String sql="select max(id) as 'maxid' from quanlygiapha.individual where idparentage='"+parentageId+"'";
+        try {
+            ResultSet rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()){
+                n=rs.getInt("maxid");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public int updateBranch(String br, int id, int idparentage){
+        int n=0;
+        String sql="update quanlygiapha.individual set branch='"+br+"' where id='"+id+"' and idparentage='"+idparentage+"'";
+        try {
+            n=connect.createStatement().executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 }

@@ -35,7 +35,7 @@ public class ParentageViewTree extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
         //value parentage_viewtree
-            request.setAttribute("title", request.getParameter("title"));
+            request.setAttribute("title", "parentage_treeview");
         //
         //get all individual
             DBConnection db=new DBConnection();

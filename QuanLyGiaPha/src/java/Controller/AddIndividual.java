@@ -36,8 +36,10 @@ public class AddIndividual extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         String value = request.getParameter("value");
+        int idFather=-1;
+        
         if (value.equals("Redirect")) {
-            int idFather = Integer.valueOf(request.getParameter("id"));
+            idFather = Integer.valueOf(request.getParameter("id"));
             request.setAttribute("idFather", idFather);
             request.setAttribute("title", "add_individual");
             RequestDispatcher rd = request.getRequestDispatcher("add_individual.jsp");
@@ -46,8 +48,8 @@ public class AddIndividual extends HttpServlet {
         if(value.equals("Process")){
             HttpSession session = request.getSession();
             ParentAge par = (ParentAge) session.getAttribute("Parentage");
-            int id = par.getId();
-            System.out.println("id-> "+ id);
+            int idPar = par.getId();
+            System.out.println("id-> "+ idPar);
             String name = request.getParameter("name");
             System.out.println("name -> "+ name);
             int gender = Integer.valueOf(request.getParameter("gender").toString());
@@ -82,17 +84,27 @@ public class AddIndividual extends HttpServlet {
             for (Part part : request.getParts()) {
                 if (part.getName().equals("avatar")) {
                     fileName = extractFileName(part);
-                    Individual ind = new Individual(id, -1, name, wifeOrHusbandName, dateBirth, datedeath, childth, -1, gender, null, fileName, moreInfo);
+                    idFather=Integer.valueOf(request.getParameter("idFather"));
+                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo);
                     DBConnection db = new DBConnection();
                     Individual_DAO ind_dao = new Individual_DAO(db);
-                    //ind_dao.InsertIndividual(ind);
+                    ind_dao.InsertIndividual(ind);
+                    
+                    
+                    int maxid=ind_dao.maxId(idPar);
+                    Individual i=ind_dao.getIndividualById(maxid);
+                    String branchFather=ind_dao.getIndividualById(idFather).getBranch();
+                    String branchChild=branchFather+"-"+i.getIdIndividual();
+                    ind_dao.updateBranch(branchChild, maxid, idPar);
+                    
+                    
 
                     if (fileName != null && fileName.length() > 0) {
                         filePath = fullSavePath + File.separator + fileName;
                         System.out.println("Write attachment to file: " + filePath);
 
                         // Ghi vào file.
-                        //part.write(filePath);
+                        part.write(filePath);
                     }
                     String path = request.getServletContext().getRealPath("/images/" + fileName);
                     try {

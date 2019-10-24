@@ -2695,7 +2695,7 @@ textarea.form-control.is-invalid {
 	user-select: none;
 	background-color: transparent;
 	border: 1px solid transparent;
-	padding: .375rem .75rem;
+/*	padding: .375rem .75rem;*/
 	font-size: 1rem;
 	line-height: 1.5;
 	border-radius: .25rem;
@@ -8215,7 +8215,7 @@ button.bg-alternate:focus {
 
 .mb-2,
 .my-2 {
-	margin-bottom: .5rem !important
+/*	margin-bottom: .5rem !important*/
 }
 
 .ml-2,
@@ -10234,7 +10234,7 @@ button,
 }
 
 .app-header {
-	height: 60px;
+	height: 52px;
 	display: flex;
 	align-items: center;
 	align-content: center;
@@ -11179,8 +11179,8 @@ button,
 }
 
 .app-page-title {
-	padding: 30px;
-	margin: -30px -30px 30px;
+	padding: 1.5%;
+	margin: -30px -30px 20px;
 	position: relative
 }
 
