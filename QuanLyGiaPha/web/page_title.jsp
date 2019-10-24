@@ -12,6 +12,9 @@
         case "edit_individual":
             title="Sửa Thông Tin Thành Viên";
             break;
+        case "add_individual":
+            title="Thêm Thành Viên";
+            break;
         default:
             title="null";
             break;
