@@ -2,54 +2,40 @@
 package Controller;
 
 import Enity.Individual;
+import Enity.ParentAge;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
-@WebServlet(name = "DeleteIndividual", urlPatterns = {"/DeleteIndividual"})
-public class DeleteIndividual extends HttpServlet {
+@WebServlet(name = "ListIndividual", urlPatterns = {"/ListIndividual"})
+public class ListIndividual extends HttpServlet {
 
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        int id=Integer.valueOf(request.getParameter("id"));
-        String page=request.getParameter("page");
+        
         DBConnection db=new DBConnection();
         Individual_DAO ind_dao=new Individual_DAO(db);
-        boolean check=ind_dao.checkChild(id);
-        if(check==true){
-            request.setAttribute("delete-error", "Không Thể Xóa Thành Viên Này Vì Có Liên Kết Với Thành Viên Khác");
-            if(page.equals("parentage_treeview")){
-                RequestDispatcher rd=request.getRequestDispatcher("ParentageViewTree");
-                rd.forward(request, response);
-            }
-            if(page.equals("list_individual")){
-                RequestDispatcher rd=request.getRequestDispatcher("ListIndividual");
-                rd.forward(request, response);
-            }
-        }
-        else{
-            Individual ind=ind_dao.getIndividualById(id);
-            ind_dao.deleteIndividual(id);
-            request.setAttribute("delete-success", "Thực Hiện Xóa Thành Công Thành Viên: "+ind.getName());
-            if(page.equals("parentage_treeview")){
-                RequestDispatcher rd=request.getRequestDispatcher("ParentageViewTree");
-                rd.forward(request, response);
-            }
-            if(page.equals("list_individual")){
-                RequestDispatcher rd=request.getRequestDispatcher("ListIndividual");
-                rd.forward(request, response);
-            }
-        }
+        HttpSession session = request.getSession();
+        ParentAge par = (ParentAge) session.getAttribute("Parentage");
+        int idPar = par.getId();
+        ArrayList<Individual> arr_ind=ind_dao.SelectByParentageIdOrderFloor(idPar);
+        request.setAttribute("arr_ind", arr_ind);
+        request.setAttribute("title", "list_individual");
+        RequestDispatcher rd=request.getRequestDispatcher("list_individual.jsp");
+        rd.forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

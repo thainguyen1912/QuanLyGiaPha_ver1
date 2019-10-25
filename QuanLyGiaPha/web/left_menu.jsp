@@ -56,6 +56,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="ListIndividual?title=list_individual" class="<%=title.equals("list_individual")?"mm-active":"" %>">
+                        <i class="metismenu-icon pe-7s-album"></i>
+                        Danh Sách Thành Viên
+                    </a>
+                </li>
+                <li>
                     <a href="index.html" class="">
                         <i class="metismenu-icon pe-7s-album"></i>
                         Album Ảnh
@@ -69,7 +75,6 @@
                         Viết bài
                         <i class=""></i>
                     </a>
-                    
                 </li>
                 <li>
                     <a href="#">
@@ -77,7 +82,6 @@
                         Quản lý tin tức
                         <i class=""></i>
                     </a>
-                    
                 </li>
                 
                 <li class="app-sidebar__heading">Tin nhắn</li>

@@ -46,7 +46,7 @@ public class ParentageViewTree extends HttpServlet {
                 ParentAge par=(ParentAge)session.getAttribute("Parentage");
                 int idParentageSession=par.getId();
             //
-            ResultSet rs=ind_dao.SelectByParentageId(idParentageSession);
+            ResultSet rs=ind_dao.SelectByParentageIdOrderBranch(idParentageSession);
             try {
                 while(rs.next()){
                     int id=rs.getInt(1);
@@ -61,7 +61,8 @@ public class ParentageViewTree extends HttpServlet {
                     String brand=rs.getString(10);
                     String avatar=rs.getString(11);
                     String moreInfo=rs.getString(12);
-                    Individual ind=new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo);
+                    int floor=rs.getInt(13);
+                    Individual ind=new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo, floor);
                     arr_ind.add(ind);
                 }
             } catch (SQLException ex) {

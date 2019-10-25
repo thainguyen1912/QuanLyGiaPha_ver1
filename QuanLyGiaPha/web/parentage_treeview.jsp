@@ -109,7 +109,7 @@
 //                                    edit
                                 temp += "<a href=\"EditIndividual?value=Redirect&idIndividual="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning\"><i class=\"pe-7s-tools\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Sửa</span></i></button></a>";
 //                                    delete
-                                temp += "<a onclick=\"return xacNhan()\" href=\"DeleteIndividual?id="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Xóa</span></i></button></a>";
+                                temp += "<a onclick=\"return xacNhan()\" href=\"DeleteIndividual?page=parentage_treeview&id="+arr_ind.get(i).getIdIndividual()+"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Xóa</span></i></button></a>";
 //                                    add
                                 temp += "<a href=\"AddIndividual?value=Redirect&id="+arr_ind.get(i).getIdIndividual() +"\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info\"><i class=\"pe-7s-add-user\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Thêm Con</span></i></button></a>";
                                 
