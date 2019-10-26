@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.html" class="">
+                    <a href="ListAvatar" class="<%=title.equals("list_avatar")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-album"></i>
                         Album Ảnh
                     </a>

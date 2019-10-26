@@ -18,6 +18,9 @@
         case "list_individual":
             title="Danh Sách Thành Viên";
             break;
+        case "list_avatar":
+            title="Danh Sách Ảnh";
+            break;
         default:
             title="null";
             break;
