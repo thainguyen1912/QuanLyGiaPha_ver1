@@ -241,7 +241,9 @@
                 </div>
               </div>
             </div>
-
+              
+              
+              
             <div class="sidebar-box ftco-animate">
               <h3 class="heading">Từ khoá tìm kiếm nhiều nhất</h3>
               <div class="tagcloud">
@@ -261,6 +263,7 @@
               <p> Bậc tiền nhân từ xưa đã dạy : "Mọi vật tự trời sinh, mọi người đều có Tổ tiên, uống nước phải nhớ nguồn, đó là đạo lý cương thường vạn cổ. Đất nước có sử sách, biên cương được củng cố. Nhà có Gia phả lưu giữ phát huy công đức Tổ Tiên"
 
 </p>
+
             </div>
           </div>
 
@@ -351,7 +354,7 @@
             </div>
 
         </footer>
-
+        
 
 
         <!-- loader -->

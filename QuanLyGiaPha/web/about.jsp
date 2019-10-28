@@ -57,7 +57,7 @@
                         <li class="nav-item"><a href="parentageVN.jsp" class="nav-link">Gia Phả Việt Nam</a></li>
                         <li class="nav-item"><a href="news.jsp" class="nav-link">Tin Tức</a></li>
                         <li class="nav-item"><a href="about.jsp" class="nav-link">Giới Thiệu</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
                     </ul>
                 </div>
             </div>

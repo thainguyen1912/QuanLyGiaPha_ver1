@@ -55,9 +55,9 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="index.jsp" class="nav-link">Trang Chủ</a></li>
                         <li class="nav-item"><a href="parentageVN.jsp" class="nav-link">Gia Phả Việt Nam</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">Tin Tức</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Giới Thiệu</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
+                        <li class="nav-item"><a href="news.jsp" class="nav-link">Tin Tức</a></li>
+                        <li class="nav-item"><a href="about.jsp" class="nav-link">Giới Thiệu</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Liên Hệ &amp; Góp Ý</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
           	
-                <h1 class="mb-0 bread" style="font-family: serif ; font-size: 50px">LỜI GIỚI THIỆU</h1>
+                <h1 class="mb-0 bread" style="font-family: serif ; font-size: 50px">HỆ THỐNG CÁC DÒNG HỌ VIỆT NAM</h1>
           </div>
         </div>
       </div>
