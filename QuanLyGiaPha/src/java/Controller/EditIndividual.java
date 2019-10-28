@@ -68,7 +68,7 @@ public class EditIndividual extends HttpServlet {
             for (Part part : request.getParts()) {
                 if (part.getName().equals("avatar")) {
                     fileName = extractFileName(part);
-                    Individual ind = new Individual(id, -1, name, wifeOrHusbandName, dateBirth, datedeath, childth, -1, gender, null, fileName, moreInfo);
+                    Individual ind = new Individual(id, -1, name, wifeOrHusbandName, dateBirth, datedeath, childth, -1, gender, null, fileName, moreInfo, -1);
                     DBConnection db = new DBConnection();
                     Individual_DAO ind_dao = new Individual_DAO(db);
                     ind_dao.update(ind);

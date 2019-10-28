@@ -18,7 +18,7 @@ public class Individual_DAO {
         this.connect = db.getConnect();
     }
 
-    public ResultSet SelectByParentageId(int parentageid) {
+    public ResultSet SelectByParentageIdOrderBranch(int parentageid) {
         String sql = "select * from quanlygiapha.individual where idparentage='" + parentageid + "' order by branch";
         ResultSet rs = null;
         try {
@@ -27,6 +27,34 @@ public class Individual_DAO {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
+    }
+    public ArrayList<Individual> SelectByParentageIdOrderFloor(int parentageid) {
+        ArrayList<Individual> arr_ind = new ArrayList<Individual>();
+        String sql = "select * from quanlygiapha.individual where idparentage='" + parentageid + "' order by floor";
+        ResultSet rs = null;
+        try {
+            rs = connect.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                int idParentage = rs.getInt(2);
+                String name = rs.getString(3);
+                String wifeOrHusbandName = rs.getString(4);
+                Date dateBirth = rs.getDate(5);
+                Date dateDeath = rs.getDate(6);
+                int childth = rs.getInt(7);
+                int idFather = rs.getInt(8);
+                int gender = rs.getInt(9);
+                String brand = rs.getString(10);
+                String avatar = rs.getString(11);
+                String moreInfo = rs.getString(12);
+                int floor=rs.getInt(13);
+                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo, floor);
+                arr_ind.add(ind);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr_ind;
     }
 
     public int InsertSimple(Individual ind) {
@@ -52,7 +80,7 @@ public class Individual_DAO {
     public int InsertIndividual(Individual ind) {
         int n = 0;
         String sql = "insert into quanlygiapha.individual(idparentage, name, wifeorhusbandname, datebirth,"
-                + " datedeath, childth, idfather, gender, branch, avatar, moreinfo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " datedeath, childth, idfather, gender, branch, avatar, moreinfo, floor) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pre = connect.prepareStatement(sql);
             pre.setInt(1, ind.getIdParentAge());
@@ -66,6 +94,7 @@ public class Individual_DAO {
             pre.setString(9, ind.getBranch());
             pre.setString(10, ind.getAvatar());
             pre.setString(11, ind.getMoreInfo());
+            pre.setInt(12, ind.getFloor());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,7 +134,8 @@ public class Individual_DAO {
                 String brand = rs.getString(10);
                 String avatar = rs.getString(11);
                 String moreInfo = rs.getString(12);
-                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo);
+                int floor=rs.getInt(13);
+                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo, floor);
                 arr_ind.add(ind);
             }
         } catch (SQLException ex) {
@@ -132,7 +162,37 @@ public class Individual_DAO {
                 String brand = rs.getString(10);
                 String avatar = rs.getString(11);
                 String moreInfo = rs.getString(12);
-                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo);
+                int floor=rs.getInt(13);
+                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo, floor);
+                arr_ind.add(ind);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr_ind;
+    }
+    
+    public ArrayList<Individual> getListChildByIdParentageAvatar(int idpar) {
+        ArrayList<Individual> arr_ind = new ArrayList<Individual>();
+        String sql = "select * from quanlygiapha.individual where idparentage='" + idpar + "' and avatar is not null";
+        ResultSet rs = null;
+        try {
+            rs = connect.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                int idParentage = rs.getInt(2);
+                String name = rs.getString(3);
+                String wifeOrHusbandName = rs.getString(4);
+                Date dateBirth = rs.getDate(5);
+                Date dateDeath = rs.getDate(6);
+                int childth = rs.getInt(7);
+                int idFather = rs.getInt(8);
+                int gender = rs.getInt(9);
+                String brand = rs.getString(10);
+                String avatar = rs.getString(11);
+                String moreInfo = rs.getString(12);
+                int floor=rs.getInt(13);
+                Individual ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo, floor);
                 arr_ind.add(ind);
             }
         } catch (SQLException ex) {
@@ -159,7 +219,8 @@ public class Individual_DAO {
                 String brand = rs.getString(10);
                 String avatar = rs.getString(11);
                 String moreInfo = rs.getString(12);
-                ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo);
+                int floor=rs.getInt(13);
+                ind = new Individual(id, idParentage, name, wifeOrHusbandName, dateBirth, dateDeath, childth, idFather, gender, brand, avatar, moreInfo, floor);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -218,5 +279,51 @@ public class Individual_DAO {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
+    }
+    public boolean checkChild(int idFather){
+        String sql="select id from quanlygiapha.individual where idfather='"+idFather+"'";
+        try {
+            ResultSet rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()) return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    public int deleteIndividual(int id){
+        int n=0;
+        String sql="delete from quanlygiapha.individual where id='"+id+"'";
+        try {
+            n=connect.createStatement().executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public int getFloorById(int id){
+        int n=0;
+        String sql="select floor from quanlygiapha.individual where id ='"+id+"'";
+        try {
+            ResultSet rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()){
+                n=rs.getInt("floor");
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
+    public ArrayList<String> getListAvatar(int idParentage){
+        ArrayList<String> arr_avatar=new ArrayList<String>();
+        String sql="select avatar from quanlygiapha.individual where idparentage ='"+idParentage+"'";
+        try {
+            ResultSet rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()){
+                arr_avatar.add(rs.getString("avatar"));
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr_avatar;
     }
 }

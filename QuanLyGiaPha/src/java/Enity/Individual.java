@@ -18,11 +18,11 @@ public class Individual {
     private String branch;
     private String avatar;
     private String moreInfo;
-
+    private int floor;
     public Individual() {
     }
 
-    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, Date dateDeath, int childth, int idFather, int gender, String branch, String avatar, String moreInfo) {
+    public Individual(int idIndividual, int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, Date dateDeath, int childth, int idFather, int gender, String branch, String avatar, String moreInfo, int floor) {
         this.idIndividual = idIndividual;
         this.idParentAge = idParentAge;
         this.name = name;
@@ -35,9 +35,10 @@ public class Individual {
         this.branch = branch;
         this.avatar = avatar;
         this.moreInfo = moreInfo;
+        this.floor=floor;
     }
 
-    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, Date dateDeath, int childth, int idFather, int gender, String branch, String avatar, String moreInfo) {
+    public Individual(int idParentAge, String name, String wifeOrHusbandName, Date dateBirth, Date dateDeath, int childth, int idFather, int gender, String branch, String avatar, String moreInfo, int floor) {
         this.idParentAge = idParentAge;
         this.name = name;
         this.wifeOrHusbandName = wifeOrHusbandName;
@@ -49,6 +50,15 @@ public class Individual {
         this.branch = branch;
         this.avatar = avatar;
         this.moreInfo = moreInfo;
+        this.floor=floor;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
     
 

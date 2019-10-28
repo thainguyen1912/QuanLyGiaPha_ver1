@@ -85,9 +85,12 @@ public class AddIndividual extends HttpServlet {
                 if (part.getName().equals("avatar")) {
                     fileName = extractFileName(part);
                     idFather=Integer.valueOf(request.getParameter("idFather"));
-                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo);
                     DBConnection db = new DBConnection();
                     Individual_DAO ind_dao = new Individual_DAO(db);
+                    int fatherFloor=ind_dao.getFloorById(idFather);
+                    System.out.println(fatherFloor);
+                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, fatherFloor+1);
+                    
                     ind_dao.InsertIndividual(ind);
                     
                     

@@ -62,7 +62,7 @@ public class CreateParentage extends HttpServlet {
                 int idParentage=par_dao.getOneParentAge(userName).getId();
                 //
                 
-                Individual ind=new Individual(idParentage, individualName, null, dateBirth, dateDeath, 1, -1, 1, null,null, null);
+                Individual ind=new Individual(idParentage, individualName, null, dateBirth, dateDeath, 1, -1, 1, null,null, null, 1);
                 Individual_DAO ind_dao=new Individual_DAO(db);
                 ind_dao.InsertSimple(ind);
                 
