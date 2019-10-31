@@ -37,6 +37,7 @@
             <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
                 <%
                     ParentAge par=(ParentAge)session.getAttribute("Parentage");
+                    Account acc=(Account)session.getAttribute("Account");
                 %>
                 <%=par.getName() %>
             </div> 
@@ -52,7 +53,7 @@
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item"><a href="account.jsp">Thông tin tài khoản</a></button>
+                                    <button type="button" tabindex="0" class="dropdown-item"><a href="UserAction?page=Info&">Thông tin</a></button>
                                     <button type="button" tabindex="0" class="dropdown-item"><a href="changepw.jsp">Đổi mật khẩu</a></button>
                                     <button type="button" tabindex="0" class="dropdown-item"><a href="login.jsp">Đăng xuất</a></button>
 
@@ -61,9 +62,6 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                <%
-                                    Account acc=(Account)session.getAttribute("Account");
-                                %>
                                 <%=acc.getUserName() %>
                             </div>
                             <!-- <div class="widget-subheading">

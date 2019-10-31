@@ -3,6 +3,7 @@ package Model;
 
 import Enity.Account;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +41,8 @@ public class Account_DAO {
                 String UserName=rs.getString("username");
                 String PassWord=rs.getString("password");
                 int Role=rs.getInt("role");
-                acc=new Account(UserName, PassWord, Role);
+                Date dateCreate=rs.getDate("datecreate");
+                acc=new Account(UserName, PassWord, Role, dateCreate);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,13 +51,14 @@ public class Account_DAO {
     }
     public int Insert(Account acc){
         int n=0;
-        String sql="insert into quanlygiapha.account values(?, ?, ?)";
+        String sql="insert into quanlygiapha.account values(?, ?, ?, ?)";
         PreparedStatement pre;
         try {
             pre = connect.prepareStatement(sql);
             pre.setString(1, acc.getUserName());
             pre.setString(2, acc.getPassWord());
             pre.setInt(3, acc.getRole());
+            pre.setDate(4, acc.getDateCreate());
             n=pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,7 +75,8 @@ public class Account_DAO {
                 String UserName=rs.getString("username");
                 String PassWord=rs.getString("password");
                 int Role=rs.getInt("role");
-                acc=new Account(UserName, PassWord, Role);
+                Date dateCreate=rs.getDate("datecreate");
+                acc=new Account(UserName, PassWord, Role, dateCreate);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);

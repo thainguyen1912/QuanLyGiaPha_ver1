@@ -1362,11 +1362,20 @@ pre code {
 	}
 	.col-md-2 {
 		flex: 0 0 16.66667%;
-/*		max-width: 16.66667%;*/
+		max-width: 16.66667%;
 	}
+        .col-md-2-5 {
+		flex: 0 0 20%;
+		max-width: 20%;
+	}
+
 	.col-md-3 {
 		flex: 0 0 25%;
 		max-width: 25%
+	}
+        .col-md-3-5 {
+		flex: 0 0 25%;
+		max-width: 21%
 	}
 	.col-md-4 {
 		flex: 0 0 33.33333%;
@@ -8280,9 +8289,17 @@ button.bg-alternate:focus {
 	margin-top: 3rem !important
 }
 
+.mr-4_5,
+.mx-4_5 {
+	margin-right: 2rem !important
+}
 .mr-5,
 .mx-5 {
 	margin-right: 3rem !important
+}
+.mr-6,
+.mx-6 {
+	margin-right: 5rem !important
 }
 
 .mb-5,
@@ -10300,7 +10317,7 @@ button,
 .app-header__logo .logo-src {
 	height: 23px;
 	width: 97px;
-	background: url(assets/images/logo1.png)
+	background: url(../assets/images/logo1.png)
 }
 
 .app-header__menu,
@@ -10427,7 +10444,7 @@ button,
 }
 
 .app-header.header-text-light .app-header__logo .logo-src {
-	background: url(assets/images/logo1.png)
+	background: url(../assets/images/logo1.png)
 }
 
 .app-header.header-text-light .app-header__mobile-menu .hamburger-inner,
@@ -10525,7 +10542,7 @@ button,
 }
 
 .app-header.header-text-dark .app-header__logo .logo-src {
-	background: url(assets/images/logo1.png)
+	background: url(../assets/images/logo1.png)
 }
 
 .app-sidebar {
@@ -10804,7 +10821,7 @@ button,
 }
 
 .app-sidebar.sidebar-text-light .app-header__logo .logo-src {
-	background: url(assets/images/logo1.png)
+	background: url(../assets/images/logo1.png)
 }
 
 .app-sidebar.sidebar-text-light .app-header__logo .hamburger-inner,
@@ -15908,8 +15925,8 @@ legend {
 	font-family: 'Font Awesome 5 Free';
 	font-style: normal;
 	font-weight: 900;
-	src: url(assets/fonts/fa-solid-900.eot);
-	src: url(assets/fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(assets/fonts/fa-solid-900.woff2) format("woff2"), url(assets/fonts/fa-solid-900.woff) format("woff"), url(assets/fonts/fa-solid-900.ttf) format("truetype"), url(assets/fonts/fa-solid-900.svg#fontawesome) format("svg")
+	src: url(../assets/fonts/fa-solid-900.eot);
+	src: url(../assets/fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(../assets/fonts/fa-solid-900.woff2) format("woff2"), url(../assets/fonts/fa-solid-900.woff) format("woff"), url(../assets/fonts/fa-solid-900.ttf) format("truetype"), url(../assets/fonts/fa-solid-900.svg#fontawesome) format("svg")
 }
 
 .fa,
@@ -21470,8 +21487,8 @@ legend {
 
 @font-face {
 	font-family: 'Pe-icon-7-stroke';
-	src: url(assets/fonts/Pe-icon-7-stroke.eot);
-	src: url(assets/fonts/Pe-icon-7-stroke.eot?#iefixd7yf1v) format("embedded-opentype"), url(assets/fonts/Pe-icon-7-stroke.woff) format("woff"), url(assets/fonts/Pe-icon-7-stroke.ttf) format("truetype"), url(assets/fonts/Pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
+	src: url(../assets/fonts/Pe-icon-7-stroke.eot);
+	src: url(../assets/fonts/Pe-icon-7-stroke.eot?#iefixd7yf1v) format("embedded-opentype"), url(../assets/fonts/Pe-icon-7-stroke.woff) format("woff"), url(../assets/fonts/Pe-icon-7-stroke.ttf) format("truetype"), url(../assets/fonts/Pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
 	font-weight: normal;
 	font-style: normal
 }

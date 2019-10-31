@@ -34,7 +34,7 @@ public class EditIndividual extends HttpServlet {
             String idIndividual = request.getParameter("idIndividual");
             request.setAttribute("idIndividual", idIndividual);
             request.setAttribute("title", "edit_individual");
-            RequestDispatcher rd = request.getRequestDispatcher("edit_individual.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/management_page/edit_individual.jsp");
             rd.forward(request, response);
         }
         if (value.equals("Process")) {

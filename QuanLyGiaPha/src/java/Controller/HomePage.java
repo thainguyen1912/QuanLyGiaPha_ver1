@@ -1,58 +1,45 @@
+
 package Controller;
 
-import Enity.Account;
-import Enity.ParentAge;
-import Model.DBConnection;
-import Model.ParentAge_DAO;
 import java.io.IOException;
-import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebServlet(value = "/UpdateParentageInfo")
-public class UpdateParentageInfo extends HttpServlet {
 
+@WebServlet(name = "HomePage", urlPatterns = {"/HomePage"})
+public class HomePage extends HttpServlet {
+
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("utf-8");
-
-        String name = request.getParameter("name");
-        String ancestor = request.getParameter("ancestor");
-        String address = request.getParameter("address");
-        Date anniversary = Date.valueOf(request.getParameter("anniversary"));
-        String history = request.getParameter("history");
-        String note = request.getParameter("note");
-        String headName = request.getParameter("headname");
-        String headaddress = request.getParameter("headaddress");
-        String headnumberphone = request.getParameter("headnumberphone");
         
-        HttpSession session = request.getSession();
-        Account acc = (Account) session.getAttribute("Account");
-        ParentAge par_session = (ParentAge) session.getAttribute("Parentage");
-
-        Date dateCreate = par_session.getDateCreate();
-        String userName = acc.getUserName();
-
-        ParentAge par = new ParentAge(name, ancestor, address, anniversary, history, note, dateCreate, headName, headaddress, headnumberphone, userName);
-
+        String page=request.getParameter("page");
+        RequestDispatcher rd=null;
+        switch(page){
+            case "index":
+                rd = request.getRequestDispatcher("views/home_page/index.jsp");
+                rd.forward(request, response);
+                break;
+            case "parentageVN":
+                rd = request.getRequestDispatcher("views/home_page/parentageVN.jsp");
+                rd.forward(request, response);
+                break;
+            case "news":
+                rd = request.getRequestDispatcher("views/home_page/news.jsp");
+                rd.forward(request, response);
+                break;
+            case "about":
+                rd = request.getRequestDispatcher("views/home_page/about.jsp");
+                rd.forward(request, response);
+                break;
+        }
         
-        DBConnection db = new DBConnection();
-        ParentAge_DAO par_dao = new ParentAge_DAO(db);
-        par_dao.Update(par);
-
-        ParentAge par_session_update = par_dao.getOneParentAge(userName);
-        session.setAttribute("Parentage", par_session_update);
-
-        request.setAttribute("UpdateParentageSuccess", "Bạn Vừa Cập Nhật Thông Tin Thành Công");
-        RequestDispatcher rd = request.getRequestDispatcher("views/management_page/parentage_info.jsp");
-        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
