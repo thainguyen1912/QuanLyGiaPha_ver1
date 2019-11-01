@@ -16,16 +16,16 @@
 %>
 <!doctype html>
 <html lang="en">
-    <jsp:include page="import.jsp" />
+    <jsp:include page="import_page/import.jsp" />
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <jsp:include page="header.jsp" /> 
-            <jsp:include page="setting_ui.jsp" />
+            <jsp:include page="import_page/header.jsp" /> 
+            <jsp:include page="import_page/setting_ui.jsp" />
             <div class="app-main" style="overflow: auto">
-                <jsp:include page="left_menu.jsp" />
+                <jsp:include page="import_page/left_menu.jsp" />
                 <div class="app-main__outer">
                     <div class="app-main__inner">
-                        <jsp:include page="page_title.jsp" />
+                        <jsp:include page="import_page/page_title.jsp" />
 
                         
                         <div style="text-align: center; margin-bottom: 2%">

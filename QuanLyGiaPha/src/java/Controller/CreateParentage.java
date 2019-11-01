@@ -35,7 +35,7 @@ public class CreateParentage extends HttpServlet {
         } catch (Exception e) {
         }
         if (value.equals("CreatePage")) {
-            RequestDispatcher rd = request.getRequestDispatcher("first_create_parentage.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/register_page/first_create_parentage.jsp");
             rd.forward(request, response);
         } else {
             if (value.equals("CheckCreate")) {
@@ -68,7 +68,7 @@ public class CreateParentage extends HttpServlet {
                 
                 session.setAttribute("Parentage", par);
 
-                RequestDispatcher rd = request.getRequestDispatcher("parentage_info.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("ParentageInfo");
                 rd.forward(request, response);
             }
         }

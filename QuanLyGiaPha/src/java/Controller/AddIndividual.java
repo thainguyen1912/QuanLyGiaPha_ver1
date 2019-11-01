@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import static Controller.EditIndividual.SAVE_DIRECTORY;
@@ -36,24 +31,24 @@ public class AddIndividual extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         String value = request.getParameter("value");
-        int idFather=-1;
-        
+        int idFather = -1;
+
         if (value.equals("Redirect")) {
             idFather = Integer.valueOf(request.getParameter("id"));
             request.setAttribute("idFather", idFather);
             request.setAttribute("title", "add_individual");
-            RequestDispatcher rd = request.getRequestDispatcher("add_individual.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/management_page/add_individual.jsp");
             rd.forward(request, response);
         }
-        if(value.equals("Process")){
+        if (value.equals("Process")) {
             HttpSession session = request.getSession();
             ParentAge par = (ParentAge) session.getAttribute("Parentage");
             int idPar = par.getId();
-            System.out.println("id-> "+ idPar);
+            System.out.println("id-> " + idPar);
             String name = request.getParameter("name");
-            System.out.println("name -> "+ name);
+            System.out.println("name -> " + name);
             int gender = Integer.valueOf(request.getParameter("gender").toString());
-            System.out.println("gender-> "+gender);
+            System.out.println("gender-> " + gender);
             int childth = Integer.valueOf(request.getParameter("childth"));
             System.out.println("child->" + childth);
             String wifeOrHusbandName = request.getParameter("wifeorhusbandname");
@@ -84,23 +79,20 @@ public class AddIndividual extends HttpServlet {
             for (Part part : request.getParts()) {
                 if (part.getName().equals("avatar")) {
                     fileName = extractFileName(part);
-                    idFather=Integer.valueOf(request.getParameter("idFather"));
+                    idFather = Integer.valueOf(request.getParameter("idFather"));
                     DBConnection db = new DBConnection();
                     Individual_DAO ind_dao = new Individual_DAO(db);
-                    int fatherFloor=ind_dao.getFloorById(idFather);
+                    int fatherFloor = ind_dao.getFloorById(idFather);
                     System.out.println(fatherFloor);
-                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, fatherFloor+1);
-                    
+                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, fatherFloor + 1);
+
                     ind_dao.InsertIndividual(ind);
-                    
-                    
-                    int maxid=ind_dao.maxId(idPar);
-                    Individual i=ind_dao.getIndividualById(maxid);
-                    String branchFather=ind_dao.getIndividualById(idFather).getBranch();
-                    String branchChild=branchFather+"-"+i.getIdIndividual();
+
+                    int maxid = ind_dao.maxId(idPar);
+                    Individual i = ind_dao.getIndividualById(maxid);
+                    String branchFather = ind_dao.getIndividualById(idFather).getBranch();
+                    String branchChild = branchFather + "-" + i.getIdIndividual();
                     ind_dao.updateBranch(branchChild, maxid, idPar);
-                    
-                    
 
                     if (fileName != null && fileName.length() > 0) {
                         filePath = fullSavePath + File.separator + fileName;
@@ -120,7 +112,8 @@ public class AddIndividual extends HttpServlet {
             }
         }
     }
-private String extractFileName(Part part) {
+
+    private String extractFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
         String[] items = contentDisp.split(";");
         for (String s : items) {
@@ -130,6 +123,7 @@ private String extractFileName(Part part) {
         }
         return "";
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

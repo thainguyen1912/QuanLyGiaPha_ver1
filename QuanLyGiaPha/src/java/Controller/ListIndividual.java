@@ -33,7 +33,7 @@ public class ListIndividual extends HttpServlet {
         ArrayList<Individual> arr_ind=ind_dao.SelectByParentageIdOrderFloor(idPar);
         request.setAttribute("arr_ind", arr_ind);
         request.setAttribute("title", "list_individual");
-        RequestDispatcher rd=request.getRequestDispatcher("list_individual.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/list_individual.jsp");
         rd.forward(request, response);
         
     }

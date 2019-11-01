@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
 import Enity.Individual;
@@ -70,7 +66,7 @@ public class ParentageViewTree extends HttpServlet {
             }
         //
         request.setAttribute("arr_ind", arr_ind);
-        RequestDispatcher rd=request.getRequestDispatcher("parentage_treeview.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/parentage_treeview.jsp");
         rd.forward(request, response);
     }
 
