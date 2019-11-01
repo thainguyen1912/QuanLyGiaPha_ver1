@@ -31,6 +31,9 @@
                             <p class="txt3">
                                 <%=request.getAttribute("CreateSuccess")==null?"":request.getAttribute("CreateSuccess") %>
                             </p>
+                            <p class="txt3" style="color: red">
+                                <%=request.getAttribute("filter_mess")==null?"":request.getAttribute("filter_mess") %>
+                            </p>
                         </div>
                         
                         <div class="wrap-input100 validate-input m-b-16" data-validate="Bạn Chưa Nhập Tài Khoản">

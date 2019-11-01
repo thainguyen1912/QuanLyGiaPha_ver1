@@ -25,8 +25,6 @@ public class Account {
         this.dateCreate = dateCreate;
     }
 
-    
-
     public String getUserName() {
         return userName;
     }

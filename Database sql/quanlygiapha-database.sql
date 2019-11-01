@@ -26,6 +26,7 @@ CREATE TABLE `account` (
   `username` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `role` int(11) NOT NULL,
+  `datecreate` date DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +37,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('admin','admin',2),('manager','manager',1),('member','member',0),('nguyễn thái','nguyễn thái',1),('user1','abc',1),('user2','abc',1);
+INSERT INTO `account` VALUES ('admin','admin',2,'1998-12-12'),('manager','manager',1,'1998-12-12'),('member','member',0,'1998-12-12'),('nguyễn thái','nguyễn thái',1,'1998-12-12'),('user1','abcd',1,'1998-12-12'),('user2','abc',1,'1998-12-12'),('user5','abc',1,'2019-10-31'),('user6','abc',1,'2019-10-31'),('user7','abc',1,'2019-10-31');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,10 +88,11 @@ CREATE TABLE `individual` (
   `branch` varchar(45) DEFAULT NULL,
   `avatar` varchar(45) DEFAULT NULL,
   `moreinfo` varchar(50) DEFAULT NULL,
+  `floor` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_indi_parentage_idx` (`idparentage`),
   CONSTRAINT `fk_indi_parentage` FOREIGN KEY (`idparentage`) REFERENCES `parentage` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +101,7 @@ CREATE TABLE `individual` (
 
 LOCK TABLES `individual` WRITE;
 /*!40000 ALTER TABLE `individual` DISABLE KEYS */;
-INSERT INTO `individual` VALUES (1,2,'Bùi Văn Nam','Bùi Thị Hạnh','1998-12-13','1998-12-13',1,0,1,'1','0d99ed2a4c55a687b27bcf8c189f8a2e1629eac6.jpg','Không Có Thông Tin\r\n                              '),(2,2,'Bùi Văn Nam2','Bùi Thị Nam','1998-12-12','1998-12-12',1,1,0,'1-2',NULL,NULL),(3,2,'Bùi Văn Nam3','Bùi Thị Nam','1998-12-12','1998-12-12',2,1,1,'1-3',NULL,NULL),(4,2,'Bùi Văn Nam4','Bùi Thị Nam','1998-12-12','1998-12-12',1,2,0,'1-2-4',NULL,NULL),(5,2,'Bùi Văn Nam5','Bùi Thị Nam','1998-12-12','1998-12-12',2,2,1,'1-2-5',NULL,NULL),(6,2,'Bùi Văn Nam6','Bùi Thị Nam','1998-12-12','1998-12-12',1,3,0,'1-3-6',NULL,NULL),(7,2,'Bùi Văn Nam7','Bùi Thị Nam','1998-12-12','1998-12-12',2,3,1,'1-3-7',NULL,NULL),(8,2,'Bùi Văn Nam8','Bùi Thị Nam','1998-12-12','1998-12-12',1,4,0,'1-2-4-8',NULL,NULL),(9,2,'Bùi Văn Nam9','Bùi Thị Nam','1998-12-12','1998-12-12',1,6,1,'1-3-6-9',NULL,NULL),(10,2,'Bùi Văn Nam10','Bùi Thị Nam','1998-12-12','1998-12-12',2,6,1,'1-3-6-10',NULL,NULL),(11,2,'Bùi Văn Nam11','Bùi Thị Nam','1998-12-12','1998-12-12',1,7,1,'1-3-7-11',NULL,NULL),(12,2,'Bùi Văn Nam12','Bùi Thị Nam','1998-12-12','1998-12-12',3,3,1,'1-3-12',NULL,NULL);
+INSERT INTO `individual` VALUES (1,2,'Bùi Văn Nam','Bùi Thị Hạnh','1998-12-13','1998-12-13',1,0,1,'1','121457.jpg','Không Có Thông Tin\r\n                              ',1),(2,2,'Bùi Văn Nam2','Bùi Thị Nam','1998-12-12','1998-12-12',1,1,0,'1-2','img_570334.png','Không Có',2),(3,2,'Bùi Văn Nam3','Bùi Thị Nam','1998-12-12','1998-12-12',2,1,1,'1-3',NULL,NULL,2),(4,2,'Bùi Văn Nam4','Bùi Thị Nam','1998-12-12','1998-12-12',1,2,0,'1-2-4',NULL,NULL,3),(5,2,'Bùi Văn Nam5','Bùi Thị Nam','1998-12-12','1998-12-12',2,2,1,'1-2-5',NULL,NULL,3),(6,2,'Bùi Văn Nam6','Bùi Thị Nam','1998-12-12','1998-12-12',1,3,0,'1-3-6',NULL,NULL,3),(7,2,'Bùi Văn Nam7','Bùi Thị Nam','1998-12-12','1998-12-12',2,3,1,'1-3-7',NULL,NULL,3),(8,2,'Bùi Văn Nam8','Bùi Thị Nam','1998-12-12','1998-12-12',1,4,0,'1-2-4-8',NULL,NULL,4),(9,2,'Bùi Văn Nam9','Bùi Thị Nam','1998-12-12','1998-12-12',1,6,1,'1-3-6-9',NULL,NULL,4),(10,2,'Bùi Văn Nam10','Bùi Thị Nam','1998-12-12','1998-12-12',2,6,1,'1-3-6-10',NULL,NULL,4),(11,2,'Bùi Văn Nam11','Bùi Thị Nam','1998-12-12','1998-12-12',1,7,1,'1-3-7-11',NULL,NULL,4),(12,2,'Bùi Văn Nam12','Bùi Thị Nam','1998-12-12','1998-12-12',3,3,1,'1-2-4-8-12',NULL,NULL,3);
 /*!40000 ALTER TABLE `individual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +127,7 @@ CREATE TABLE `parentage` (
   `username` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_username_idx` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +136,7 @@ CREATE TABLE `parentage` (
 
 LOCK TABLES `parentage` WRITE;
 /*!40000 ALTER TABLE `parentage` DISABLE KEYS */;
-INSERT INTO `parentage` VALUES (1,'Nguyễn','Nguyễn Văn Minh','Hà Nội','1998-12-12','Không','Không','1998-02-02',NULL,NULL,NULL,'member'),(2,'Bùi Văn','Bùi Văn Mạnh ','Hà Nội','1999-10-04','Không','Không','2019-10-02','Bùi Văn Hải','Hà Nội ','0123456789','user1'),(3,'Trịnh Hoàng',NULL,'Bắc Ninh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'user2'),(4,'Nguyễn Hoàng',NULL,'Hà Nội',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'manager');
+INSERT INTO `parentage` VALUES (1,'Nguyễn','Nguyễn Văn Minh','Hà Nội','1998-12-12','Không','Không','1998-02-02',NULL,NULL,NULL,'member'),(2,'Bùi Văn','Bùi Văn Mạnh ','Hà Nội','1999-10-04',NULL,'Không Có Thông Tin','2019-10-02','Bùi Văn Hải','Hà Nội ','0123456789','user1'),(3,'Trịnh Hoàng',NULL,'Bắc Ninh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'user2'),(4,'Nguyễn Hoàng',NULL,'Hà Nội',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'manager'),(5,'a','a','1',NULL,NULL,NULL,'2019-10-31',NULL,NULL,NULL,'user5'),(6,'a','a','a',NULL,NULL,NULL,'2019-10-31',NULL,NULL,NULL,'user6');
 /*!40000 ALTER TABLE `parentage` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-24 22:58:34
+-- Dump completed on 2019-11-01 10:27:22

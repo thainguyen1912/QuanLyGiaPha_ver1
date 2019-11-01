@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +19,34 @@ public class ParentAge_DAO {
     
     public ParentAge_DAO(DBConnection db){
         connect = db.getConnect();
+    }
+    
+    public List<ParentAge> getAllParentAge(){
+        List<ParentAge> list_par=new ArrayList<ParentAge>();
+        String sql="select * from quanlygiapha.parentage";
+        ResultSet rs=null;
+        try {
+            rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()){
+                int id=rs.getInt("id");
+                String name=rs.getString("name");
+                String ancestor =rs.getString("ancestor");
+                String address=rs.getString("address");
+                Date anniversary=rs.getDate("anniversary");
+                String history=rs.getString("history");
+                String note=rs.getString("note");
+                Date date=rs.getDate("datecreate");
+                String headName=rs.getString("headname");
+                String headAddress=rs.getString("headaddress");
+                String headNumberPhone=rs.getString("headnumberphone");
+                String userName=rs.getString("username");
+                ParentAge par=new ParentAge(id,name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
+                list_par.add(par);
+            }
+        } catch (SQLException ex) { 
+            Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list_par;
     }
     
     public ParentAge getOneParentAge(String username){

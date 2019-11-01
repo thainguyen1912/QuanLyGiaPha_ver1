@@ -21,6 +21,15 @@
         case "list_avatar":
             title="Danh Sách Ảnh";
             break;
+        case "user_info":
+            title="Thông Tin Người Dùng";
+            break;
+        case "change_pass":
+            title="Đổi Mật Khẩu Tài Khoản";
+            break;
+        case "list_parentage":
+            title="Danh Sách Gia Phả Đang Quản Lý"   ;
+            break;
         default:
             title="null";
             break;

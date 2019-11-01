@@ -83,16 +83,14 @@ public class Account_DAO {
         }
         return acc;
     }
-//    public static void main(String[] args) {
-//        DBConnection db=new DBConnection();
-//        Account_DAO acc=new Account_DAO(db);
-//        ResultSet rs=acc.getAllAccount();
-//        try {
-//            while(rs.next()){
-//                System.out.println(rs.getString("username"));
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    public int updatePass(String username, String newpass){
+        int n=0;
+        String sql="update quanlygiapha.account set password='"+newpass+"' where username='"+username+"'";
+        try {
+            n=connect.createStatement().executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 }

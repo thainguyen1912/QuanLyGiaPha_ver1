@@ -51,7 +51,7 @@ public class UpdateParentageInfo extends HttpServlet {
         session.setAttribute("Parentage", par_session_update);
 
         request.setAttribute("UpdateParentageSuccess", "Bạn Vừa Cập Nhật Thông Tin Thành Công");
-        RequestDispatcher rd = request.getRequestDispatcher("views/management_page/parentage_info.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("views/management_page/user/parentage_info.jsp");
         rd.forward(request, response);
     }
 

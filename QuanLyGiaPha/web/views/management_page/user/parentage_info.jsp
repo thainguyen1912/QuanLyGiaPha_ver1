@@ -6,22 +6,22 @@
 %>
 <!doctype html>
 <html lang="en">
-    <jsp:include page="import_page/import.jsp" />
+    <jsp:include page="../import_page/import.jsp" flush="true"/>
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <jsp:include page="import_page/header.jsp" />
-            <jsp:include page="import_page/setting_ui.jsp" />
+            <jsp:include page="../import_page/header.jsp" flush="true"/>
+            <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main">
-                <jsp:include page="import_page/left_menu.jsp" />
+                <jsp:include page="../import_page/left_menu.jsp" flush="true"/>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
-                        <jsp:include page="import_page/page_title.jsp" />
+                        <jsp:include page="../import_page/page_title.jsp" flush="true"/>
                         <div class="main-card mb-3 card" style="width: 100%">
                             <div class="card-body">
                                 <form class="needs-validation" action="UpdateParentageInfo" method="post">
                                     <div class="form-row" style="">
                                         <div class="col-md-4 mb-3">
-                                            <a href="first_individual.jsp"></a>
+                                            
                                         </div>
                                         <div class="col-md-4 mb-3" style="text-align: center">
                                             <h6 class="text-primary">
@@ -89,29 +89,5 @@
                 </div>
             </div>
         </div>
-        <!--        <script>
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict';
-                        window.addEventListener('load', function () {
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.getElementsByClassName('needs-validation');
-                            // Loop over them and prevent submission
-                            var validation = Array.prototype.filter.call(forms, function (form) {
-                                form.addEventListener('submit', function (event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add('was-validated');
-                                }, false);
-                            });
-                        }, false);
-                    })();
-                </script>-->
-
-
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="assets/scripts/main.js"></script>
     </body>
 </html>

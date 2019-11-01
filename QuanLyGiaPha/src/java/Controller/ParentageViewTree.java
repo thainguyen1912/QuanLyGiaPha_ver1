@@ -66,7 +66,7 @@ public class ParentageViewTree extends HttpServlet {
             }
         //
         request.setAttribute("arr_ind", arr_ind);
-        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/parentage_treeview.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/user/parentage_treeview.jsp");
         rd.forward(request, response);
     }
 

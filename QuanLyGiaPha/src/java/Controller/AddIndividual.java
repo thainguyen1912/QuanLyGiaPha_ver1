@@ -37,7 +37,7 @@ public class AddIndividual extends HttpServlet {
             idFather = Integer.valueOf(request.getParameter("id"));
             request.setAttribute("idFather", idFather);
             request.setAttribute("title", "add_individual");
-            RequestDispatcher rd = request.getRequestDispatcher("views/management_page/add_individual.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/management_page/user/add_individual.jsp");
             rd.forward(request, response);
         }
         if (value.equals("Process")) {
