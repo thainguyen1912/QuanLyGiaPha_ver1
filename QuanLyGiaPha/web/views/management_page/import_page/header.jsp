@@ -36,10 +36,14 @@
         <div class="app-header-left" style="width: 75%">
             <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
                 <%
-                    ParentAge par=(ParentAge)session.getAttribute("Parentage");
+                    ParentAge par=null;//cho truong hop trang admin khong co par
+                    try {
+                            par = (ParentAge) session.getAttribute("Parentage");
+                        } catch (Exception e) {
+                        }
                     Account acc=(Account)session.getAttribute("Account");
                 %>
-                <%=par.getName() %>
+                <%=par==null?"":par.getName() %>
             </div> 
         </div>
         <div class="app-header-right">
@@ -53,9 +57,9 @@
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item"><a href="UserAction?page=Info&">Thông tin</a></button>
-                                    <button type="button" tabindex="0" class="dropdown-item"><a href="changepw.jsp">Đổi mật khẩu</a></button>
-                                    <button type="button" tabindex="0" class="dropdown-item"><a href="login.jsp">Đăng xuất</a></button>
+                                    <a href="UserAction?page=info"><button type="button" tabindex="0" class="dropdown-item">Thông tin</button></a>
+                                    <a href="UserAction?page=change_pass"><button type="button" tabindex="0" class="dropdown-item">Đổi mật khẩu</button></a>
+                                    <a href="UserAction?page=logout"><button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button></a>
 
                                 </div>
                             </div>

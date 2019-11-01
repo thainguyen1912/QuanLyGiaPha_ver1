@@ -45,20 +45,25 @@ public class Login extends HttpServlet {
 
                 if (acc == null) {
                     request.setAttribute("LoginFalse", "Tên Tài Khoản Hoặc Mật Khẩu Không Đúng!");
-//                    RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
-//                    rd.forward(request, response);
-                      response.sendRedirect("views/login_page/login.jsp");
-                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
+                    rd.forward(request, response);
+                } else {    
                     HttpSession session = request.getSession();
                     session.setAttribute("Account", acc);
-
-                    ParentAge par = null;
-                    par = par_dao.getOneParentAge(userName);
-                    if (par == null) {
-                        response.sendRedirect("CreateParentage?value=CreatePage");
-                    } else {
-                        session.setAttribute("Parentage", par);
-                        response.sendRedirect("ParentageInfo");
+                    
+                    if(acc.getRole()==2){ //0-normal, 1-manager, 2-admin
+                        
+                        response.sendRedirect("AdminControl?page=list_parentage");
+                    }
+                    else{
+                        ParentAge par = null;
+                        par = par_dao.getOneParentAge(userName);
+                        if (par == null) {
+                            response.sendRedirect("CreateParentage?value=CreatePage");
+                        } else {
+                            session.setAttribute("Parentage", par);
+                            response.sendRedirect("ParentageInfo");
+                        }
                     }
                 }
             }

@@ -1,7 +1,16 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
+import Enity.ParentAge;
+import Model.DBConnection;
+import Model.ParentAge_DAO;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,17 +18,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/ParentageInfo")
-public class ParentageInfo extends HttpServlet {
+/**
+ *
+ * @author thain
+ */
+@WebServlet(name = "AdminControl", urlPatterns = {"/AdminControl"})
+public class AdminControl extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-
-        request.setAttribute("title", "parentage_info");
-        RequestDispatcher rd = request.getRequestDispatcher("views/management_page/user/parentage_info.jsp");
-        rd.forward(request, response);
+        request.setCharacterEncoding("utf-8");
+        DBConnection db=new DBConnection();
+        ParentAge_DAO par_dao=new ParentAge_DAO(db);
+        RequestDispatcher rd=null;
+        String page=request.getParameter("page");
+        switch(page){
+            case "list_parentage":
+                request.setAttribute("title", "list_parentage");
+                List<ParentAge> list_par=par_dao.getAllParentAge();
+                request.setAttribute("list_par", list_par);
+                System.out.println(list_par.size());
+                rd=request.getRequestDispatcher("views/management_page/admin/list_parentage.jsp");
+                rd.forward(request, response);
+                break;
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

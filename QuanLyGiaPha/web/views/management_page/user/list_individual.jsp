@@ -12,16 +12,16 @@
 %>
 <!doctype html>
 <html lang="en">
-    <jsp:include page="import_page/import.jsp" />
+    <jsp:include page="../import_page/import.jsp" flush="true"/>
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <jsp:include page="import_page/header.jsp" /> 
-            <jsp:include page="import_page/setting_ui.jsp" />
+            <jsp:include page="../import_page/header.jsp" flush="true"/> 
+            <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main" style="overflow: auto">
-                <jsp:include page="import_page/left_menu.jsp" />
+                <jsp:include page="../import_page/left_menu.jsp" flush="true"/>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
-                        <jsp:include page="import_page/page_title.jsp" />
+                        <jsp:include page="../import_page/page_title.jsp" flush="true"/>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
@@ -104,7 +104,5 @@
                 </div>
             </div>
         </div>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="assets/scripts/main.js"></script>
     </body>
 </html>
