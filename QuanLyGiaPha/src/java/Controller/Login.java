@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
                     RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
                     rd.forward(request, response);
                       
-                }  else {    
+                }   else {
                     HttpSession session = request.getSession();
                     session.setAttribute("Account", acc);
                     
