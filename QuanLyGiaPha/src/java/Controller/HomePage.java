@@ -27,6 +27,7 @@ public class HomePage extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "parentageVN":
+                
                 rd = request.getRequestDispatcher("views/home_page/parentageVN.jsp");
                 rd.forward(request, response);
                 break;
