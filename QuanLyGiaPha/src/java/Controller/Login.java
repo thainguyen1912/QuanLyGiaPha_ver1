@@ -47,12 +47,8 @@ public class Login extends HttpServlet {
                     request.setAttribute("LoginFalse", "Tên Tài Khoản Hoặc Mật Khẩu Không Đúng!");
                     RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
                     rd.forward(request, response);
-<<<<<<< HEAD
                       
-                } else {
-=======
-                } else {    
->>>>>>> 90a759b65719aaa5bdc2828ad9261a1e70548847
+                }  else {    
                     HttpSession session = request.getSession();
                     session.setAttribute("Account", acc);
                     
