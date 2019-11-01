@@ -27,7 +27,7 @@ public class ParentAge_DAO {
         ResultSet rs=null;
         try {
             rs=connect.createStatement().executeQuery(sql);
-            if(rs.next()){
+            while(rs.next()){
                 int id=rs.getInt("id");
                 String name=rs.getString("name");
                 String ancestor =rs.getString("ancestor");

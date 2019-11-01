@@ -326,4 +326,18 @@ public class Individual_DAO {
         }
         return arr_avatar;
     }
+    public int getNumber(int idParentage)
+    {
+        int n=0;
+        String sql="select count(id) as'count' from quanlygiapha.individual where idparentage='"+idParentage+"'";
+        try {
+            ResultSet rs=connect.createStatement().executeQuery(sql);
+            if(rs.next()){
+                n=rs.getInt("count");
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
 }
