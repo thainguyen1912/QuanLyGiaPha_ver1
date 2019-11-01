@@ -1,8 +1,7 @@
 
 package Model;
 
-import Enity.ParentAge;
-import Enity.ParentAge;
+import Enity.Parentage;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -14,20 +13,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class ParentAge_DAO {
+public class Parentage_DAO {
     Connection connect=null;
     
-    public ParentAge_DAO(DBConnection db){
+    public Parentage_DAO(DBConnection db){
         connect = db.getConnect();
     }
     
-    public List<ParentAge> getAllParentAge(){
-        List<ParentAge> list_par=new ArrayList<ParentAge>();
+    public List<Parentage> getAllParentAge(){
+        List<Parentage> list_par=new ArrayList<Parentage>();
         String sql="select * from quanlygiapha.parentage";
         ResultSet rs=null;
         try {
             rs=connect.createStatement().executeQuery(sql);
-            if(rs.next()){
+            while(rs.next()){
                 int id=rs.getInt("id");
                 String name=rs.getString("name");
                 String ancestor =rs.getString("ancestor");
@@ -40,17 +39,17 @@ public class ParentAge_DAO {
                 String headAddress=rs.getString("headaddress");
                 String headNumberPhone=rs.getString("headnumberphone");
                 String userName=rs.getString("username");
-                ParentAge par=new ParentAge(id,name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
+                Parentage par=new Parentage(id,name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
                 list_par.add(par);
             }
         } catch (SQLException ex) { 
-            Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Parentage_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list_par;
     }
     
-    public ParentAge getOneParentAge(String username){
-        ParentAge par=null;
+    public Parentage getOneParentAge(String username){
+        Parentage par=null;
         String sql="select * from quanlygiapha.parentage where username='"+username+"'";
         ResultSet rs=null;
         try {
@@ -68,15 +67,15 @@ public class ParentAge_DAO {
                 String headAddress=rs.getString("headaddress");
                 String headNumberPhone=rs.getString("headnumberphone");
                 String userName=rs.getString("username");
-                par=new ParentAge(id,name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
+                par=new Parentage(id,name, ancestor, address, anniversary, history, note, date, headName, headAddress, headNumberPhone, userName);
             }
         } catch (SQLException ex) { 
-            Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Parentage_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return par;
     }
     
-    public int Insert(ParentAge par){
+    public int Insert(Parentage par){
         int n=0;
         String sql="insert into quanlygiapha.parentage(name, ancestor, address, anniversary, history, note, datecreate, headname, headaddress, headnumberphone, username) "
                 + " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -95,12 +94,12 @@ public class ParentAge_DAO {
             pre.setString(11, par.getUserName());
             n=pre.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Parentage_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
     }
     
-    public int Update(ParentAge par){
+    public int Update(Parentage par){
         int n=0;
         String sql="update quanlygiapha.parentage set name=?, ancestor=?, address=?, anniversary=?, history=?, note=?, "
                 + "datecreate=?, headname=?, headaddress=?, headnumberphone=? where username=?";
@@ -119,7 +118,7 @@ public class ParentAge_DAO {
             pre.setString(11, par.getUserName());
             n=pre.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Parentage_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
     }

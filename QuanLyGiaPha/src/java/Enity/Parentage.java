@@ -4,7 +4,7 @@ package Enity;
 import java.sql.Date;
 
 
-public class ParentAge {
+public class Parentage {
     private int id;
     private String name;
     private String ancestor;
@@ -18,7 +18,7 @@ public class ParentAge {
     private String headNumberPhone;
     private String userName;
 
-    public ParentAge(String name, String ancestor, String address, Date anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
+    public Parentage(String name, String ancestor, String address, Date anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
         this.name = name;
         this.ancestor = ancestor;
         this.address = address;
@@ -32,7 +32,7 @@ public class ParentAge {
         this.userName = userName;
     }
 
-    public ParentAge(int id, String name, String ancestor, String address, Date anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
+    public Parentage(int id, String name, String ancestor, String address, Date anniversary, String history, String note, Date dateCreate, String headName, String headAddress, String headNumberPhone, String userName) {
         this.id = id;
         this.name = name;
         this.ancestor = ancestor;

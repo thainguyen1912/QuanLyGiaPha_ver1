@@ -2,7 +2,7 @@
 package Controller;
 
 import Enity.Individual;
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class ParentageViewTree extends HttpServlet {
             ArrayList<Individual> arr_ind=new ArrayList<Individual>();
             //get parentage id from session
                 HttpSession session=request.getSession();
-                ParentAge par=(ParentAge)session.getAttribute("Parentage");
+                Parentage par=(Parentage)session.getAttribute("Parentage");
                 int idParentageSession=par.getId();
             //
             ResultSet rs=ind_dao.SelectByParentageIdOrderBranch(idParentageSession);

@@ -2,7 +2,7 @@ package Controller;
 
 import static Controller.EditIndividual.SAVE_DIRECTORY;
 import Enity.Individual;
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.File;
@@ -42,7 +42,7 @@ public class AddIndividual extends HttpServlet {
         }
         if (value.equals("Process")) {
             HttpSession session = request.getSession();
-            ParentAge par = (ParentAge) session.getAttribute("Parentage");
+            Parentage par = (Parentage) session.getAttribute("Parentage");
             int idPar = par.getId();
             System.out.println("id-> " + idPar);
             String name = request.getParameter("name");

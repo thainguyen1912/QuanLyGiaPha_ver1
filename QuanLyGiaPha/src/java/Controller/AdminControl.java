@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.DBConnection;
-import Model.ParentAge_DAO;
+import Model.Parentage_DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -39,13 +39,13 @@ public class AdminControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         DBConnection db=new DBConnection();
-        ParentAge_DAO par_dao=new ParentAge_DAO(db);
+        Parentage_DAO par_dao=new Parentage_DAO(db);
         RequestDispatcher rd=null;
         String page=request.getParameter("page");
         switch(page){
             case "list_parentage":
                 request.setAttribute("title", "list_parentage");
-                List<ParentAge> list_par=par_dao.getAllParentAge();
+                List<Parentage> list_par=par_dao.getAllParentAge();
                 request.setAttribute("list_par", list_par);
                 System.out.println(list_par.size());
                 rd=request.getRequestDispatcher("views/management_page/admin/list_parentage.jsp");

@@ -5,7 +5,7 @@
 <%@page import="Model.Individual_DAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Enity.Individual"%>
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 
 <%
     DBConnection db = new DBConnection();

@@ -5,7 +5,7 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
@@ -31,6 +31,11 @@
                                         </div>
                                         <div class="row">
                                             <%
+                                                if (arr_ind.size() == 0) {
+                                            %>
+                                                <h5 style="color: red">Không Có Ảnh Nào Để Hiển Thị</h5>
+                                            <%}%>
+                                            <%
                                                 for (int i = 0; i < arr_ind.size(); i++) {
                                             %>
                                             <div class="col-md-6 col-lg-3">
@@ -39,7 +44,7 @@
                                                         <div class="widget-content-outer" style="text-align: center">
                                                             <div class="widget-content-wrapper">
                                                                 <div class="">
-                                                                    <img src="images/<%=arr_ind.get(i).getAvatar() %>" width="100%"> 
+                                                                    <img src="images/<%=arr_ind.get(i).getAvatar()%>" width="100%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>
@@ -48,7 +53,7 @@
                                                                 <div class="text-muted opacity-6"><%=arr_ind.get(i).getName()%></div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Đời Thứ: <%= arr_ind.get(i).getFloor() %></div>
+                                                                <div class="text-muted opacity-6">Đời Thứ: <%= arr_ind.get(i).getFloor()%></div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1 mt-2" style="">
                                                                 <a href="EditIndividual?value=Redirect&idIndividual=<%=arr_ind.get(i).getIdIndividual()%>"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
@@ -57,7 +62,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                                
+
                                             <%}%>
                                         </div>
                                     </div>

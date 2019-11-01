@@ -6,10 +6,10 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    List<ParentAge> list_par = (List<ParentAge>) request.getAttribute("list_par");
+    List<Parentage> list_par = (List<Parentage>) request.getAttribute("list_par");
 %>
 <!doctype html>
 <html lang="en">

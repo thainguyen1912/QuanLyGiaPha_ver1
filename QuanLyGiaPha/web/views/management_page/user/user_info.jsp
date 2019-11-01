@@ -1,5 +1,5 @@
 <%@page import="Enity.Account"%>
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     Account acc = (Account) session.getAttribute("Account");

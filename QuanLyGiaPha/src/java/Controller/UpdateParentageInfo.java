@@ -1,9 +1,9 @@
 package Controller;
 
 import Enity.Account;
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.DBConnection;
-import Model.ParentAge_DAO;
+import Model.Parentage_DAO;
 import java.io.IOException;
 import java.sql.Date;
 import javax.servlet.RequestDispatcher;
@@ -35,19 +35,19 @@ public class UpdateParentageInfo extends HttpServlet {
         
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("Account");
-        ParentAge par_session = (ParentAge) session.getAttribute("Parentage");
+        Parentage par_session = (Parentage) session.getAttribute("Parentage");
 
         Date dateCreate = par_session.getDateCreate();
         String userName = acc.getUserName();
 
-        ParentAge par = new ParentAge(name, ancestor, address, anniversary, history, note, dateCreate, headName, headaddress, headnumberphone, userName);
+        Parentage par = new Parentage(name, ancestor, address, anniversary, history, note, dateCreate, headName, headaddress, headnumberphone, userName);
 
         
         DBConnection db = new DBConnection();
-        ParentAge_DAO par_dao = new ParentAge_DAO(db);
+        Parentage_DAO par_dao = new Parentage_DAO(db);
         par_dao.Update(par);
 
-        ParentAge par_session_update = par_dao.getOneParentAge(userName);
+        Parentage par_session_update = par_dao.getOneParentAge(userName);
         session.setAttribute("Parentage", par_session_update);
 
         request.setAttribute("UpdateParentageSuccess", "Bạn Vừa Cập Nhật Thông Tin Thành Công");

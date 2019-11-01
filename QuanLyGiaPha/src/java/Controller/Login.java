@@ -1,10 +1,10 @@
 package Controller;
 
 import Enity.Account;
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.Account_DAO;
 import Model.DBConnection;
-import Model.ParentAge_DAO;
+import Model.Parentage_DAO;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,7 +34,7 @@ public class Login extends HttpServlet {
             if (value.equals("CheckLogin")) {
                 DBConnection db = new DBConnection();
                 Account_DAO acc_dao = new Account_DAO(db);
-                ParentAge_DAO par_dao = new ParentAge_DAO(db);
+                Parentage_DAO par_dao = new Parentage_DAO(db);
                 String userName = request.getParameter("username");
                 String passWord = request.getParameter("password");
                 Account acc = null;
@@ -47,17 +47,15 @@ public class Login extends HttpServlet {
                     request.setAttribute("LoginFalse", "Tên Tài Khoản Hoặc Mật Khẩu Không Đúng!");
                     RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
                     rd.forward(request, response);
-                      
-                }   else {
+                }else {
                     HttpSession session = request.getSession();
                     session.setAttribute("Account", acc);
                     
                     if(acc.getRole()==2){ //0-normal, 1-manager, 2-admin
-                        
                         response.sendRedirect("AdminControl?page=list_parentage");
                     }
                     else{
-                        ParentAge par = null;
+                        Parentage par = null;
                         par = par_dao.getOneParentAge(userName);
                         if (par == null) {
                             response.sendRedirect("CreateParentage?value=CreatePage");

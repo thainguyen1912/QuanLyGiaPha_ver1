@@ -5,10 +5,10 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    ParentAge par = (ParentAge) session.getAttribute("Parentage");
+    Parentage par = (Parentage) session.getAttribute("Parentage");
     ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
     DBConnection db = new DBConnection();
     Individual_DAO ind_dao = new Individual_DAO(db);

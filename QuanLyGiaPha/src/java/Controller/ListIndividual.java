@@ -2,7 +2,7 @@
 package Controller;
 
 import Enity.Individual;
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.IOException;
@@ -28,8 +28,9 @@ public class ListIndividual extends HttpServlet {
         DBConnection db=new DBConnection();
         Individual_DAO ind_dao=new Individual_DAO(db);
         HttpSession session = request.getSession();
-        ParentAge par = (ParentAge) session.getAttribute("Parentage");
+        Parentage par = (Parentage) session.getAttribute("Parentage");
         int idPar = par.getId();
+        System.out.println("idpar-> "+idPar);
         ArrayList<Individual> arr_ind=ind_dao.SelectByParentageIdOrderFloor(idPar);
         request.setAttribute("arr_ind", arr_ind);
         request.setAttribute("title", "list_individual");

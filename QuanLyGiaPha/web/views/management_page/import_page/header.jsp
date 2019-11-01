@@ -1,4 +1,4 @@
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 <%@page import="Enity.Account"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="app-header header-shadow">
@@ -36,9 +36,9 @@
         <div class="app-header-left" style="width: 75%">
             <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
                 <%
-                    ParentAge par=null;//cho truong hop trang admin khong co par
+                    Parentage par=null;//cho truong hop trang admin khong co par
                     try {
-                            par = (ParentAge) session.getAttribute("Parentage");
+                            par = (Parentage) session.getAttribute("Parentage");
                         } catch (Exception e) {
                         }
                     Account acc=(Account)session.getAttribute("Account");

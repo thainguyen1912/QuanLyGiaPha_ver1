@@ -2,10 +2,10 @@ package Controller;
 
 import Enity.Account;
 import Enity.Individual;
-import Enity.ParentAge;
+import Enity.Parentage;
 import Model.DBConnection;
 import Model.Individual_DAO;
-import Model.ParentAge_DAO;
+import Model.Parentage_DAO;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 public class CreateParentage extends HttpServlet {
 
     DBConnection db = new DBConnection();
-    ParentAge_DAO par_dao = new ParentAge_DAO(db);
+    Parentage_DAO par_dao = new Parentage_DAO(db);
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -55,21 +55,27 @@ public class CreateParentage extends HttpServlet {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 Date dateNow = (Date.valueOf(date.format(formatter)));
                 //
-                ParentAge par = new ParentAge(parentageName, individualName, address, null, null, null, dateNow, null, null, null, userName);
+                //id chua co
+                Parentage par = new Parentage(parentageName, individualName, address, dateDeath, null, null, dateNow, null, null, null, userName);
                 par_dao.Insert(par);
                 
                 //get idparentage foreign key
                 int idParentage=par_dao.getOneParentAge(userName).getId();
                 //
                 
-                Individual ind=new Individual(idParentage, individualName, null, dateBirth, dateDeath, 1, -1, 1, null,null, null, 1);
+                Individual ind=new Individual(idParentage, individualName, null, dateBirth, dateDeath, 1, 0, 1, "1",null, null, 1);
                 Individual_DAO ind_dao=new Individual_DAO(db);
                 ind_dao.InsertSimple(ind);
+                int maxid = ind_dao.maxId(idParentage);
+                Individual i = ind_dao.getIndividualById(maxid);
+                ind_dao.updateBranch(String.valueOf(maxid), maxid, idParentage);
+                //id da co(vi tu dong tang)
+                par=par_dao.getOneParentAge(userName);
+                
                 
                 session.setAttribute("Parentage", par);
 
-                RequestDispatcher rd = request.getRequestDispatcher("ParentageInfo");
-                rd.forward(request, response);
+                response.sendRedirect("ParentageInfo");
             }
         }
     }

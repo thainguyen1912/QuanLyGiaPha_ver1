@@ -1,7 +1,7 @@
-<%@page import="Enity.ParentAge"%>
+<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    ParentAge par = (ParentAge) session.getAttribute("Parentage");
+    Parentage par = (Parentage) session.getAttribute("Parentage");
     request.setAttribute("title", "parentage_info");
 %>
 <!doctype html>

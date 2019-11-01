@@ -60,7 +60,7 @@ public class Individual_DAO {
     public int InsertSimple(Individual ind) {
         int n = 0;
         String sql = "insert into quanlygiapha.individual(idparentage, name, datebirth,"
-                + " datedeath, childth, idfather, gender) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " datedeath, childth, idfather, gender, branch, floor) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pre = connect.prepareStatement(sql);
             pre.setInt(1, ind.getIdParentAge());
@@ -70,6 +70,8 @@ public class Individual_DAO {
             pre.setInt(5, ind.getChildth());
             pre.setInt(6, ind.getIdFather());
             pre.setInt(7, ind.getGender());
+            pre.setString(8, ind.getBranch());
+            pre.setInt(9, ind.getFloor());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
