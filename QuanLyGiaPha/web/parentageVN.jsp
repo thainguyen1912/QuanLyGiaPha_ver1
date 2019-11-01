@@ -1,5 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
+<%@page import="java.sql.Date"%>
+<%@page import="Model.DBConnection"%>
+<%@page import="Model.ParentAge_DAO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="Enity.ParentAge"%>
+<%@page import="java.util.ArrayList"%>
+<%
+    ArrayList<ParentAge> arr_par=(ArrayList<ParentAge>)request.getAttribute("arr_par");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,29 +83,62 @@
         </div>
       </div>
     </div>
-    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/aboutVN.jpg);">
-						<a href="https://youtu.be/fpUfIisBhIs" class="icon popup-vimeo d-flex justify-content-center align-items-center">
-							<span class="icon-play"></span>
-						</a>
-					</div>
-					<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate fadeInUp ftco-animated">
-	          <div class="heading-section-bold mb-4 mt-md-5">
-	          	<div class="ml-md-0">
-                            <h2 class="mb-4" style="font-family: sans-serif">Chào Mừng bạn đến với Website GIAPHAVIETNAM</h2>
-	            </div>
-	          </div>
-	          <div class="pb-md-5">
-	          	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-                                                        <p><a href="login.jsp" class="btn btn-primary">Đăng Nhập</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-    </section>
+    <table class="mb-0 table table-hover" style="text-align: center">
+                                            <thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Tên Dòng họ</th>
+                                                    <th>Trưởng họ</th>
+                                                    <th>Nguyên quán</th>
+                                                    <th>Ngày lập</th>
+                                                    <th>Số thành viên</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <%
+                                                    for(int i=0;i<arr_par.size();i++){
+                                                %>
+                                                <tr>
+                                                    <th><%=i+1 %></th>                          
+                                                    <td><%=arr_par.get(i).getName()%></td>
+                                                    <td><%=arr_par.get(i).getHeadName()%></td>
+                                                    <td><%=arr_par.get(i).getAddress()%></td>
+                                                    <td><%=arr_par.get(i).getDateCreate()%></td>
+                                                    <td><%=arr_par.get(i).getHeadName()%></td>
+                                                    <td>
+                                                        <div class="dropdown d-inline-block">
+                                                            <button type=button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="mb-2 mr-2 dropdown-toggle btn btn-outline-info"></button>
+                                                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                                                <a href="EditIndividual?value=Redirect&idIndividual=<%=arr_par.get(i).getId()%>">
+                                                                    <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning">
+                                                                        <i class="pe-7s-tools" style="font-size: 1.2rem">
+                                                                            <span style="font-size:16px">   Sửa</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </a>
+                                                                    <a onclick="return xacNhan()" href="DeleteIndividual?page=list_individual&id=<%=arr_par.get(i).getId()%>">
+                                                                    <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger"><i class="pe-7s-trash" style="font-size: 1.2rem">
+                                                                            <span style="font-size:16px">   Xóa</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </a>
+                                                                <a>
+                                                                    <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info">
+                                                                        <i class="pe-7s-add-user" style="font-size: 1.2rem">
+                                                                            <span style="font-size:16px">   Thêm Con</span>
+                                                                        </i>
+                                                                    </button>
+                                                                </a>
+                                                            </div>
+                                                    </td>
+                                                </tr>
+                                                <%
+                                                }
+                                                %>
+                                            </tbody>
+    </table>
 
         <hr>
 

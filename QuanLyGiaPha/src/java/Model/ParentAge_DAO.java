@@ -2,6 +2,7 @@
 package Model;
 
 import Enity.ParentAge;
+import Enity.ParentAge;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -91,5 +92,10 @@ public class ParentAge_DAO {
             Logger.getLogger(ParentAge_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
+    }
+    
+    public int getNumber(String idp)
+    {
+        return 0;
     }
 }
