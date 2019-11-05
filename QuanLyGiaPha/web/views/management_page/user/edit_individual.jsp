@@ -16,7 +16,7 @@
 %>
 <!doctype html>
 <html lang="en">
-    <jsp:include page="import_page/import.jsp" flush="true"/>
+    <jsp:include page="../import_page/import.jsp" flush="true"/>
     <script src="js/upload_image.js"></script>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/upload_image.css">
