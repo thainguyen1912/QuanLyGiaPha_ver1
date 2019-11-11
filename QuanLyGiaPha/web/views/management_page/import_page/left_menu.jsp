@@ -70,14 +70,14 @@
 
                 <li class="app-sidebar__heading">Tin tức</li>
                 <li>
-                    <a href="#">
+                    <a href="ComingSoon">
                         <i class="metismenu-icon pe-7s-note"></i>
                         Viết bài
                         <i class=""></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="ComingSoon">
                         <i class="metismenu-icon pe-7s-helm"></i>
                         Quản lý tin tức
                         <i class=""></i>
@@ -86,38 +86,24 @@
                 
                 <li class="app-sidebar__heading">Tin nhắn</li>
                 <li>
-                    <a href="forms-controls.html">
+                    <a href="ComingSoon">
                         <i class="metismenu-icon pe-7s-note">
                         </i>Soạn tin nhắn
                     </a>
                 </li>
                 <li>
-                    <a href="forms-layouts.html">
+                    <a href="ComingSoon">
                         <i class="metismenu-icon pe-7s-paper-plane">
                         </i>Hộp thư đến
                     </a>
                 </li>
                 <li>
-                    <a href="forms-validation.html">
+                    <a href="ComingSoon">
                         <i class="metismenu-icon pe-7s-shuffle">
                         </i>Tin đã gửi
                     </a>
                 </li>
-                <!-- <li class="app-sidebar__heading">Charts</li>
-                <li>
-                    <a href="charts-chartjs.html">
-                        <i class="metismenu-icon pe-7s-graph2">
-                        </i>ChartJS
-                    </a>
-                </li>
-                <li class="app-sidebar__heading">PRO Version</li>
-                <li>
-                    <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/" target="_blank">
-                        <i class="metismenu-icon pe-7s-graph2">
-                        </i>
-                        Upgrade to PRO
-                    </a>
-                </li> -->
+                
             </ul>
         </div>
     </div>

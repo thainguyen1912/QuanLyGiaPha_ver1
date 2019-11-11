@@ -18,7 +18,7 @@ public class ParentageInfo extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         request.setAttribute("title", "parentage_info");
-        RequestDispatcher rd = request.getRequestDispatcher("views/management_page/user/parentage_info.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("views/management_page/manager/parentage_info.jsp");
         rd.forward(request, response);
     }
 

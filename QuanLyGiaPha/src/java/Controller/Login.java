@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         } catch (Exception e) {
         }
         if (value.equals("LoginPage")) {
-            RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/login_register_page/login.jsp");
             rd.forward(request, response);
         } else {
             if (value.equals("CheckLogin")) {
@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
 
                 if (acc == null) {
                     request.setAttribute("LoginFalse", "Tên Tài Khoản Hoặc Mật Khẩu Không Đúng!");
-                    RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("views/login_register_page/login.jsp");
                     rd.forward(request, response);
                 }else {
                     HttpSession session = request.getSession();

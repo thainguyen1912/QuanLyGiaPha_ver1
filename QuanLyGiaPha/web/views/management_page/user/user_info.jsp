@@ -12,7 +12,7 @@
             <jsp:include page="../import_page/header.jsp" flush="true"/>
             <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main">
-                <jsp:include page="../import_page/left_menu.jsp" flush="true"/>
+                <jsp:include page="import_page/left_menu_user.jsp" flush="true"/>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>

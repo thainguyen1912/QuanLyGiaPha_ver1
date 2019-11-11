@@ -31,14 +31,14 @@ public class Register extends HttpServlet {
             String passWord2 = request.getParameter("password2");
             if (passWord1.equals(passWord2) == false) {
                 request.setAttribute("PasswordFalse", "Mật Khẩu Bạn Nhập Không Giống Nhau");
-                RequestDispatcher rd = request.getRequestDispatcher("views/register_page/register.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("views/login_register_page/register.jsp");
                 rd.forward(request, response);
             } else {
                 DBConnection db = new DBConnection();
                 Account_DAO acc_dao = new Account_DAO(db);
                 if (acc_dao.getOneAccountByUserName(userName) != null) {
                     request.setAttribute("UserNameExist", "Tài Khoản Này Đã Tồn Tại");
-                    RequestDispatcher rd = request.getRequestDispatcher("views/register_page/register.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("views/login_register_page/register.jsp");
                     rd.forward(request, response);
                 } else {
                     LocalDate date = LocalDate.now();
@@ -46,13 +46,13 @@ public class Register extends HttpServlet {
                     Date dateNow = (Date.valueOf(date.format(formatter)));
                     acc_dao.Insert(new Account(userName, passWord1, roleManagerDefault, dateNow));
                     request.setAttribute("CreateSuccess", "Bạn Vừa Tạo Tài Khoản Thành Công");
-                    RequestDispatcher rd = request.getRequestDispatcher("views/login_page/login.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("views/login_register_page/login.jsp");
                     rd.forward(request, response);
                 }
             }
         }
         if(value.equals("redirect")){
-            RequestDispatcher rd = request.getRequestDispatcher("views/register_page/register.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/login_register_page/register.jsp");
             rd.forward(request, response);
         }
     }

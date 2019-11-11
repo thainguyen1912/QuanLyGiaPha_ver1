@@ -34,7 +34,7 @@ public class ListAvatar extends HttpServlet {
         ArrayList<Individual> arr_ind=ind_dao.getListChildByIdParentageAvatar(idPar);
         request.setAttribute("arr_ind", arr_ind);
         request.setAttribute("title", "list_avatar");
-        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/user/list_avatar.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/list_avatar.jsp");
         rd.forward(request, response);
     }
 

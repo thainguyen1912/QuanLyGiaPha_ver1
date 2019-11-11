@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
 import Enity.Individual;
@@ -20,15 +24,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-@WebServlet(value= "/ParentageViewTree")
-public class ParentageViewTree extends HttpServlet {
+/**
+ *
+ * @author thain
+ */
+@WebServlet(name = "ParentageViewTreeExtend", urlPatterns = {"/ParentageViewTreeExtend"})
+public class ParentageViewTreeExtend extends HttpServlet {
 
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("utf-8");
+        
         
         //value parentage_viewtree
             request.setAttribute("title", "parentage_treeview");
@@ -66,7 +74,13 @@ public class ParentageViewTree extends HttpServlet {
             }
         //
         request.setAttribute("arr_ind", arr_ind);
-        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/parentage_treeview.jsp");
+        
+        
+        int id=Integer.valueOf(request.getParameter("id"));
+        Individual ind=ind_dao.getIndividualById(id);
+        
+        request.setAttribute("individual", ind);
+        RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/parentage_treeview_extend.jsp");
         rd.forward(request, response);
     }
 

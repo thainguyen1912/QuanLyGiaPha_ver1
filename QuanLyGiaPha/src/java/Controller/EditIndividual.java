@@ -34,7 +34,7 @@ public class EditIndividual extends HttpServlet {
             String idIndividual = request.getParameter("idIndividual");
             request.setAttribute("idIndividual", idIndividual);
             request.setAttribute("title", "edit_individual");
-            RequestDispatcher rd = request.getRequestDispatcher("views/management_page/user/edit_individual.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("views/management_page/manager/edit_individual.jsp");
             rd.forward(request, response);
         }
         if (value.equals("Process")) {
@@ -56,7 +56,7 @@ public class EditIndividual extends HttpServlet {
 //            String appPath = request.getServletContext().getRealPath("");
 //            appPath = appPath.replace('\\', '/');
 //            System.out.println(appPath);
-            String appPath = "D:/E/netbean_workspace/QuanLyGiaPha/QuanLyGiaPha/web/";
+            String appPath = "D:/Stored/netbean_workspace/QuanLyGiaPha/QuanLyGiaPha/web/resources/";
             String fullSavePath = null;
             if (appPath.endsWith("/")) {
                 fullSavePath = appPath + SAVE_DIRECTORY;

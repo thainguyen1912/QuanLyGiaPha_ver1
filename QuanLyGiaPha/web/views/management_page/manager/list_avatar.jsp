@@ -1,4 +1,3 @@
-<%@page import="java.util.List"%>
 <%@page import="java.sql.Date"%>
 <%@page import="Model.DBConnection"%>
 <%@page import="Model.Individual_DAO"%>
@@ -9,9 +8,7 @@
 <%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    List<Parentage> list_par = (List<Parentage>) request.getAttribute("list_par");
-    DBConnection db=new DBConnection();
-    Individual_DAO ind_dao=new Individual_DAO(db);
+    ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
 %>
 <!doctype html>
 <html lang="en">
@@ -21,7 +18,7 @@
             <jsp:include page="../import_page/header.jsp" flush="true"/> 
             <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main" style="overflow: auto">
-                <jsp:include page="import_page/left_menu_admin.jsp" flush="true"/>
+                <jsp:include page="../import_page/left_menu.jsp" flush="true"/>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>
@@ -34,7 +31,12 @@
                                         </div>
                                         <div class="row">
                                             <%
-                                                for (int i = 0; i < list_par.size(); i++) {
+                                                if (arr_ind.size() == 0) {
+                                            %>
+                                                <h5 style="color: red">Không Có Ảnh Nào Để Hiển Thị</h5>
+                                            <%}%>
+                                            <%
+                                                for (int i = 0; i < arr_ind.size(); i++) {
                                             %>
                                             <div class="col-md-6 col-lg-3">
                                                 <div class="card-shadow-cuccess mb-3 widget-chart widget-chart2 text-left card">
@@ -42,28 +44,19 @@
                                                         <div class="widget-content-outer" style="text-align: center">
                                                             <div class="widget-content-wrapper">
                                                                 <div class="">
-                                                                    <img src="resources/images/img_570334.png" width="50%"> 
+                                                                    <img src="resources/images/<%=arr_ind.get(i).getAvatar()%>" width="100%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1 mt-2">
-                                                                <div class="text-muted opacity-6">Dòng Họ: <%=list_par.get(i).getName()%></div>
+                                                                <div class="text-muted opacity-6"><%=arr_ind.get(i).getName()%></div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Tổ Tiên: <%= list_par.get(i).getAncestor()%></div>
-                                                            </div>
-                                                            <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Địa Chỉ: <%= list_par.get(i).getAddress()%></div>
-                                                            </div>
-                                                            <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Ngày Tạo: <%= list_par.get(i).getDateCreate()%></div>
-                                                            </div>
-                                                            <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Số Thành Viên: <%= ind_dao.getNumber(list_par.get(i).getId())%></div>
+                                                                <div class="text-muted opacity-6">Đời Thứ: <%= arr_ind.get(i).getFloor()%></div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1 mt-2" style="">
-                                                                <a href="ComingSoon"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
+                                                                <a href="EditIndividual?value=Redirect&idIndividual=<%=arr_ind.get(i).getIdIndividual()%>"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
                                                             </div>
                                                         </div>
                                                     </div>

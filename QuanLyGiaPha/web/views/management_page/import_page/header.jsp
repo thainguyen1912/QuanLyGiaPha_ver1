@@ -36,14 +36,14 @@
         <div class="app-header-left" style="width: 75%">
             <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
                 <%
-                    Parentage par=null;//cho truong hop trang admin khong co par
+                    Parentage par = null;//cho truong hop trang admin khong co par
                     try {
-                            par = (Parentage) session.getAttribute("Parentage");
-                        } catch (Exception e) {
-                        }
-                    Account acc=(Account)session.getAttribute("Account");
+                        par = (Parentage) session.getAttribute("Parentage");
+                    } catch (Exception e) {
+                    }
+                    Account acc = (Account) session.getAttribute("Account");
                 %>
-                <%=par==null?"":par.getName() %>
+                <%=par == null ? "" : par.getName()%>
             </div> 
         </div>
         <div class="app-header-right">
@@ -53,7 +53,7 @@
                         <div class="widget-content-left">
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0">
-                                    <img width="42" class="rounded-circle" src="assets/images/avatars/a.jpg" alt="">
+                                    <img width="42" class="rounded-circle" src="resources/assets/images/avatars/a.png" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -66,17 +66,10 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                <%=acc.getUserName() %>
+                                <%=acc.getUserName()%>
                             </div>
-                            <!-- <div class="widget-subheading">
-                                VP People Manager
-                            </div> -->
+                            
                         </div>
-                        <!-- <div class="widget-content-right header-user-info ml-3">
-                            <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                <i class="fa text-white fa-calendar pr-1 pl-1"></i>
-                            </button>
-                        </div> -->
                     </div>
                 </div>
             </div> 

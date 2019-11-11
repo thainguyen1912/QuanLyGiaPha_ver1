@@ -5,13 +5,13 @@
         <title>GIAPHAVIETNAM</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <jsp:include page="resources/import_css.jsp" flush="true" />
+        <jsp:include page="import_page/import_css.jsp" flush="true" />
     </head>
     <body class="goto-here">
-        <jsp:include page="resources/header1.jsp" flush="true" />
-        <jsp:include page="resources/header2.jsp" flush="true" />
+        <jsp:include page="import_page/header1.jsp" flush="true" />
+        <jsp:include page="import_page/header2.jsp" flush="true" />
 
-        <div class="hero-wrap hero-bread" style="background-image: url('images/58005.jpg');">
+        <div class="hero-wrap hero-bread" style="background-image: url('resources/dimages/58005.jpg');">
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/post1.jpg');">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/dimages/post1.jpg');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/post2.jpg');">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/dimages/post2.jpg');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-md-12 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/post3.jpg');">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/dimages/post3.jpg');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -76,7 +76,7 @@
                             </div>
                             <div class="col-md-12 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/post4.jpg');">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/dimages/post4.jpg');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -94,7 +94,7 @@
                             </div>
                             <div class="col-md-12 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('images/post6.jpg');">
+                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/dimages/post6.jpg');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -131,7 +131,7 @@
                         <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
                             <h3 class="heading">Tin tức mới nhất</h3>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/post1.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url(resources/dimages/post1.jpg);"></a>
                                 <div class="text">
                                     <h3 class="heading-1"><a href="#">Gia Phả là gì? Hình thức lập Gia Phả và Tộc Phả</a></h3>
                                     <div class="meta">
@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/post2.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url(resources/dimages/post2.jpg);"></a>
                                 <div class="text">
                                     <h3 class="heading-1"><a href="#">Dựng Gia Phả, giải toả khúc mắc lịch sử</a></h3>
                                     <div class="meta">
@@ -153,7 +153,7 @@
                                 </div>
                             </div>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/post3.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url(resources/dimages/post3.jpg);"></a>
                                 <div class="text">
                                     <h3 class="heading-1"><a href="#">Tại sao phải mừng tuổi, lì xì đầu năm?</a></h3>
                                     <div class="meta">
@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/post4.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url(resources/dimages/post4.jpg);"></a>
                                 <div class="text">
                                     <h3 class="heading-1"><a href="#">Họ Trần có nguồn gốc và gia phả mộ Tổ ở đâu?</a></h3>
                                     <div class="meta">
@@ -175,7 +175,7 @@
                                 </div>
                             </div>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/post6.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url(resources/dimages/post6.jpg);"></a>
                                 <div class="text">
                                     <h3 class="heading-1"><a href="#">8 phong tục KHÔNG THỂ THIẾU của người Việt trong ngày Tết</a></h3>
                                     <div class="meta">
@@ -210,12 +210,12 @@
             </div>
         </section>
         <hr>
-        <jsp:include page="resources/footer.jsp" flush="true" />
+        <jsp:include page="import_page/footer.jsp" flush="true" />
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-        <jsp:include page="resources/import_js.jsp" flush="true" />
+        <jsp:include page="import_page/import_js.jsp" flush="true" />
 
     </body>
 </html>

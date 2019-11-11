@@ -28,8 +28,10 @@ import javax.servlet.http.HttpSession;
     "/ListIndividual",
     "/ParentageInfo",
     "/ParentageViewTree",
+    "/ParentageViewTreeExtend",
     "/UpdateParentageInfo",
-    "/UserAction"
+    "/UserAction",
+    "/AdminControl"
 })
 public class All implements Filter {
 
@@ -81,7 +83,7 @@ public class All implements Filter {
                 Account acc = (Account) session.getAttribute("Account");
                 if (acc == null) {
                     req.setAttribute("filter_mess", "Bạn Phải Đăng Nhập Để Có Thể Truy Cập Trang Này");
-                    RequestDispatcher rd = req.getRequestDispatcher("views/login_page/login.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("views/login_register_page/login.jsp");
                     rd.forward(request, response);
                 } else {
                     chain.doFilter(request, response);

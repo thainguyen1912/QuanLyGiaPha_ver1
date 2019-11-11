@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lỗi Chuyển Trang</title>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="css/404.css" />
+        <link rel="stylesheet" href="resources/css/404.css" />
     </head>
     <body>
         <div id="notfound">

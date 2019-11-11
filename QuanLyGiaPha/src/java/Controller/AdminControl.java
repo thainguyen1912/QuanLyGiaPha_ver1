@@ -9,7 +9,6 @@ import Enity.Parentage;
 import Model.DBConnection;
 import Model.Parentage_DAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
