@@ -64,19 +64,17 @@
         <br />
         <div class="row">
             <div class="col-sm-6 col-md-6 pb-3 text-center">
-                <h5>Nguyen Van Thai</h5>
-                <h5>1141360205</h5>
-                <p>0333 385 398</p>
-                <p>thainguyenvan@gmail.com</p>
+                <h5>Nguyễn Văn Thái</h5>
+                <h5>1141360062</h5>
+                <p>0325 439 933</p>
+                <p>thainguyen24111998@gmail.com</p>
             </div>
             <div class="col-sm-6 col-md-6 pb-3 text-center border-left ">
-                <h5>Phung Dang Khoa</h5>
+                <h5>Phùng Đăng Khoa</h5>
                 <h5>1141360077</h5>
-                <p>0327582233</p>
+                <p>0327 582 233</p>
                 <p>phungdangkhoa97@gmail.com</p>
             </div>
-
         </div>
     </div>
-
 </footer>
