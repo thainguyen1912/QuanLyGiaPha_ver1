@@ -24,9 +24,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(resources/images/aboutVN.jpg);">
-                        <a href="https://youtu.be/fpUfIisBhIs" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                        
+                        <iframe class="" width="420" height="315"
+                            src="https://www.youtube.com/embed/fpUfIisBhIs">
                             <span class="icon-play"></span>
-                        </a>
+                        </iframe>
+                        
+<!--                        <a href="https://www.youtube.com/embed/fpUfIisBhIs" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                            <span class="icon-play"></span>
+                        </a>-->
                     </div>
                     <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate fadeInUp ftco-animated">
                         <div class="heading-section-bold mb-4 mt-md-5">

@@ -50,10 +50,12 @@ public class Parentage_DAO {
     
     public Parentage getOneParentAge(String username){
         Parentage par=null;
-        String sql="select * from quanlygiapha.parentage where username='"+username+"'";
+        String sql="select * from quanlygiapha.parentage where username=?";
         ResultSet rs=null;
         try {
-            rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setString(1, username);
+            rs=pre.executeQuery();
             if(rs.next()){
                 int id=rs.getInt("id");
                 String name=rs.getString("name");

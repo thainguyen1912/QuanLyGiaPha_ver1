@@ -57,7 +57,7 @@
                 </li>
                 <li>
                     <a href="ListIndividual?title=list_individual" class="<%=title.equals("list_individual")?"mm-active":"" %>">
-                        <i class="metismenu-icon pe-7s-album"></i>
+                        <i class="metismenu-icon pe-7s-note2"></i>
                         Danh Sách Thành Viên
                     </a>
                 </li>

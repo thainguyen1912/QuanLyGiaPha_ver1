@@ -19,10 +19,12 @@ public class Individual_DAO {
     }
 
     public ResultSet SelectByParentageIdOrderBranch(int parentageid) {
-        String sql = "select * from quanlygiapha.individual where idparentage='" + parentageid + "' order by branch";
+        String sql = "select * from quanlygiapha.individual where idparentage=? order by branch";
         ResultSet rs = null;
         try {
-            rs = connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, parentageid);
+            rs = pre.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -30,10 +32,12 @@ public class Individual_DAO {
     }
     public ArrayList<Individual> SelectByParentageIdOrderFloor(int parentageid) {
         ArrayList<Individual> arr_ind = new ArrayList<Individual>();
-        String sql = "select * from quanlygiapha.individual where idparentage='" + parentageid + "' order by floor";
+        String sql = "select * from quanlygiapha.individual where idparentage=? order by floor";
         ResultSet rs = null;
         try {
-            rs = connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, parentageid);
+            rs = pre.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
                 int idParentage = rs.getInt(2);
@@ -107,10 +111,14 @@ public class Individual_DAO {
 
     public int getChildCount(int id) {
         int n = -1;
-        String sql = "select count(id) as count from quanlygiapha.individual where idfather='" + id + "'";
+        String sql = "select count(id) as count from quanlygiapha.individual where idfather=?";
         try {
-            ResultSet rs = connect.createStatement().executeQuery(sql);
-            n = rs.getInt("count");
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, id);
+            ResultSet rs = pre.executeQuery();
+            while(rs.next()){
+                n = rs.getInt("count");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -119,10 +127,12 @@ public class Individual_DAO {
 
     public ArrayList<Individual> getListChildByIdFather(int idfar) {
         ArrayList<Individual> arr_ind = new ArrayList<Individual>();
-        String sql = "select * from quanlygiapha.individual where idfather='" + idfar + "'";
+        String sql = "select * from quanlygiapha.individual where idfather=?";
         ResultSet rs = null;
         try {
-            rs = connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idfar);
+            rs = pre.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
                 int idParentage = rs.getInt(2);
@@ -147,10 +157,12 @@ public class Individual_DAO {
     }
     public ArrayList<Individual> getListChildByIdParentage(int idpar) {
         ArrayList<Individual> arr_ind = new ArrayList<Individual>();
-        String sql = "select * from quanlygiapha.individual where idparentage='" + idpar + "'";
+        String sql = "select * from quanlygiapha.individual where idparentage=?";
         ResultSet rs = null;
         try {
-            rs = connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idpar);
+            rs = pre.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
                 int idParentage = rs.getInt(2);
@@ -176,10 +188,12 @@ public class Individual_DAO {
     
     public ArrayList<Individual> getListChildByIdParentageAvatar(int idpar) {
         ArrayList<Individual> arr_ind = new ArrayList<Individual>();
-        String sql = "select * from quanlygiapha.individual where idparentage='" + idpar + "' and avatar is not null";
+        String sql = "select * from quanlygiapha.individual where idparentage=? and avatar is not null";
         ResultSet rs = null;
         try {
-            rs = connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idpar);
+            rs = pre.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt(1);
                 int idParentage = rs.getInt(2);
@@ -205,9 +219,11 @@ public class Individual_DAO {
     
     public Individual getIndividualById(int idIndividual){
         Individual ind=null;
-        String sql="select * from quanlygiapha.individual where id='"+idIndividual+"'";
+        String sql="select * from quanlygiapha.individual where id=?";
         try {
-            ResultSet rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idIndividual);
+            ResultSet rs=pre.executeQuery();
             if(rs.next()){
                 int id = rs.getInt(1);
                 int idParentage = rs.getInt(2);
@@ -231,9 +247,11 @@ public class Individual_DAO {
     }
     public ResultSet getResultSetById(int idIndividual){
         ResultSet rs=null;
-        String sql="select * from quanlygiapha.individual where id='"+idIndividual+"'";
+        String sql="select * from quanlygiapha.individual where id=?";
         try {
-            rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idIndividual);
+            rs=pre.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -261,9 +279,11 @@ public class Individual_DAO {
     }
     public int maxId(int parentageId){
         int n=0;
-        String sql="select max(id) as 'maxid' from quanlygiapha.individual where idparentage='"+parentageId+"'";
+        String sql="select max(id) as 'maxid' from quanlygiapha.individual where idparentage=?";
         try {
-            ResultSet rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, parentageId);
+            ResultSet rs=pre.executeQuery();
             if(rs.next()){
                 n=rs.getInt("maxid");
             }
@@ -274,18 +294,24 @@ public class Individual_DAO {
     }
     public int updateBranch(String br, int id, int idparentage){
         int n=0;
-        String sql="update quanlygiapha.individual set branch='"+br+"' where id='"+id+"' and idparentage='"+idparentage+"'";
+        String sql="update quanlygiapha.individual set branch=? where id=? and idparentage=?";
         try {
-            n=connect.createStatement().executeUpdate(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setString(1, br);
+            pre.setInt(2, id);
+            pre.setInt(3, idparentage);
+            n=pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
     }
     public boolean checkChild(int idFather){
-        String sql="select id from quanlygiapha.individual where idfather='"+idFather+"'";
+        String sql="select id from quanlygiapha.individual where idfather=?";
         try {
-            ResultSet rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idFather);
+            ResultSet rs=pre.executeQuery();
             if(rs.next()) return true;
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -294,9 +320,11 @@ public class Individual_DAO {
     }
     public int deleteIndividual(int id){
         int n=0;
-        String sql="delete from quanlygiapha.individual where id='"+id+"'";
+        String sql="delete from quanlygiapha.individual where id=?";
         try {
-            n=connect.createStatement().executeUpdate(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, id);
+            n=pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -304,9 +332,11 @@ public class Individual_DAO {
     }
     public int getFloorById(int id){
         int n=0;
-        String sql="select floor from quanlygiapha.individual where id ='"+id+"'";
+        String sql="select floor from quanlygiapha.individual where id =?";
         try {
-            ResultSet rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, id);
+            ResultSet rs=pre.executeQuery();
             if(rs.next()){
                 n=rs.getInt("floor");
             } 
@@ -317,9 +347,11 @@ public class Individual_DAO {
     }
     public ArrayList<String> getListAvatar(int idParentage){
         ArrayList<String> arr_avatar=new ArrayList<String>();
-        String sql="select avatar from quanlygiapha.individual where idparentage ='"+idParentage+"'";
+        String sql="select avatar from quanlygiapha.individual where idparentage =?";
         try {
-            ResultSet rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idParentage);
+            ResultSet rs=pre.executeQuery();
             if(rs.next()){
                 arr_avatar.add(rs.getString("avatar"));
             } 
@@ -331,9 +363,11 @@ public class Individual_DAO {
     public int getNumber(int idParentage)
     {
         int n=0;
-        String sql="select count(id) as'count' from quanlygiapha.individual where idparentage='"+idParentage+"'";
+        String sql="select count(id) as 'count' from quanlygiapha.individual where idparentage=?";
         try {
-            ResultSet rs=connect.createStatement().executeQuery(sql);
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idParentage);
+            ResultSet rs=pre.executeQuery();
             if(rs.next()){
                 n=rs.getInt("count");
             } 

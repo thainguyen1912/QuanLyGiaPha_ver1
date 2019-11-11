@@ -1,4 +1,3 @@
-
 package Model;
 
 import Enity.Account;
@@ -10,48 +9,51 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Account_DAO {
-    Connection connect=null;
-    
-    
-    public Account_DAO(DBConnection db){
-        this.connect=db.getConnect();
+
+    Connection connect = null;
+
+    public Account_DAO(DBConnection db) {
+        this.connect = db.getConnect();
     }
-    
-    public ResultSet getAllAccount(){
-        String sql="select * from account";
-        ResultSet rs=null;
-        
+
+    public ResultSet getAllAccount() {
+        String sql = "select * from account";
+        ResultSet rs = null;
+
         try {
-            rs=connect.createStatement().executeQuery(sql);
+            rs = connect.createStatement().executeQuery(sql);
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
-    public Account getOneAccount(String username, String password){
-        Account acc=null;
-        String sql="select * from quanlygiapha.account where username='"+username+"' and password='"+password+"'";
-        ResultSet rs=null;
+
+    public Account getOneAccount(String username, String password) {
+        Account acc = null;
+        String sql = "select * from quanlygiapha.account where username=? and password=?";
+        ResultSet rs = null;
         try {
-            rs=connect.createStatement().executeQuery(sql);
-            if(rs==null) System.out.println("null");
-            if(rs.next()){
-                String UserName=rs.getString("username");
-                String PassWord=rs.getString("password");
-                int Role=rs.getInt("role");
-                Date dateCreate=rs.getDate("datecreate");
-                acc=new Account(UserName, PassWord, Role, dateCreate);
+            PreparedStatement pre = connect.prepareStatement(sql);
+            pre.setString(1, username);
+            pre.setString(2, password);
+            rs = pre.executeQuery();
+            if (rs.next()) {
+                String UserName = rs.getString("username");
+                String PassWord = rs.getString("password");
+                int Role = rs.getInt("role");
+                Date dateCreate = rs.getDate("datecreate");
+                acc = new Account(UserName, PassWord, Role, dateCreate);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return acc;
     }
-    public int Insert(Account acc){
-        int n=0;
-        String sql="insert into quanlygiapha.account values(?, ?, ?, ?)";
+
+    public int Insert(Account acc) {
+        int n = 0;
+        String sql = "insert into quanlygiapha.account values(?, ?, ?, ?)";
         PreparedStatement pre;
         try {
             pre = connect.prepareStatement(sql);
@@ -59,35 +61,43 @@ public class Account_DAO {
             pre.setString(2, acc.getPassWord());
             pre.setInt(3, acc.getRole());
             pre.setDate(4, acc.getDateCreate());
-            n=pre.executeUpdate();
+            n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return n;
     }
-    public Account getOneAccountByUserName(String username){
-        Account acc=null;
-        String sql="select * from quanlygiapha.account where username='"+username+"'";
-        ResultSet rs=null;
+
+    public Account getOneAccountByUserName(String username) {
+        Account acc = null;
+        String sql = "select * from quanlygiapha.account where username=?";
+        ResultSet rs = null;
         try {
-            rs=connect.createStatement().executeQuery(sql);
-            if(rs.next()){
-                String UserName=rs.getString("username");
-                String PassWord=rs.getString("password");
-                int Role=rs.getInt("role");
-                Date dateCreate=rs.getDate("datecreate");
-                acc=new Account(UserName, PassWord, Role, dateCreate);
+            PreparedStatement pre = connect.prepareStatement(sql);
+            pre.setString(1, username);
+            rs = pre.executeQuery();
+            if (rs.next()) {
+                String UserName = rs.getString("username");
+                String PassWord = rs.getString("password");
+                int Role = rs.getInt("role");
+                Date dateCreate = rs.getDate("datecreate");
+                acc = new Account(UserName, PassWord, Role, dateCreate);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return acc;
     }
-    public int updatePass(String username, String newpass){
-        int n=0;
-        String sql="update quanlygiapha.account set password='"+newpass+"' where username='"+username+"'";
+
+    public int updatePass(String username, String newpass) {
+        int n = 0;
+        String sql = "update quanlygiapha.account set password=? where username=?";
         try {
-            n=connect.createStatement().executeUpdate(sql);
+            PreparedStatement pre = connect.prepareStatement(sql);
+            pre.setString(1, newpass);
+            pre.setString(2, username);
+
+            n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Account_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }

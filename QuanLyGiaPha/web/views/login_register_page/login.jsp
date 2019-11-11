@@ -36,7 +36,7 @@
                             <span class="focus-input100"></span>
                         </div>
                         <div class="text-center p-t-13 p-b-23">
-                            <p class="txt3">
+                            <p class="txt3" style="color: red">
                                 <%=request.getAttribute("LoginFalse")==null?"":request.getAttribute("LoginFalse") %>
                             </p>
                         </div>

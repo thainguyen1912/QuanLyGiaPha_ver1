@@ -39,8 +39,8 @@
                                             </h5>
                                         </div>
                                     </div>
-                                    <h5 class="card-title mt-2 mb-4" style="text-align: center">-----Thông Tin Cơ Bản-----</h5>        
-                                    <div class="position-relative form-row" style="margin-bottom: 4%">
+                                    <h5 class="card-title mt-2" style="text-align: center">-----Thông Tin Cơ Bản-----</h5>        
+                                    <div class="position-relative form-row" style="margin-bottom: 8%">
                                         <div class="col-md-2-5 mb-2 mr-2">
                                             <label>Tên Dòng Họ</label>
                                             <input style="" type="text" class="form-control" name="name" value="<%=par.getName() == null ? "" : par.getName()%>" required>
@@ -58,7 +58,7 @@
                                             <input style="" type="date" class="form-control" name="anniversary" value="<%=par.getAnniversary() == null ? "" : par.getAnniversary()%>" required>
                                         </div>
                                     </div>
-                                    <h5 class="card-title mt-2 mb-4" style="text-align: center">-----Trưởng Họ Hiện Tại-----</h5> 
+                                    <h5 class="card-title mt-2" style="text-align: center">-----Trưởng Họ Hiện Tại-----</h5> 
                                     <div class="position-relative form-row" style="margin-bottom: 4%">
                                         <div class="col-md-3 mb-2 mr-4">
                                             <label>Tên Trưởng Họ</label>
@@ -74,9 +74,9 @@
                                         </div>
                                     </div>
 
+                                    <h5 class="card-title mt-2" style="text-align: center">-----Thông Tin Thêm-----</h5> 
                                     <div class="position-relative form-row" style="margin-bottom: 4%">
                                         <div class="">
-                                            <label>Ghi Chú Thêm</label>
                                             <textarea cols="150" rows="5" type="text" class="form-control" name="note"><%=par.getNote() == null ? "" : par.getNote()%></textarea>
                                         </div>
                                     </div>
