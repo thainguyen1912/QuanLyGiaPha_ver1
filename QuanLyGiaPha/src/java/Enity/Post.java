@@ -1,6 +1,8 @@
 
 package Enity;
 
+import java.sql.Date;
+
 
 public class Post {
     private int idPost;
@@ -8,35 +10,21 @@ public class Post {
     private String summary;
     private String detail;
     private String status;
+    private String key;
+    private String image;
+    private Date datePost;
     private int idIndividual;
-    private int idParentage;
 
-    public Post(int idPost, String title, String summary, String detail, String status, int idIndividual, int idParentage) {
+    public Post(int idPost, String title, String summary, String detail, String status, String key, String image, Date datePost, int idIndividual) {
         this.idPost = idPost;
         this.title = title;
         this.summary = summary;
         this.detail = detail;
         this.status = status;
+        this.key = key;
+        this.image = image;
+        this.datePost = datePost;
         this.idIndividual = idIndividual;
-        this.idParentage = idParentage;
-    }
-
-    
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public int getIdParentage() {
-        return idParentage;
-    }
-
-    public void setIdParentage(int idParentage) {
-        this.idParentage = idParentage;
     }
 
     public int getIdPost() {
@@ -71,6 +59,38 @@ public class Post {
         this.detail = detail;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Date getDatePost() {
+        return datePost;
+    }
+
+    public void setDatePost(Date datePost) {
+        this.datePost = datePost;
+    }
+
     public int getIdIndividual() {
         return idIndividual;
     }
@@ -78,6 +98,8 @@ public class Post {
     public void setIdIndividual(int idIndividual) {
         this.idIndividual = idIndividual;
     }
+
+   
     
     
 }
