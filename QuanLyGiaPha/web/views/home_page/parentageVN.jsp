@@ -1,5 +1,20 @@
+<%@page import="Model.Individual_DAO"%>
+<%@page import="Enity.Individual"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<!DOCTYPE html>
+<%@page import="java.sql.Date"%>
+<%@page import="Model.DBConnection"%>
+<%@page import="Model.Parentage_DAO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Enity.Parentage"%>
+<%
+    DBConnection db= new DBConnection();
+    Parentage_DAO parentVN = new Parentage_DAO(db);
+    List<Parentage> arr_paVN=parentVN.getAllParentAge();
+    Individual_DAO indi= new Individual_DAO(db);
+%>
 <html lang="en">
     <head>
         <title>GIAPHAVIETNAM</title>
@@ -57,6 +72,42 @@
                 </div>
             </div>
         </div>
+        
+        <table class="mb-0 table table-hover" style="text-align: center">
+                                            <thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th style="font-weight:bold; font-family: sans-serif; color: black">Tên Dòng họ</th>
+                                                    <th>Trưởng họ</th>
+                                                    <th>Nguyên quán</th>
+                                                    <th>Ngày lập</th>
+                                                    <th>Số thành viên</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <%
+                                                    for(int i=0;i<arr_paVN.size();i++){
+                                                %>
+                                                <tr>
+                                                    <th><%=i+1 %></th>
+                        
+                                                    <td><%=arr_paVN.get(i).getName()%></td>
+                                                    <td><%=arr_paVN.get(i).getHeadName()%></td>
+                                                    <td><%=arr_paVN.get(i).getAddress()%></td>
+                                                    <td><%=arr_paVN.get(i).getDateCreate()%></td>
+                                                    <td><%=indi.getNumber(arr_paVN.get(i).getId()) %></td>
+                                                
+                                                </tr>
+                                                <%
+                                                }
+                                                %>
+                                            </tbody>
+                                        </table>
+        
+        
+        
         <hr>
         <footer class="ftco-footer ftco-section">
             <div class="container">
