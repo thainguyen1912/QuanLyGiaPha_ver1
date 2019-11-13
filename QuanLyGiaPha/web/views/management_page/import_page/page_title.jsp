@@ -30,6 +30,9 @@
         case "list_parentage":
             title="Danh Sách Gia Phả Đang Quản Lý"   ;
             break;
+        case "add_post":
+            title="Thêm Bài Viết"   ;
+            break;
         default:
             title="null";
             break;

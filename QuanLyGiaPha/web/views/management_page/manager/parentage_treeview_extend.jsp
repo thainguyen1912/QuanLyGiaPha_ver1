@@ -12,8 +12,8 @@
     ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
     DBConnection db = new DBConnection();
     Individual_DAO ind_dao = new Individual_DAO(db);
-        
-    Individual ind=(Individual)request.getAttribute("individual");
+
+    Individual ind = (Individual) request.getAttribute("individual");
 %>
 <!doctype html>
 <html lang="en">
@@ -29,7 +29,8 @@
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>
-                        <div style="float: left; width: 75%">
+                        <div> 
+                        <div style="float: left; width: 74.5%" class="main-card mb-3 card">
                             <div style="text-align: center; margin-bottom: 2%">
                                 <h6 style="color: red">
                                     <%=request.getAttribute("delete-error") == null ? "" : request.getAttribute("delete-error")%>
@@ -88,18 +89,18 @@
 
                                     temp += "<div class=\"collapse show\" id=\"" + id + "\">";
                                     temp += "<div style=\"margin-bottom:-1%\">";
-                            //số đời
-                                    temp += "<button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target='" + target + "' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">" + doiThu + "</button>";
-                            //button tên        
-                                    temp += "<a href=\"ParentageViewTreeExtend?id="+arr_ind.get(i).getIdIndividual()+" \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn btn-info\" style=\"width: 18%;margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left\"><div class=\"font-icon-wrapper\"><i class=\"pe-7s-user\"> </i></div></div><p style=\"float:right; margin-bottom:0; margin-top:2.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
-                            //nhóm lựa chọn        
+                                    //số đời
+                                    temp += "<button class=\"btn-transition btn btn-outline-warning\" type=\"button\" data-toggle=\"collapse\" data-target='" + target + "' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">" + doiThu + "</button>";
+                                    //button tên        
+                                    temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"width: 18%;margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources//images//" + (arr_ind.get(i).getAvatar() == null ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
+                                    //nhóm lựa chọn        
                                     temp += "<div class=\"dropdown d-inline-block\"><button type=\button\" aria-haspopup=\"true\" aria-expanded=\"false\" data-toggle=\"dropdown\" class=\"mb-2 mr-2 dropdown-toggle btn btn-outline-info\"></button><div tabindex=\"-1\" role=\"menu\" aria-hidden=\"true\" class=\"dropdown-menu\">";
 
-                            //edit
+                                    //edit
                                     temp += "<a href=\"EditIndividual?value=Redirect&idIndividual=" + arr_ind.get(i).getIdIndividual() + "\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-warning\"><i class=\"pe-7s-tools\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Sửa</span></i></button></a>";
-                            //delete
+                                    //delete
                                     temp += "<a onclick=\"return xacNhan()\" href=\"DeleteIndividual?page=parentage_treeview&id=" + arr_ind.get(i).getIdIndividual() + "\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-danger\"><i class=\"pe-7s-trash\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Xóa</span></i></button></a>";
-                            //add
+                                    //add
                                     temp += "<a href=\"AddIndividual?value=Redirect&id=" + arr_ind.get(i).getIdIndividual() + "\"><button class=\"dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info\"><i class=\"pe-7s-add-user\" style=\"font-size: 1.2rem\"><span style=\"font-size:16px\">   Thêm Con</span></i></button></a>";
 
                                     temp += "</div></div></div></div>";
@@ -111,77 +112,83 @@
                                 }
                             %>
                         </div>
-                        <div id="info" style="float: left; width: 25%;">
-                            <div style="margin-bottom: 10%">
-                                    <img style="width: 70%; margin-left: 14%" src="resources/images/<%=ind.getAvatar()==null?"imagenotfound.png":ind.getAvatar() %>" alt="your image" />
-                            </div>
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="name" class="col-sm-4 col-form-label">
-                                    Họ Và Tên
-                                </label>
-                                <div class="col-sm-8">
-                                    <input value="" name="id" id="id" placeholder="" type="text" class="form-control" hidden="true">
-                                    <input value="<%=ind.getName() %>" name="name" id="name" placeholder="" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="gender" class="col-sm-4 col-form-label">
-                                    Giới Tính
-                                </label>
-                                <div class="col-sm-8">
-                                    <input value="<%=ind.getGender()==0?"Nữ":"Nam"%>" name="gender" id="name" placeholder="" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="childth" class="col-sm-4 col-form-label">
-                                    Con Thứ
-                                </label>
-                                <div class="col-sm-8">
-                                    <input value="<%=ind.getChildth()%>" name="childth" id="childth" placeholder="" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="wifeorhusbandname" class="col-sm-4 col-form-label">
-                                    Tên Vợ
-                                </label>
-                                <div class="col-sm-8">
-                                    <input value="<%=ind.getWifeOrHusbandName()%>" name="wifeorhusbandname" id="wifeorhusbandname" placeholder="" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="datebirth" class="col-sm-4 col-form-label">
-                                    Ngày Sinh
-                                </label>
-                                <div class="col-sm-8">
-                                    <input value="<%=ind.getDateBirth()%>" name="datebirth" id="datebirth" placeholder="" type="date" class="form-control">
-                                </div>
-                            </div>
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="datedeath" class="col-sm-4 col-form-label">
-                                    Ngày Mất
-                                </label>
-                                <div class="col-sm-8">
-                                    <input value="<%=ind.getDateBirth()%>" name="datedeath" id="datedeath" placeholder="" type="date" class="form-control">
-                                </div>
-                            </div>
+                        <div id="info" style="float: right; width: 25%;" class="card-shadow-danger" >
+                            <div class="app-page-title1 ">
+                                <div class="page-title-icon1">
+                                    <div style="">
+                                        <img style="width: 130px;height: 135px; margin-left: 28%" src="resources/images/<%=ind.getAvatar() == null ? "imagenotfound.png" : ind.getAvatar()%>" alt="your image" />
+                                    </div>
+                                    <hr style="width: 80%">
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="name" class="col-sm-4 col-form-label">
+                                            Họ Tên
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input value="" name="id" id="id" placeholder="" type="text" class="form-control" hidden="true">
+                                            <input value="<%=ind.getName()%>" name="name" id="name" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="gender" class="col-sm-4 col-form-label">
+                                            Giới Tính
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input value="<%=ind.getGender() == 0 ? "Nữ" : "Nam"%>" name="gender" id="name" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="childth" class="col-sm-4 col-form-label">
+                                            Con Thứ
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input value="<%=ind.getChildth()%>" name="childth" id="childth" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="wifeorhusbandname" class="col-sm-4 col-form-label">
+                                            Tên Vợ
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input value="<%=ind.getWifeOrHusbandName()%>" name="wifeorhusbandname" id="wifeorhusbandname" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="datebirth" class="col-sm-4 col-form-label">
+                                            Ngày Sinh
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input value="<%=ind.getDateBirth()%>" name="datebirth" id="datebirth" placeholder="" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="datedeath" class="col-sm-4 col-form-label">
+                                            Ngày Mất
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input value="<%=ind.getDateBirth()%>" name="datedeath" id="datedeath" placeholder="" type="date" class="form-control">
+                                        </div>
+                                    </div>
 
-                            <div class="position-relative row form-group mb-1-1">
-                                <label for="moreinfo" class="col-sm-4 col-form-label">
-                                    Thông Tin Thêm
-                                </label>
-                                <div class="col-sm-8">
-                                    <textarea name="moreinfo" id="moreinfo" class="form-control"><%=ind.getMoreInfo()%></textarea>
+                                    <div class="position-relative row form-group mb-1-1">
+                                        <label for="moreinfo" class="col-sm-4 col-form-label">
+                                            Thông Tin Thêm
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <textarea name="moreinfo" id="moreinfo" class="form-control"><%=ind.getMoreInfo() == null ? "Không Có" : ind.getMoreInfo()%></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                                        </div>
                     </div>
                 </div>
             </div>
         </div>
-<!--    <script>
-        function showInfo() {
-            document.getElementById('info').style.display = "block";
-         }
-    </script>>-->
+        <!--    <script>
+                function showInfo() {
+                    document.getElementById('info').style.display = "block";
+                 }
+            </script>>-->
     </body>
 </html>

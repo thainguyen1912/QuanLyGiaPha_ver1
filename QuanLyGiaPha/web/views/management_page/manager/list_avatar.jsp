@@ -39,7 +39,7 @@
                                                 for (int i = 0; i < arr_ind.size(); i++) {
                                             %>
                                             <div class="col-md-6 col-lg-3">
-                                                <div class="card-shadow-cuccess mb-3 widget-chart widget-chart2 text-left card">
+                                                <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
                                                     <div class="widget-content">
                                                         <div class="widget-content-outer" style="text-align: center">
                                                             <div class="widget-content-wrapper">

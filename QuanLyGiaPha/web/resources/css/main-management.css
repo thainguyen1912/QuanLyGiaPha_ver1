@@ -11267,6 +11267,17 @@ button,
 	height: 60px
 }
 
+.app-page-title1 .page-title-icon1 {
+	align-items: center;
+	align-content: center;
+	text-align: left;
+	padding: .63333rem;
+	background: #fff;
+	box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+	border-radius: .25rem;
+}
+
+
 .app-page-title .page-title-icon i {
 	margin: auto
 }

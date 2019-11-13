@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="icon" type="image/png" href="resources/images/icons/favicon.ico"/>
+<link rel="icon" type="image/png" href="resources/images/icons/1.ico"/>
 <link rel="stylesheet" type="text/css" href="resources/vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="resources/vendor/animate/animate.css">

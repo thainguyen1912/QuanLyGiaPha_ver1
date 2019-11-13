@@ -90,7 +90,7 @@
                                                             Thông Tin Thêm
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <textarea name="moreinfo" id="moreinfo" class="form-control">Không Có Thông Tin</textarea>
+                                                            <textarea name="moreinfo" id="moreinfo" class="form-control">Không Có</textarea>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -7,14 +7,36 @@ public class Post {
     private String title;
     private String summary;
     private String detail;
+    private String status;
     private int idIndividual;
+    private int idParentage;
 
-    public Post(int idPost, String title, String summary, String detail, int idIndividual) {
+    public Post(int idPost, String title, String summary, String detail, String status, int idIndividual, int idParentage) {
         this.idPost = idPost;
         this.title = title;
         this.summary = summary;
         this.detail = detail;
+        this.status = status;
         this.idIndividual = idIndividual;
+        this.idParentage = idParentage;
+    }
+
+    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getIdParentage() {
+        return idParentage;
+    }
+
+    public void setIdParentage(int idParentage) {
+        this.idParentage = idParentage;
     }
 
     public int getIdPost() {

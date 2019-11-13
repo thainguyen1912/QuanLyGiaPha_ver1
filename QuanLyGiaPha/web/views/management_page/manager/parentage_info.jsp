@@ -33,7 +33,7 @@
                                     <div class="form-row" style="">
                                         <div class="col-md-4 mb-3">
                                         </div>
-                                        <div class="col-md-4 mb-3" style="text-align: center">
+                                        <div class="col-md-4 mb-5" style="text-align: center">
                                             <h5>
                                                 Ngày Tạo : <%=par.getDateCreate()%>
                                             </h5>

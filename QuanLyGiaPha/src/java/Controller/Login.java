@@ -22,6 +22,10 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         
+        String pathInfo = request.getRequestURI().substring(request.getContextPath().length());
+        System.out.println(request.getContextPath());
+        System.out.println(pathInfo);
+        
         String value = "";
         try {
             value = request.getParameter("value");

@@ -1,7 +1,12 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,40 +14,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author thain
+ */
+@WebServlet(name = "Post", urlPatterns = {"/Post"})
+public class Post extends HttpServlet {
 
-@WebServlet(name = "HomePage", urlPatterns = {"/HomePage"})
-public class HomePage extends HttpServlet {
-
-    
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        String pathInfo = request.getRequestURI().substring(request.getContextPath().length());
-        System.out.println(pathInfo);
+        
         String page=request.getParameter("page");
-        RequestDispatcher rd=null;
+        System.out.println(page);
         switch(page){
-            case "index":
-                rd = request.getRequestDispatcher("views/home_page/index.jsp");
+            case "redirect":
+                request.setAttribute("title", "add_post");
+                RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/add_post.jsp");
                 rd.forward(request, response);
                 break;
-            case "parentageVN":
+            case "process":
+                String title=request.getParameter("title");
+                String summary=request.getParameter("summary");
+                String detail=request.getParameter("detail");
                 
-                rd = request.getRequestDispatcher("views/home_page/parentageVN.jsp");
-                rd.forward(request, response);
-                break;
-            case "news":
-                rd = request.getRequestDispatcher("views/home_page/news.jsp");
-                rd.forward(request, response);
-                break;
-            case "about":
-                rd = request.getRequestDispatcher("views/home_page/about.jsp");
-                rd.forward(request, response);
-                break;
-            default:
-                rd = request.getRequestDispatcher("views/home_page/index.jsp");
-                rd.forward(request, response);
+                
+                
+                
                 break;
         }
         

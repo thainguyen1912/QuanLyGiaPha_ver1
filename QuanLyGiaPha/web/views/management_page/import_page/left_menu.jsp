@@ -70,7 +70,7 @@
 
                 <li class="app-sidebar__heading">Tin tức</li>
                 <li>
-                    <a href="ComingSoon">
+                    <a href="Post?page=redirect" class="<%=title.equals("add_post")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-note"></i>
                         Viết bài
                         <i class=""></i>
