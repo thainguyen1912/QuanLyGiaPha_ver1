@@ -1,4 +1,20 @@
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@page import="java.sql.Date"%>
+<%@page import="Model.DBConnection"%>
+<%@page import="Model.Post_DAO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="Enity.Post"%>
+<%@page import="java.util.ArrayList"%>
+
+<%
+    DBConnection db = new DBConnection();
+    Post_DAO pst = new Post_DAO(db);
+    ArrayList<Post> arr_post=pst.selectAll();
+    
+%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,88 +42,44 @@
                 <div class="row">
                     <div class="col-lg-8 ftco-animate fadeInUp ftco-animated">
                         <div class="row">
-                            <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
-                                <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/images/post1.jpg');">
-                                    </a>
-                                    <div class="text d-block pl-md-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">November 21, 2019</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">Gia Phả là gì? Hình thức lập Gia Phả và Tộc Phả</a></h3>
-                                        <p>Gia phả hay gia phổ là bản ghi chép tên họ, tuổi tác, ngày giỗ, vai trò và công đức của cha mẹ, ông bà, tiên tổ và mộ phần của một gia đình lớn hay một dòng họ.</p>
-                                        <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
-                                <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/images/post2.jpg');">
-                                    </a>
-                                    <div class="text d-block pl-md-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">October 10, 2019</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 5</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">Dựng gia phả, giải toả khúc mắc lịch sử</a></h3>
-                                        <p>Các dòng họ là một phần của lịch sử dân tộc, qua đó, những người dựng gia phả đã giải tỏa nhiều tồn nghi do quá khứ để lại hay tìm được mộ phần của những người có công với nước vốn thất lạc hàng trăm năm.</p>
-                                        <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/images/post3.jpg');">
-                                    </a>
-                                    <div class="text d-block pl-md-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">October 04, 2019</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 4</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">Tại sao phải mừng tuổi, lì xì đầu năm?</a></h3>
-                                        <p>Mừng tuổi đầu năm là phong tục phổ biến ở các nước Á Đông. Vậy nguồn gốc, ý nghĩa của phong tục lì xì đầu năm là gì và tại sao lại phải mừng tuổi và lì xì đầu năm?</p>
-                                        <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/images/post4.jpg');">
-                                    </a>
-                                    <div class="text d-block pl-md-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">July 20, 2019</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">Họ Trần có nguồn gốc và gia phả mộ tổ ở đâu?</a></h3>
-                                        <p>Học sử Việt Nam, chúng ta đều biết năm 1285, trước sức mạnh to lớn của giặc Nguyên Mông mở cuộc chiến tranh lần thứ hai xâm lược Việt Nam, Chiêu Quốc vương Trần Ích Tắc đã khiếp sợ đầu hàng kẻ thù, được vua Nguyên là Hốt Tất Liệt phong làm An Nam quốc vương.</p>
-                                        <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 d-flex ftco-animate">
-                            </div>
-                            <div class="col-md-12 d-flex ftco-animate">
-                                <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20" style="background-image: url('resources/images/post6.jpg');">
-                                    </a>
-                                    <div class="text d-block pl-md-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">July 12, 2019</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                        </div>
-                                        <h3 class="heading"><a href="#">8 Phong tục KHÔNG THỂ THIẾU của người Việt trong ngày Tết</a></h3>
-                                        <p>Tết là dịp để mọi người sum họp, để nhìn về một năm đã qua và hướng đến một năm mới an khang thịnh vượng. Trong ngày Tết có rất nhiều phong tục đẹp hãy cùng chúng tôi tìm hiểu nhé!</p>
-                                        <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <tbody>
+                                                
+                                                <%
+                                                    for(int i=arr_post.size()-1;i>-1;i--){
+                                                        if(arr_post.get(i).getStatus().equals("1")){
+                                                %>
+                                                <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
+                                                    <div class="blog-entry align-self-stretch d-md-flex">
+                                                        <a href="#" class="block-20" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>');">
+                                                        </a>
+                                                        <div class="text d-block pl-md-4">
+                                                            <div class="meta mb-3">
+                                                                <div><a href="#"><%=arr_post.get(i).getDatePost()%></a></div>
+                                                               
+                                                                <div><a href="#"><%=arr_post.get(i).getKey().equals("0")?pst.getUser(arr_post.get(i).getIdPost()):"Admin" %></a></div>
+                                                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                                            </div>
+                                                                <h3 class="heading"><a href=""><%=arr_post.get(i).getTitle()%></a></h3>
+                                                                <div style="height: 112px ; overflow: hidden">
+                                                                    <p><%=arr_post.get(i).getSummary()%></p>
+                                                                </div>
+                                                                
+                                                            <p><a href="#" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <%
+                                                    }
+                                                }
+                                                %>
+                                            </tbody>
+                            
+
+
+                            
+                            
+                            
                         </div>
                     </div> <!-- .col-md-8 -->
                     <div class="col-lg-4 sidebar ftco-animate fadeInUp ftco-animated">
@@ -130,61 +102,28 @@
                         </div>
                         <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
                             <h3 class="heading">Tin tức mới nhất</h3>
-                            <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(resources/images/post1.jpg);"></a>
-                                <div class="text">
-                                    <h3 class="heading-1"><a href="#">Gia Phả là gì? Hình thức lập Gia Phả và Tộc Phả</a></h3>
-                                    <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(resources/images/post2.jpg);"></a>
-                                <div class="text">
-                                    <h3 class="heading-1"><a href="#">Dựng Gia Phả, giải toả khúc mắc lịch sử</a></h3>
-                                    <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(resources/images/post3.jpg);"></a>
-                                <div class="text">
-                                    <h3 class="heading-1"><a href="#">Tại sao phải mừng tuổi, lì xì đầu năm?</a></h3>
-                                    <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(resources/images/post4.jpg);"></a>
-                                <div class="text">
-                                    <h3 class="heading-1"><a href="#">Họ Trần có nguồn gốc và gia phả mộ Tổ ở đâu?</a></h3>
-                                    <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(resources/images/post6.jpg);"></a>
-                                <div class="text">
-                                    <h3 class="heading-1"><a href="#">8 phong tục KHÔNG THỂ THIẾU của người Việt trong ngày Tết</a></h3>
-                                    <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <%
+                                                    for(int i=arr_post.size()-1;i>arr_post.size()-5;i--){
+                                                        if(arr_post.get(i).getStatus().equals("1")){
+                                                %>
+                                                <div class="block-21 mb-4 d-flex">
+                                                    <a class="blog-img mr-4" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>')"></a>
+                                                    <div class="text">
+                                                        <h3 class="heading-1"><a href="#"><%=arr_post.get(i).getTitle()%></a></h3>
+                                                        <div class="meta">
+                                                            <div><a href="#"><span class="icon-calendar"></span><%=arr_post.get(i).getDatePost()%></a></div>
+                                                            <div><a href="#"><span class="icon-person"></span><%=arr_post.get(i).getKey().equals("0")?pst.getUser(arr_post.get(i).getIdPost()):"Admin" %></a></div>
+                                                            <div><a href="#"><span class="icon-chat"></span> 3</a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <%
+                                                    }
+                                                }
+                                                %>
+                            
                         </div>
                         <div class="sidebar-box ftco-animate">
                             <h3 class="heading">Từ khoá tìm kiếm nhiều nhất</h3>
