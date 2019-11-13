@@ -20,14 +20,17 @@ public class Post_DAO {
     
     public int insert(Post pos){
         int n=0;
-        String sql="insert into quanlygiapha.post(title, summary, detail, status, idindividual, idparentage) values(?, ?, ?, ?, ?, ?) ";
+        String sql="insert into quanlygiapha.post(title, summary, detail, status, key, image, datepost, idindividual) values(?, ?, ?, ?, ?, ?, ?, ?) ";
         try {
             PreparedStatement pre=connect.prepareStatement(sql);
             pre.setString(1, pos.getTitle());
             pre.setString(2, pos.getSummary());
             pre.setString(3, pos.getDetail());
+            pre.setString(4, pos.getStatus());
+            pre.setString(5, pos.getKey());
+            pre.setString(6, pos.getImage());
+            pre.setDate(7, pos.getDatePost());
             pre.setInt(4, pos.getIdIndividual());
-            pre.setInt(5, pos.getIdParentage());
             n=pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
