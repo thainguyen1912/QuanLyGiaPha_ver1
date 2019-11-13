@@ -27,6 +27,17 @@ public class Post {
         this.idIndividual = idIndividual;
     }
 
+    public Post(String title, String summary, String detail, String status, String key, String image, Date datePost, int idIndividual) {
+        this.title = title;
+        this.summary = summary;
+        this.detail = detail;
+        this.status = status;
+        this.key = key;
+        this.image = image;
+        this.datePost = datePost;
+        this.idIndividual = idIndividual;
+    }
+
     public int getIdPost() {
         return idPost;
     }

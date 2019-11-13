@@ -3,6 +3,7 @@ package Model;
 
 import Enity.Post;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,13 +50,17 @@ public class Post_DAO {
                 String title=rs.getString("title");
                 String summary=rs.getString("summary");
                 String detail=rs.getString("detail");
+                String status=rs.getString("status");
+                String key=rs.getString("key");
+                String image=rs.getString("image");
+                Date datePost=rs.getDate("datepost");
                 int idIndividual=rs.getInt("idindividual");
-                int idParentage=rs.getInt("idparentage");
+                Post pos=new Post(title, summary, detail, status, key, image, datePost, idIndividual);
+                arr_pos.add(pos);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arr_pos;
-        
     }
 }
