@@ -31,7 +31,8 @@ import javax.servlet.http.HttpSession;
     "/ParentageViewTreeExtend",
     "/UpdateParentageInfo",
     "/UserAction",
-    "/AdminControl"
+    "/AdminControl",
+    "/PostControl"
 })
 public class All implements Filter {
 

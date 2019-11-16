@@ -20,7 +20,8 @@ public class Post_DAO {
 
     public int insert(Post pos) {
         int n = 0;
-        String sql = "insert into quanlygiapha.post(title, summary, detail, status, key, image, datepost, idindividual) values(?, ?, ?, ?, ?, ?, ?, ?) ";
+        String sql = "insert into quanlygiapha.post(title, summary, detail, post.status, post.key, image, datepost, username) values(?, ?, ?, ?, ?, ?, ?, ?)";
+//        trường status, key là từ khóa trong sql, thêm post.
         try {
             PreparedStatement pre = connect.prepareStatement(sql);
             pre.setString(1, pos.getTitle());
@@ -30,7 +31,7 @@ public class Post_DAO {
             pre.setString(5, pos.getKey());
             pre.setString(6, pos.getImage());
             pre.setDate(7, pos.getDatePost());
-            pre.setInt(4, pos.getIdIndividual());
+            pre.setString(8, pos.getUserName());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -54,8 +55,8 @@ public class Post_DAO {
                 String key = rs.getString("key");
                 String image = rs.getString("image");
                 Date datePost = rs.getDate("datepost");
-                int idIndividual = rs.getInt("idindividual");
-                Post pos = new Post(id,title, summary, detail, status, key, image, datePost, idIndividual);
+                String userName = rs.getString("username");
+                Post pos = new Post(id,title, summary, detail, status, key, image, datePost, userName);
                 arr_pos.add(pos);
             }
         } catch (SQLException ex) {
@@ -67,9 +68,7 @@ public class Post_DAO {
 //    -----------------------------------------------------------------------------------------------------
     public String getUser(int id) {
         String userName = "";
-        String sql ="select quanlygiapha.parentage.username from quanlygiapha.parentage, quanlygiapha.individual, quanlygiapha.post\n" +
-"where quanlygiapha.post.idindividual=quanlygiapha.individual.id and quanlygiapha.individual.idparentage=quanlygiapha.parentage.id\n" +
-"and quanlygiapha.post.id=?";
+        String sql ="select username from quanlygiapha.post where id=?";
         try {
             PreparedStatement pre = connect.prepareStatement(sql);
             pre.setInt(1, id);

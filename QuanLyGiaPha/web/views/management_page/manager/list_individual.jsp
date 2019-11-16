@@ -81,7 +81,7 @@
                                                                         </i>
                                                                     </button>
                                                                 </a>
-                                                                <a>
+                                                                    <a href="AddIndividual?value=Redirect&id=<%=arr_ind.get(i).getIdIndividual()%>">
                                                                     <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info">
                                                                         <i class="pe-7s-add-user" style="font-size: 1.2rem">
                                                                             <span style="font-size:16px">   Thêm Con</span>

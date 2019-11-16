@@ -19,10 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @WebServlet("/EditIndividual")
-@MultipartConfig(maxFileSize = 16177215)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB 
+        maxFileSize = 1024 * 1024 * 50, // 50 MB
+        maxRequestSize = 1024 * 1024 * 100, // 100 MB
+        location = "D:/Stored/netbean_workspace/QuanLyGiaPha/QuanLyGiaPha/web/resources/images")
 public class EditIndividual extends HttpServlet {
-
-    public static final String SAVE_DIRECTORY = "images";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,18 +53,6 @@ public class EditIndividual extends HttpServlet {
             } catch (Exception e) {
             }
             String moreInfo = request.getParameter("moreinfo");
-
-//            String appPath = request.getServletContext().getRealPath("");
-//            appPath = appPath.replace('\\', '/');
-//            System.out.println(appPath);
-            String appPath = "D:/Stored/netbean_workspace/QuanLyGiaPha/QuanLyGiaPha/web/resources/";
-            String fullSavePath = null;
-            if (appPath.endsWith("/")) {
-                fullSavePath = appPath + SAVE_DIRECTORY;
-            } else {
-                fullSavePath = appPath + "/" + SAVE_DIRECTORY;
-            }
-            String filePath = "";
             String fileName = "";
             for (Part part : request.getParts()) {
                 if (part.getName().equals("avatar")) {
@@ -74,13 +63,8 @@ public class EditIndividual extends HttpServlet {
                     ind_dao.update(ind);
 
                     if (fileName != null && fileName.length() > 0) {
-                        filePath = fullSavePath + File.separator + fileName;
-                        System.out.println("Write attachment to file: " + filePath);
-
-                        // Ghi vào file.
-                        part.write(filePath);
+                        part.write(fileName);
                     }
-                    String path = request.getServletContext().getRealPath("/images/" + fileName);
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException ex) {

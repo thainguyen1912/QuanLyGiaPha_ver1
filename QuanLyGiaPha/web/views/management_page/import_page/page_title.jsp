@@ -28,10 +28,13 @@
             title="Đổi Mật Khẩu Tài Khoản";
             break;
         case "list_parentage":
-            title="Danh Sách Gia Phả Đang Quản Lý"   ;
+            title="Danh Sách Gia Phả Đang Quản Lý";
             break;
         case "add_post":
-            title="Thêm Bài Viết"   ;
+            title="Thêm Bài Viết";
+            break;
+        case "list_post":
+            title="Danh Sách Bài Viết";
             break;
         default:
             title="null";

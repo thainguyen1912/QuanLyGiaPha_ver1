@@ -28,9 +28,9 @@
                             <div class="tab-pane tabs-animation fade active show" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
-                                        <form class="" style="width: 100%" action="Post?page=process" method="post">
+                                        <form class="" style="width: 100%" action="PostControl?page=process_add" method="post" enctype="multipart/form-data">
                                             <div>
-                                                <div style="width: 100%; float: left">
+                                                <div style="width: 60%; float: left">
                                                     <div class="position-relative row form-group">
                                                         <label for="title" class="col-sm-2 col-form-label">
                                                             Tiêu Đề
@@ -56,12 +56,35 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="position-relative row form-check" style="clear: both">
-                                                    <div class="col-sm-10 offset-sm-2">
-                                                        <button style="margin-left: 30%;" class="btn btn-primary" type="submit">
-                                                            Cập Nhật Thông Tin
-                                                        </button>
+                                                <div style="width: 40%; float: left">
+                                                    <div>
+                                                        <div class="file-upload" style="width: 85%;">
+                                                            <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Chọn Ảnh</button>
+
+                                                            <div class="image-upload-wrap">
+                                                                <input class="file-upload-input" type="file" name="avatar" size="50" onchange="readURL(this);" accept="image/*" />
+                                                                <div class="drag-text">
+                                                                    <h3>
+                                                                        Kéo Và Thả một File Vào Đây
+                                                                    </h3>
+                                                                </div>
+                                                            </div>
+                                                            <div class="file-upload-content">
+                                                                <img class="file-upload-image" src="#" style="max-width: 100%"  alt="your image" />
+                                                                <div class="image-title-wrap">
+                                                                    <button type="button" onclick="removeUpload()" class="remove-image">Xóa Bỏ  <span class="image-title">Uploaded Image</span></button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative row form-check" style="clear: both">
+                                                <div class="col-sm-10 offset-sm-2">
+                                                    <button style="margin-left: 30%;" class="btn btn-primary" type="submit">
+                                                        Cập Nhật Thông Tin
+                                                    </button>
                                                 </div>
                                             </div>
                                         </form>
