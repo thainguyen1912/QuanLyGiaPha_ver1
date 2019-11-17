@@ -21,6 +21,10 @@
                 } else
                     return false;
             }
+            function selectFloor(obj) {
+                var floor = obj.value;
+                window.location.replace("ParentageViewTree?floor=" + floor + "");
+            }
         </script>
         <!--<script src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
         <script type="text/javascript" src="resources/assets/scripts/main.js"></script>

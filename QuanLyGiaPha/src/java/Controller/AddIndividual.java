@@ -66,7 +66,7 @@ public class AddIndividual extends HttpServlet {
                     DBConnection db = new DBConnection();
                     Individual_DAO ind_dao = new Individual_DAO(db);
                     int fatherFloor = ind_dao.getFloorById(idFather);
-                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, fatherFloor + 1);
+                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, (fatherFloor + 1));
 
                     ind_dao.InsertIndividual(ind);
 

@@ -56,7 +56,11 @@
                                                 <tr>
                                                     <th><%=i+1 %></th>
                                                     <td>
-                                                        <img src="resources/images/<%=arr_ind.get(i).getAvatar()==null?"imagenotfound.png": arr_ind.get(i).getAvatar()%>" width="100px">
+                                                        <%
+                                                            boolean check=true;
+                                                            if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
+                                                        %>
+                                                        <img src="resources/images/<%=check==false?"imagenotfound.png": arr_ind.get(i).getAvatar()%>" width="100px">
                                                     </td>
                                                     <td><%=arr_ind.get(i).getName()%></td>
                                                     <td><%=arr_ind.get(i).getWifeOrHusbandName()%></td>

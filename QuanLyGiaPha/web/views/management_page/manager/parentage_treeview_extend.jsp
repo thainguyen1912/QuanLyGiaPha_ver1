@@ -13,6 +13,7 @@
     DBConnection db = new DBConnection();
     Individual_DAO ind_dao = new Individual_DAO(db);
 
+//    sau khi click chon 1 thanh vien xem thong tin
     Individual ind = (Individual) request.getAttribute("individual");
 %>
 <!doctype html>
@@ -87,12 +88,15 @@
                                         margin += 4;
                                     }
 
+                                    boolean check=true;
+                                        if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
+                                    
                                     temp += "<div class=\"collapse show\" id=\"" + id + "\">";
                                     temp += "<div style=\"margin-bottom:-1%\">";
                                     //số đời
                                     temp += "<button class=\"btn-transition btn btn-outline-warning\" type=\"button\" data-toggle=\"collapse\" data-target='" + target + "' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">" + doiThu + "</button>";
                                     //button tên        
-                                    temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"min-width: 18%; width:auto; margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources//images//" + (arr_ind.get(i).getAvatar() == null ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
+                                    temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"min-width: 18%; width:auto; margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources//images//" + (check == false ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
                                     //nhóm lựa chọn        
                                     temp += "<div class=\"dropdown d-inline-block\"><button type=\button\" aria-haspopup=\"true\" aria-expanded=\"false\" data-toggle=\"dropdown\" class=\"mb-2 mr-2 dropdown-toggle btn btn-outline-info\"></button><div tabindex=\"-1\" role=\"menu\" aria-hidden=\"true\" class=\"dropdown-menu\">";
 
@@ -116,7 +120,11 @@
                             <div class="app-page-title1 ">
                                 <div class="page-title-icon1">
                                     <div style="">
-                                        <img style="width: 160px;height: 140px; margin-left: 20%" src="resources/images/<%=ind.getAvatar() == null ? "imagenotfound.png" : ind.getAvatar()%>" alt="your image" />
+                                        <%
+                                            boolean check=true;
+                                            if(ind.getAvatar()==null || ind.getAvatar().equals("")) check=false;
+                                        %>
+                                        <img style="width: 160px;height: 140px; margin-left: 20%" src="resources/images/<%=check==false ? "imagenotfound.png" : ind.getAvatar()%>" alt="your image" />
                                     </div>
                                     <hr style="width: 80%">
                                     <div class="position-relative row form-group mb-1-1">

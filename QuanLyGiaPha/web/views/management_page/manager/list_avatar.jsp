@@ -44,7 +44,11 @@
                                                         <div class="widget-content-outer" style="text-align: center">
                                                             <div class="widget-content-wrapper">
                                                                 <div class="">
-                                                                    <img src="resources/images/<%=arr_ind.get(i).getAvatar()%>" width="100%"> 
+                                                                    <%
+                                                                        boolean check=true;
+                                                                        if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
+                                                                    %>
+                                                                    <img src="resources/images/<%=check==false?"imagenotfound.png":arr_ind.get(i).getAvatar()%>" width="100%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>

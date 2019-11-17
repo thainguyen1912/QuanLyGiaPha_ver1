@@ -65,7 +65,34 @@ public class ParentageViewTree extends HttpServlet {
                 Logger.getLogger(ParentageViewTree.class.getName()).log(Level.SEVERE, null, ex);
             }
         //
-        request.setAttribute("arr_ind", arr_ind);
+        int maxFloor=ind_dao.getMaxFloor(idParentageSession);
+        request.setAttribute("maxFloor", maxFloor);
+        
+        int floor=-1;
+        try {
+            floor = Integer.valueOf(request.getParameter("floor"));
+        } catch (NumberFormatException numberFormatException) {
+        }
+        
+        if(floor==-1){
+            request.setAttribute("arr_ind", arr_ind);
+        }
+        else{
+//            khong xet
+            if(floor==maxFloor){
+                request.setAttribute("arr_ind", arr_ind);
+            }
+//            xet
+            else{
+                for(int i=0;i<arr_ind.size();i++){
+                    if(arr_ind.get(i).getFloor()>floor){
+                        arr_ind.remove(i);
+                        i--;
+                    }
+                }
+                request.setAttribute("arr_ind", arr_ind);
+            }
+        }
         RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/parentage_treeview.jsp");
         rd.forward(request, response);
     }
