@@ -46,48 +46,88 @@ public class PostControl extends HttpServlet {
         String page=request.getParameter("page");
         DBConnection db = new DBConnection();
         RequestDispatcher rd=null;
+        
+        HttpSession session=request.getSession();
+        Account acc=(Account)session.getAttribute("Account");
+        String username=acc.getUserName();
+        Post_DAO pos_dao=new Post_DAO(db);
+        
         switch(page){
-            case "redirect":
+            case "redirect_add":
                 request.setAttribute("title", "add_post");
                 rd=request.getRequestDispatcher("views/management_page/manager/add_post.jsp");
                 rd.forward(request, response);
                 break;
+            case "redirect_edit":
+                
+                int id=Integer.valueOf(request.getParameter("id"));
+                Post pos_re=pos_dao.selectByID(id);
+                request.setAttribute("post", pos_re);
+                request.setAttribute("title", "edit_post");
+                rd=request.getRequestDispatcher("views/management_page/manager/edit_post.jsp");
+                rd.forward(request, response);
+                break;
             case "process_add":
-                String title=request.getParameter("title");
-                String summary=request.getParameter("summary");
-                String detail=request.getParameter("detail");
+                String title_pa=request.getParameter("title");
+                String summary_pa=request.getParameter("summary");
+                String detail_pa=request.getParameter("detail");
                 
-                LocalDate date = LocalDate.now();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                Date dateNow = (Date.valueOf(date.format(formatter)));
+                LocalDate date_pa = LocalDate.now();
+                DateTimeFormatter formatter_pa = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                Date dateNow_pa = (Date.valueOf(date_pa.format(formatter_pa)));
                 
-                HttpSession session=request.getSession();
-                Account acc=(Account)session.getAttribute("Account");
-                String username=acc.getUserName();
-                
-                String fileName = "";
+                String fileName_pa = "";
                 for (Part part : request.getParts()) {
                     if (part.getName().equals("avatar")) {
-                        fileName = extractFileName(part);
-                        Post_DAO pos_dao=new Post_DAO(db);
-                        Post pos=new Post(title, summary, detail, "0", "0", fileName, dateNow, username);
-                        pos.toString();
-                        pos_dao.insert(pos);
-                        if (fileName != null && fileName.length() > 0) {
-                            part.write(fileName);
+                        fileName_pa = extractFileName(part);
+                        Post pos_pa=new Post(title_pa, summary_pa, detail_pa, "0", "0", fileName_pa, dateNow_pa, username);
+                        pos_dao.insert(pos_pa);
+                        if (fileName_pa != null && fileName_pa.length() > 0) {
+                            part.write(fileName_pa);
                         }
                         try {
                             Thread.sleep(5000);
                         } catch (InterruptedException ex) { 
                             Logger.getLogger(PostControl.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        response.sendRedirect("ParentageViewTree");
+                        response.sendRedirect("PostControl?page=listpost");
                     }
                 }
                 break;
+            case "process_edit":
+                String title_pe=request.getParameter("title");
+                String summary_pe=request.getParameter("summary");
+                String detail_pe=request.getParameter("detail");
+                
+                LocalDate date_pe = LocalDate.now();
+                DateTimeFormatter formatter_pe = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                Date dateNow_pe = (Date.valueOf(date_pe.format(formatter_pe)));
+                
+                String fileName_pe = "";
+                for (Part part : request.getParts()) {
+                    if (part.getName().equals("avatar")) {
+                        fileName_pe = extractFileName(part);
+                        Post pos_pe=new Post(title_pe, summary_pe, detail_pe, "0", "0", fileName_pe, dateNow_pe, username);
+                        pos_dao.update(pos_pe);
+                        if (fileName_pe != null && fileName_pe.length() > 0) {
+                            part.write(fileName_pe);
+                        }
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException ex) { 
+                            Logger.getLogger(PostControl.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        response.sendRedirect("PostControl?page=listpost");
+                    }
+                }
+                break;
+            case "delete":
+                int id_d=Integer.valueOf(request.getParameter("id"));
+                pos_dao.delete(id_d);
+                response.sendRedirect("PostControl?page=listpost");
+                break;
             case "listpost":
-                Post_DAO pos_dao=new Post_DAO(db);
-                ArrayList<Post> list_post=pos_dao.selectAll();
+                ArrayList<Post> list_post=pos_dao.selectAllByUserName(username);
                 request.setAttribute("list_post", list_post);
                 request.setAttribute("title", "list_post");
                 rd=request.getRequestDispatcher("views/management_page/manager/list_post.jsp");

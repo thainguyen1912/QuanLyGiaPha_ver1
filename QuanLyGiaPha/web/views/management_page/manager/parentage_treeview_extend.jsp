@@ -116,7 +116,7 @@
                             <div class="app-page-title1 ">
                                 <div class="page-title-icon1">
                                     <div style="">
-                                        <img style="width: 130px;height: 135px; margin-left: 28%" src="resources/images/<%=ind.getAvatar() == null ? "imagenotfound.png" : ind.getAvatar()%>" alt="your image" />
+                                        <img style="width: 160px;height: 140px; margin-left: 20%" src="resources/images/<%=ind.getAvatar() == null ? "imagenotfound.png" : ind.getAvatar()%>" alt="your image" />
                                     </div>
                                     <hr style="width: 80%">
                                     <div class="position-relative row form-group mb-1-1">

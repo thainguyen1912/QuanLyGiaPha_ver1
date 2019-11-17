@@ -44,7 +44,7 @@
                                                         <div class="widget-content-outer" style="text-align: center">
                                                             <div class="widget-content-wrapper">
                                                                 <div class="">
-                                                                    <img src="resources/images/post/<%=list_post.get(i).getImage()==null?"imagenotfound.png":list_post.get(i).getImage() %>" width="100%"> 
+                                                                    <img src="resources/images/post/<%=list_post.get(i).getImage().equals("")?"imagenotfound.png":list_post.get(i).getImage() %>" width="100%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>
@@ -52,11 +52,14 @@
                                                             <div class="widget-content-left fsize-1 mt-2">
                                                                 <div class="text-muted opacity-6">Tiêu Đề: <%=list_post.get(i).getTitle()%></div>
                                                             </div>
-                                                            <div class="widget-content-left fsize-1">
+<!--                                                            <div class="widget-content-left fsize-1">
                                                                 <div class="text-muted opacity-6">Tóm Tắt: <%= list_post.get(i).getSummary()%></div>
+                                                            </div>-->
+                                                            <div class="widget-content-left fsize-1 mt-2" style="float: left">
+                                                                <a href="PostControl?page=redirect_edit&id=<%=list_post.get(i).getIdPost()%>"><button class="btn-wide btn btn-success">Xem Và Sửa</button></a>
                                                             </div>
-                                                            <div class="widget-content-left fsize-1 mt-2" style="">
-                                                                <a href="EditIndividual?value=Redirect&idIndividual=<%=list_post.get(i).getIdPost()%>"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
+                                                            <div class="widget-content-left fsize-1 mt-2" style="float: left">
+                                                                <a onclick="return xacNhan()" href="PostControl?page=delete&id=<%=list_post.get(i).getIdPost()%>"><button class="btn-wide btn btn-danger">Xóa</button></a>
                                                             </div>
                                                         </div>
                                                     </div>
