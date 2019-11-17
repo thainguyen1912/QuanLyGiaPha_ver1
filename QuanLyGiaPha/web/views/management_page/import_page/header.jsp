@@ -34,7 +34,7 @@
     </div>   
     <div class="app-header__content">
         <div class="app-header-left" style="width: 75%">
-            <div class="tenho" style="font-weight: bold;margin-left: 60%;font-size: 30px;">
+            <div class="tenho" style="font-weight: bold;margin-left: 55%;font-size: 25px;">
                 <%
                     Parentage par = null;//cho truong hop trang admin khong co par
                     try {
@@ -50,25 +50,25 @@
             <div class="header-btn-lg pr-0">
                 <div class="widget-content p-0">
                     <div class="widget-content-wrapper">
-                        <div class="widget-content-left">
-                            <div class="btn-group">
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0">
-                                    <img width="42" class="rounded-circle" src="resources/assets/images/avatars/a.png" alt="">
-                                    <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                                </a>
-                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <a href="UserAction?page=info"><button type="button" tabindex="0" class="dropdown-item">Thông tin</button></a>
-                                    <a href="UserAction?page=change_pass"><button type="button" tabindex="0" class="dropdown-item">Đổi mật khẩu</button></a>
-                                    <a href="UserAction?page=logout"><button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button></a>
+                            <div class="widget-content-left">
+                                <div class="btn-group">
+                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0">
+                                        <img width="42" class="rounded-circle" src="resources/assets/images/avatars/user3.png" alt="">
+                                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                                    </a>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                        <a href="UserAction?page=info"><button type="button" tabindex="0" class="dropdown-item">Thông tin</button></a>
+                                        <a href="UserAction?page=change_pass"><button type="button" tabindex="0" class="dropdown-item">Đổi mật khẩu</button></a>
+                                        <a href="UserAction?page=logout"><button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button></a>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
                                 <%=acc.getUserName()%>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
