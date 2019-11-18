@@ -1,18 +1,23 @@
-<%@page import="java.sql.Date"%>
 <%@page import="Model.DBConnection"%>
 <%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
+    ServletContext cont=getServletContext();
     Parentage par = (Parentage) session.getAttribute("Parentage");
-    ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
+    ArrayList<Individual> arr_ind = (ArrayList<Individual>) cont.getAttribute("arr_ind");
     DBConnection db = new DBConnection();
     Individual_DAO ind_dao = new Individual_DAO(db);
-
+    int maxFloor=Integer.valueOf(request.getAttribute("maxFloor").toString());
+    
+//    set mac dinh 
+    int floor=maxFloor;
+    try {
+            floor = Integer.valueOf(cont.getAttribute("floor").toString());
+        } catch (Exception e) {
+        }
 %>
 <!doctype html>
 <html lang="en">
@@ -29,7 +34,7 @@
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>
                         <div class="main-card mb-3 card">
-                            <div style="float: left; width: 75%">
+                            <div style="float: left; width: 74%">
                                 <div style="text-align: center; margin-bottom: 2%">
                                     <h6 style="color: red">
                                         <%=request.getAttribute("delete-error") == null ? "" : request.getAttribute("delete-error")%>
@@ -38,6 +43,18 @@
                                         <%=request.getAttribute("delete-success") == null ? "" : request.getAttribute("delete-success")%>
                                     </h6>
                                 </div>
+                                <div class="mb-3 ml-4" style="overflow: auto">
+                                    <span style="float: left; margin-top: 1%">Từ đời 1 tới đời &emsp; </span>
+                                    <select onchange="selectFloor(this)" name="select" id="exampleSelect" class="form-control" style="float: left; width: 10%; height: 10%">
+                                        <option></option>
+                                        <%
+                                            for(int i=1;i<=maxFloor;i++){
+                                        %>
+                                        <option value="<%=i %>" <%=i==floor?"selected":"" %>  ><%=i %></option>
+                                        <%}%>
+                                    </select>
+                                </div>
+                                <div style="clear: both"></div>
 
                                 <%
                                     int doiThu = 0;
@@ -61,6 +78,7 @@
                                         String id = "a" + String.valueOf(arr_ind.get(i).getIdIndividual());
                                         String target = "";
                                         String input = arr_ind.get(i).getBranch();
+
                                         for (int j = i + 1; j < arr_ind.size(); j++) {
                                             String branch = arr_ind.get(j).getBranch();
                                             if (branch.indexOf(input) != -1) {
@@ -86,12 +104,15 @@
                                             margin += 4;
                                         }
 
+                                        boolean check=true;
+                                        if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
+                                        
                                         temp += "<div class=\"collapse show\" id=\"" + id + "\">";
                                         temp += "<div style=\"margin-bottom:-1%\">";
                                         //số đời
                                         temp += "<button class=\"btn-transition btn btn-outline-warning\" type=\"button\" data-toggle=\"collapse\" data-target='" + target + "' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">" + doiThu + "</button>";
                                         //button tên        
-                                        temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"width: 18%;margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources//images//" + (arr_ind.get(i).getAvatar() == null ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
+                                        temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"min-width: 18%; width:auto; margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources//images//" + (check==false ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
                                         //nhóm lựa chọn        
                                         temp += "<div class=\"dropdown d-inline-block\"><button type=\button\" aria-haspopup=\"true\" aria-expanded=\"false\" data-toggle=\"dropdown\" class=\"mb-2 mr-2 dropdown-toggle btn btn-outline-info\"></button><div tabindex=\"-1\" role=\"menu\" aria-hidden=\"true\" class=\"dropdown-menu\">";
 

@@ -1,14 +1,8 @@
-<%@page import="java.sql.Date"%>
-<%@page import="Model.DBConnection"%>
-<%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="Enity.Individual"%>
+<%@page import="Enity.Post"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
+    ArrayList<Post> arr_post=(ArrayList<Post>)request.getAttribute("arr_pos");
 %>
 <!doctype html>
 <html lang="en">
@@ -18,7 +12,7 @@
             <jsp:include page="../import_page/header.jsp" flush="true"/> 
             <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main" style="overflow: auto">
-                <jsp:include page="../import_page/left_menu.jsp" flush="true"/>
+                <jsp:include page="import_page/left_menu_admin.jsp" flush="true"/>
                 <div class="app-main__outer">
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>
@@ -31,14 +25,9 @@
                                         </div>
                                         <div class="row">
                                             <%
-                                                if (arr_ind.size() == 0) {
+                                                for (int i = 0; i < arr_post.size(); i++) {
                                             %>
-                                                <h5 style="color: red">Không Có Ảnh Nào Để Hiển Thị</h5>
-                                            <%}%>
-                                            <%
-                                                for (int i = 0; i < arr_ind.size(); i++) {
-                                            %>
-                                            <div class="col-md-6 col-lg-3">
+                                            <div class="col-md-6 col-lg-6">
                                                 <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
                                                     <div class="widget-content">
                                                         <div class="widget-content-outer" style="text-align: center">
@@ -46,21 +35,29 @@
                                                                 <div class="">
                                                                     <%
                                                                         boolean check=true;
-                                                                        if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
+                                                                        if(arr_post.get(i).getImage()==null || arr_post.get(i).getImage().equals("")) check=false;
                                                                     %>
-                                                                    <img src="resources/images/<%=check==false?"imagenotfound.png":arr_ind.get(i).getAvatar()%>" width="100%"> 
+                                                                    <img src="resources/images/<%=check==false?"imagenotfound.png":arr_post.get(i).getImage() %>" width="50%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1 mt-2">
-                                                                <div class="text-muted opacity-6"><%=arr_ind.get(i).getName()%></div>
+                                                                <div class="text-muted opacity-6">Tiêu Đề: <%=arr_post.get(i).getTitle()%></div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Đời Thứ: <%= arr_ind.get(i).getFloor()%></div>
+                                                                <div class="text-muted opacity-6">Tóm Tắt: <%= arr_post.get(i).getSummary()%></div>
                                                             </div>
-                                                            <div class="widget-content-left fsize-1 mt-2" style="">
-                                                                <a href="EditIndividual?value=Redirect&idIndividual=<%=arr_ind.get(i).getIdIndividual()%>"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
+                                                            <div class="mt-2" style="margin-left: 32%">
+                                                                <div class="mr-2" style="float: left">
+                                                                    <a href="ComingSoon"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
+                                                                </div>
+                                                                <div class="mr-2" style="float: left">
+                                                                    <a href="ComingSoon"><button class="btn-wide btn btn-primary">Duyệt</button></a>
+                                                                </div>
+                                                                <div class="mr-2" style="float: left">
+                                                                    <a href="ComingSoon"><button class="btn-wide btn btn-danger">Xóa</button></a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -6,7 +6,6 @@ import Enity.Parentage;
 import Model.DBConnection;
 import Model.Individual_DAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

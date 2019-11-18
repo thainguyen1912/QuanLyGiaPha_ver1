@@ -1,9 +1,7 @@
-<%@page import="java.sql.Blob"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="java.sql.Date"%>
 <%@page import="Model.DBConnection"%>
 <%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page import="Enity.Individual"%>
 <%@page import="Enity.Parentage"%>
 
@@ -102,9 +100,12 @@
                                                     <div style="float: left; width: 40%">
                                                         <div>
                                                             <div class="file-upload" style="width: 85%;">
-
+                                                                <%
+                                                                    boolean check=true;
+                                                                    if(ind.getAvatar()==null || ind.getAvatar().equals("")) check=false;
+                                                                %>
                                                                 <div style="margin-bottom: 10%">
-                                                                    <img style="max-width: 100%" src="resources/images/<%=ind.getAvatar()==null?"imagenotfound.png":ind.getAvatar() %>" alt="your image" />
+                                                                    <img style="max-width: 100%" src="resources/images/<%=(check==false?"imagenotfound.png":ind.getAvatar()) %>" alt="your image" />
                                                                 </div>
 
                                                                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Thay Đổi Ảnh</button>

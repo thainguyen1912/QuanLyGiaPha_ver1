@@ -1,11 +1,5 @@
-<%@page import="java.sql.Date"%>
-<%@page import="Model.DBConnection"%>
-<%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     ArrayList<Individual> arr_ind=(ArrayList<Individual>)request.getAttribute("arr_ind");
@@ -56,7 +50,11 @@
                                                 <tr>
                                                     <th><%=i+1 %></th>
                                                     <td>
-                                                        <img src="resources/images/<%=arr_ind.get(i).getAvatar()==null?"imagenotfound.png": arr_ind.get(i).getAvatar()%>" width="100px">
+                                                        <%
+                                                            boolean check=true;
+                                                            if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
+                                                        %>
+                                                        <img src="resources/images/<%=check==false?"imagenotfound.png": arr_ind.get(i).getAvatar()%>" width="100px">
                                                     </td>
                                                     <td><%=arr_ind.get(i).getName()%></td>
                                                     <td><%=arr_ind.get(i).getWifeOrHusbandName()%></td>
@@ -81,7 +79,7 @@
                                                                         </i>
                                                                     </button>
                                                                 </a>
-                                                                <a>
+                                                                    <a href="AddIndividual?value=Redirect&id=<%=arr_ind.get(i).getIdIndividual()%>">
                                                                     <button class="dropdown-item mb-2 mr-2 btn-transition btn btn-outline-info">
                                                                         <i class="pe-7s-add-user" style="font-size: 1.2rem">
                                                                             <span style="font-size:16px">   Thêm Con</span>

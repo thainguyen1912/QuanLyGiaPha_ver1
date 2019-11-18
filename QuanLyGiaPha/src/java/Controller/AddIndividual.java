@@ -1,11 +1,9 @@
 package Controller;
 
-import static Controller.EditIndividual.SAVE_DIRECTORY;
 import Enity.Individual;
 import Enity.Parentage;
 import Model.DBConnection;
 import Model.Individual_DAO;
-import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -22,7 +20,10 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 @WebServlet("/AddIndividual")
-@MultipartConfig(maxFileSize = 16177215)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB 
+        maxFileSize = 1024 * 1024 * 50, // 50 MB
+        maxRequestSize = 1024 * 1024 * 100, // 100 MB
+        location = "D:/Stored/netbean_workspace/QuanLyGiaPha/QuanLyGiaPha/web/resources/images")
 public class AddIndividual extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,37 +45,19 @@ public class AddIndividual extends HttpServlet {
             HttpSession session = request.getSession();
             Parentage par = (Parentage) session.getAttribute("Parentage");
             int idPar = par.getId();
-            System.out.println("id-> " + idPar);
             String name = request.getParameter("name");
-            System.out.println("name -> " + name);
             int gender = Integer.valueOf(request.getParameter("gender").toString());
-            System.out.println("gender-> " + gender);
             int childth = Integer.valueOf(request.getParameter("childth"));
-            System.out.println("child->" + childth);
             String wifeOrHusbandName = request.getParameter("wifeorhusbandname");
-            System.out.println("wifeOrHusbandName->" + wifeOrHusbandName);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date dateBirth = Date.valueOf(request.getParameter("datebirth"));
-            System.out.println("dateBirth->" + dateBirth);
             Date datedeath = null;
             try {
                 datedeath = Date.valueOf(request.getParameter("datedeath"));
             } catch (Exception e) {
             }
-            System.out.println("datedeath->" + datedeath);
             String moreInfo = request.getParameter("moreinfo");
-            System.out.println("moreInfo->" + moreInfo);
-//            String appPath = request.getServletContext().getRealPath("");
-//            appPath = appPath.replace('\\', '/');
-//            System.out.println(appPath);
-            String appPath = "D:/Stored/netbean_workspace/QuanLyGiaPha/QuanLyGiaPha/web/resources/";
-            String fullSavePath = null;
-            if (appPath.endsWith("/")) {
-                fullSavePath = appPath + SAVE_DIRECTORY;
-            } else {
-                fullSavePath = appPath + "/" + SAVE_DIRECTORY;
-            }
-            String filePath = "";
+            
             String fileName = "";
             for (Part part : request.getParts()) {
                 if (part.getName().equals("avatar")) {
@@ -83,8 +66,7 @@ public class AddIndividual extends HttpServlet {
                     DBConnection db = new DBConnection();
                     Individual_DAO ind_dao = new Individual_DAO(db);
                     int fatherFloor = ind_dao.getFloorById(idFather);
-                    System.out.println(fatherFloor);
-                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, fatherFloor + 1);
+                    Individual ind = new Individual(-1, idPar, name, wifeOrHusbandName, dateBirth, datedeath, childth, idFather, gender, null, fileName, moreInfo, (fatherFloor + 1));
 
                     ind_dao.InsertIndividual(ind);
 
@@ -95,13 +77,8 @@ public class AddIndividual extends HttpServlet {
                     ind_dao.updateBranch(branchChild, maxid, idPar);
 
                     if (fileName != null && fileName.length() > 0) {
-                        filePath = fullSavePath + File.separator + fileName;
-                        System.out.println("Write attachment to file: " + filePath);
-
-                        // Ghi vào file.
-                        part.write(filePath);
+                        part.write(fileName);
                     }
-                    String path = request.getServletContext().getRealPath("/images/" + fileName);
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException ex) {

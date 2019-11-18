@@ -13,14 +13,18 @@ public class Post {
     private String key;
     private String image;
     private Date datePost;
-    private int idIndividual;
+    private String userName;
 
+<<<<<<< HEAD
     public Post() {
     }
     
     
 
     public Post(int idPost, String title, String summary, String detail, String status, String key, String image, Date datePost, int idIndividual) {
+=======
+    public Post(int idPost, String title, String summary, String detail, String status, String key, String image, Date datePost, String userName) {
+>>>>>>> c5ac5bb69e2c94cb6c5a3216118f201481463c89
         this.idPost = idPost;
         this.title = title;
         this.summary = summary;
@@ -29,10 +33,10 @@ public class Post {
         this.key = key;
         this.image = image;
         this.datePost = datePost;
-        this.idIndividual = idIndividual;
+        this.userName = userName;
     }
 
-    public Post(String title, String summary, String detail, String status, String key, String image, Date datePost, int idIndividual) {
+    public Post(String title, String summary, String detail, String status, String key, String image, Date datePost, String userName) {
         this.title = title;
         this.summary = summary;
         this.detail = detail;
@@ -40,7 +44,12 @@ public class Post {
         this.key = key;
         this.image = image;
         this.datePost = datePost;
-        this.idIndividual = idIndividual;
+        this.userName = userName;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" + "idPost=" + idPost + ", title=" + title + ", summary=" + summary + ", detail=" + detail + ", status=" + status + ", key=" + key + ", image=" + image + ", datePost=" + datePost + ", userName=" + userName + '}';
     }
 
     public int getIdPost() {
@@ -107,13 +116,15 @@ public class Post {
         this.datePost = datePost;
     }
 
-    public int getIdIndividual() {
-        return idIndividual;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setIdIndividual(int idIndividual) {
-        this.idIndividual = idIndividual;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
+    
 
    
     

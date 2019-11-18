@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +30,16 @@ public class ParentageViewTree extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        ServletContext cont=getServletContext();
+//        click left menu(treeview) remove all context
+        if(cont.getAttribute("arr_ind")!=null){
+            cont.removeAttribute("arr_ind");
+        }
+        if(cont.getAttribute("floor")!=null){
+            cont.removeAttribute("floor");
+        }
+        
+        
         
         //value parentage_viewtree
             request.setAttribute("title", "parentage_treeview");
@@ -65,7 +76,38 @@ public class ParentageViewTree extends HttpServlet {
                 Logger.getLogger(ParentageViewTree.class.getName()).log(Level.SEVERE, null, ex);
             }
         //
-        request.setAttribute("arr_ind", arr_ind);
+        int maxFloor=ind_dao.getMaxFloor(idParentageSession);
+        request.setAttribute("maxFloor", maxFloor);
+        
+        
+        int floor=-1;
+        try {
+            floor = Integer.valueOf(request.getParameter("floor"));
+        } catch (NumberFormatException numberFormatException) {
+        }
+        
+        //chua chon floor ~ lan chay dau tien
+        if(floor==-1){
+            cont.setAttribute("arr_ind", arr_ind);
+        }
+        //da chon floor
+        else{
+//            khong xet
+            if(floor==maxFloor){
+                cont.setAttribute("arr_ind", arr_ind);
+            }
+//            xet
+            else{
+                for(int i=0;i<arr_ind.size();i++){
+                    if(arr_ind.get(i).getFloor()>floor){
+                        arr_ind.remove(i);
+                        i--;
+                    }
+                }
+                cont.setAttribute("arr_ind", arr_ind);
+            }
+            cont.setAttribute("floor", floor);
+        }
         RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/parentage_treeview.jsp");
         rd.forward(request, response);
     }

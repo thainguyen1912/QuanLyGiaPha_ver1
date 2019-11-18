@@ -376,4 +376,19 @@ public class Individual_DAO {
         }
         return n;
     }
+    public int getMaxFloor(int idPar){
+        int mF=0;
+        String sql="select max(floor) as 'max' from quanlygiapha.individual where idparentage=?";
+        try {
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, idPar);
+            ResultSet rs=pre.executeQuery();
+            if(rs.next()){
+                mF=rs.getInt("max");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Individual_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mF;
+    }
 }

@@ -1,4 +1,8 @@
+<%@page import="Enity.Post"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%
+    Post pos=(Post)request.getAttribute("post");
+%>
 <!doctype html>
 <html lang="en">
     <jsp:include page="../import_page/import.jsp" flush="true"/>
@@ -18,7 +22,7 @@
                             <div class="tab-pane tabs-animation fade active show" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
-                                        <form class="" style="width: 100%" action="PostControl?page=process_add" method="post" enctype="multipart/form-data">
+                                        <form class="" style="width: 100%" action="PostControl?page=process_edit" method="post" enctype="multipart/form-data">
                                             <div>
                                                 <div style="width: 60%; float: left">
                                                     <div class="position-relative row form-group">
@@ -26,7 +30,7 @@
                                                             Tiêu Đề
                                                         </label>
                                                         <div class="col-sm-5">
-                                                            <input value="" name="title" id="name" placeholder="" type="text" class="form-control" >
+                                                            <input value="<%=pos.getTitle() %>" name="title" id="name" placeholder="" type="text" class="form-control" >
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -34,7 +38,7 @@
                                                             Tóm Tắt
                                                         </label>
                                                         <div class="col-sm-8">
-                                                            <input value="" name="summary" id="name" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=pos.getSummary()%>" name="summary" id="name" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -42,13 +46,18 @@
                                                             Chi Tiết
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <textarea rows="20" name="detail" id="moreinfo" class="form-control"></textarea>
+                                                            <textarea rows="20" name="detail" id="moreinfo" class="form-control"><%=pos.getDetail()%></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div style="width: 40%; float: left">
                                                     <div>
                                                         <div class="file-upload" style="width: 85%;">
+                                                            
+                                                            <div style="margin-bottom: 10%">
+                                                                <img style="max-width: 100%" src="resources/images/<%=pos.getImage()==null?"imagenotfound.png":pos.getImage() %>" alt="your image" />
+                                                            </div>
+                                                            
                                                             <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Chọn Ảnh</button>
 
                                                             <div class="image-upload-wrap">

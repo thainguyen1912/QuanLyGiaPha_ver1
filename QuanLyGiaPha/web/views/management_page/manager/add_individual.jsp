@@ -1,14 +1,6 @@
-<%@page import="java.sql.Blob"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@page import="java.sql.Date"%>
-<%@page import="Model.DBConnection"%>
-<%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="Enity.Individual"%>
-<%@page import="Enity.Parentage"%>
-
 <%
-    int idFather=Integer.valueOf(request.getAttribute("idFather").toString());
+    int idFather = Integer.valueOf(request.getAttribute("idFather").toString());
 %>
 <!doctype html>
 <html lang="en">
@@ -37,7 +29,7 @@
                                                             Họ Và Tên
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=idFather %>" name="idFather" id="" placeholder="" type="text" class="form-control" hidden="true">
+                                                            <input value="<%=idFather%>" name="idFather" id="" placeholder="" type="text" class="form-control" hidden="true">
                                                             <input value="" name="name" id="name" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
@@ -98,12 +90,7 @@
                                                     <div style="float: left; width: 40%">
                                                         <div>
                                                             <div class="file-upload" style="width: 85%;">
-
-                                                                <div style="margin-bottom: 10%">
-                                                                    <img style="max-width: 100%" src="resources/images/imagenotfound.png" alt="your image" />
-                                                                </div>
-
-                                                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Thay Đổi Ảnh</button>
+                                                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Chọn Ảnh</button>
 
                                                                 <div class="image-upload-wrap">
                                                                     <input class="file-upload-input" type="file" name="avatar" size="50" onchange="readURL(this);" accept="image/*" />

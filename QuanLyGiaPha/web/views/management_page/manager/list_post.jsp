@@ -1,14 +1,8 @@
-<%@page import="java.sql.Date"%>
-<%@page import="Model.DBConnection"%>
-<%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="Enity.Individual"%>
+<%@page import="Enity.Post"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-    ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
+    ArrayList<Post> list_post = (ArrayList<Post>) request.getAttribute("list_post");
 %>
 <!doctype html>
 <html lang="en">
@@ -31,12 +25,12 @@
                                         </div>
                                         <div class="row">
                                             <%
-                                                if (arr_ind.size() == 0) {
+                                                if (list_post.size() == 0) {
                                             %>
-                                                <h5 style="color: red">Không Có Ảnh Nào Để Hiển Thị</h5>
+                                                <h5 style="color: red">Không Có Bài Viết Nào Để Hiển Thị</h5>
                                             <%}%>
                                             <%
-                                                for (int i = 0; i < arr_ind.size(); i++) {
+                                                for (int i = 0; i < list_post.size(); i++) {
                                             %>
                                             <div class="col-md-6 col-lg-3">
                                                 <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
@@ -44,23 +38,21 @@
                                                         <div class="widget-content-outer" style="text-align: center">
                                                             <div class="widget-content-wrapper">
                                                                 <div class="">
-                                                                    <%
-                                                                        boolean check=true;
-                                                                        if(arr_ind.get(i).getAvatar()==null || arr_ind.get(i).getAvatar().equals("")) check=false;
-                                                                    %>
-                                                                    <img src="resources/images/<%=check==false?"imagenotfound.png":arr_ind.get(i).getAvatar()%>" width="100%"> 
+                                                                    <img src="resources/images/post/<%=list_post.get(i).getImage().equals("")?"imagenotfound.png":list_post.get(i).getImage() %>" width="100%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left fsize-1 mt-2">
-                                                                <div class="text-muted opacity-6"><%=arr_ind.get(i).getName()%></div>
+                                                                <div class="text-muted opacity-6">Tiêu Đề: <%=list_post.get(i).getTitle()%></div>
                                                             </div>
-                                                            <div class="widget-content-left fsize-1">
-                                                                <div class="text-muted opacity-6">Đời Thứ: <%= arr_ind.get(i).getFloor()%></div>
-                                                            </div>
-                                                            <div class="widget-content-left fsize-1 mt-2" style="">
-                                                                <a href="EditIndividual?value=Redirect&idIndividual=<%=arr_ind.get(i).getIdIndividual()%>"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
+                                                            <div class="mt-2" style="margin-left: 18%">
+                                                                <div class="mr-2" style="float: left">
+                                                                    <a href="PostControl?page=redirect_edit&id=<%=list_post.get(i).getIdPost()%>"><button class="btn-wide btn btn-success">Xem Và Sửa</button></a>
+                                                                </div>
+                                                                <div class="mr-2" style="float: left">
+                                                                    <a onclick="return xacNhan()" href="PostControl?page=delete&id=<%=list_post.get(i).getIdPost()%>"><button class="btn-wide btn btn-danger">Xóa</button></a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
