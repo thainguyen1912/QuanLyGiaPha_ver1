@@ -36,6 +36,9 @@
         case "add_post":
             title="Thêm Bài Viết";
             break;
+        case "edit_post":
+            title="Chỉnh Sửa Bài Viết";
+            break;
         case "list_post":
             title="Danh Sách Bài Viết";
             break;

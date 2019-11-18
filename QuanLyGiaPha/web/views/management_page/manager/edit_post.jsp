@@ -29,7 +29,7 @@
                                                         <label for="title" class="col-sm-2 col-form-label">
                                                             Tiêu Đề
                                                         </label>
-                                                        <div class="col-sm-5">
+                                                        <div class="col-sm-8">
                                                             <input value="<%=pos.getTitle() %>" name="title" id="name" placeholder="" type="text" class="form-control" >
                                                         </div>
                                                     </div>
@@ -37,7 +37,7 @@
                                                         <label for="summary" class="col-sm-2 col-form-label">
                                                             Tóm Tắt
                                                         </label>
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-10">
                                                             <input value="<%=pos.getSummary()%>" name="summary" id="name" placeholder="" type="text" class="form-control">
                                                         </div>
                                                     </div>
