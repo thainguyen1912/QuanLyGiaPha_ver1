@@ -37,7 +37,7 @@
                                                                         boolean check=true;
                                                                         if(arr_post.get(i).getImage()==null || arr_post.get(i).getImage().equals("")) check=false;
                                                                     %>
-                                                                    <img src="resources/images/<%=check==false?"imagenotfound.png":arr_post.get(i).getImage() %>" width="50%"> 
+                                                                    <img src="resources/images/post/<%=check==false?"imagenotfound.png":arr_post.get(i).getImage() %>" width="50%"> 
                                                                 </div>
                                                                 <div class="">
                                                                 </div>
