@@ -208,8 +208,9 @@ public class Post_DAO {
                 String key=rs.getString("key");
                 String image = rs.getString("image");
                 Date datePost=rs.getDate("datePost");
-                int  idIndividual=rs.getInt("idIndividual");
-                ps=new Post(iD, title, summary, detail, status, key, image, datePost, idIndividual);
+                String username=rs.getString("username");
+                ps=new Post(iD, title, summary, detail, status, key, image, datePost, username);
+                
                 
                 
                 

@@ -15,16 +15,13 @@ public class Post {
     private Date datePost;
     private String userName;
 
-<<<<<<< HEAD
+
     public Post() {
     }
     
-    
 
-    public Post(int idPost, String title, String summary, String detail, String status, String key, String image, Date datePost, int idIndividual) {
-=======
     public Post(int idPost, String title, String summary, String detail, String status, String key, String image, Date datePost, String userName) {
->>>>>>> c5ac5bb69e2c94cb6c5a3216118f201481463c89
+
         this.idPost = idPost;
         this.title = title;
         this.summary = summary;
