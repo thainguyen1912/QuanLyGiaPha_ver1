@@ -40,6 +40,12 @@ public class HomePage extends HttpServlet {
                 rd = request.getRequestDispatcher("views/home_page/about.jsp");
                 rd.forward(request, response);
                 break;
+            case "newsdetail":
+                int id =Integer.valueOf(request.getParameter("id"));
+                request.setAttribute("id", id);
+                rd = request.getRequestDispatcher("views/home_page/newsdetail.jsp");
+                rd.forward(request, response);
+                break;
             default:
                 rd = request.getRequestDispatcher("views/home_page/newsdetail.jsp");
                 rd.forward(request, response);

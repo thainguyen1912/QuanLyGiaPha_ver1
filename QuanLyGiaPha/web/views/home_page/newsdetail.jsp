@@ -11,19 +11,9 @@
 <%
     DBConnection db = new DBConnection();
     Post_DAO pst = new Post_DAO(db);
-    String s = request.getParameter("page");
-    char t= s.charAt(s.length() - 1);
-    String c = Character.toString(t);
-    
-    int id=Integer.valueOf(c);
-    
-    
-    
-   
+    int id=Integer.valueOf(request.getAttribute("id").toString());  
     Post arr_post=pst.getPostDetail(id);
     ArrayList<Post> arr_post1=pst.selectAll();
-    
-
 %>
 
 <!DOCTYPE html>

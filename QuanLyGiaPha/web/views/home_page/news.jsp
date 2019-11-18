@@ -59,12 +59,12 @@
                                                                 <div><a href="#"><%=arr_post.get(i).getKey().equals("0")?pst.getUser(arr_post.get(i).getIdPost()):"Admin" %></a></div>
                                                                 <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                                                             </div>
-                                                                <h3 class="heading"><a href="HomePage?page=newsdetail?id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
+                                                                <h3 class="heading"><a href="HomePage?page=newsdetail&id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
                                                                 <div style="height: 112px ; overflow: hidden">
                                                                     <p><%=arr_post.get(i).getSummary()%></p>
                                                                 </div>
                                                                 
-                                                                <p><a href="HomePage?page=newsdetail?id=<%=arr_post.get(i).getIdPost()%>" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
+                                                                <p><a href="HomePage?page=newsdetail&id=<%=arr_post.get(i).getIdPost()%>" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                 <div class="block-21 mb-4 d-flex">
                                                     <a class="blog-img mr-4" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>')"></a>
                                                     <div class="text">
-                                                        <h3 class="heading-1"><a href="HomePage?page=newsdetail?id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
+                                                        <h3 class="heading-1"><a href="HomePage?page=newsdetail&id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
                                                         <div class="meta">
                                                             <div><a href="#"><span class="icon-calendar"></span><%=arr_post.get(i).getDatePost()%></a></div>
                                                             <div><a href="#"><span class="icon-person"></span><%=arr_post.get(i).getKey().equals("0")?pst.getUser(arr_post.get(i).getIdPost()):"Admin" %></a></div>
