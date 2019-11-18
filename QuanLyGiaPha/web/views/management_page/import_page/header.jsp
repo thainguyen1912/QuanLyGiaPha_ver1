@@ -3,6 +3,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <div class="app-header header-shadow">
     <div class="app-header__logo">
+        
+        <div >
+            <img style="width: 190px; height: auto; margin-top: -6px" src="resources/assets/images/lg.png">
+        </div>
         <div style="width: 200px; height: 17px;" class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>

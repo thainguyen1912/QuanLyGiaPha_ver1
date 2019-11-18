@@ -83,4 +83,34 @@ public class Post_DAO {
         }
         return userName;
     }
+    public Post getPostDetail(int id){
+        Post ps=null;
+        String sql= "select * from quanlygiapha.post where quanlygiapha.post.id=?";
+        ResultSet rs=null;
+        try {
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setInt(1, id);
+            rs=pre.executeQuery();
+            if (rs.next()) {
+                int iD=rs.getInt("id");
+                String title=rs.getString("title");
+                String summary=rs.getString("summary");
+                String detail=rs.getString("detail");
+                String status=rs.getString("status");
+                String key=rs.getString("key");
+                String image = rs.getString("image");
+                Date datePost=rs.getDate("datePost");
+                int  idIndividual=rs.getInt("idIndividual");
+                ps=new Post(iD, title, summary, detail, status, key, image, datePost, idIndividual);
+                
+                
+                
+               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ps;
+    }
 }

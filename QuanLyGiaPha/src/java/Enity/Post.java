@@ -15,6 +15,11 @@ public class Post {
     private Date datePost;
     private int idIndividual;
 
+    public Post() {
+    }
+    
+    
+
     public Post(int idPost, String title, String summary, String detail, String status, String key, String image, Date datePost, int idIndividual) {
         this.idPost = idPost;
         this.title = title;

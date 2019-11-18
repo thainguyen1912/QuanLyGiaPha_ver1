@@ -11,8 +11,19 @@
 <%
     DBConnection db = new DBConnection();
     Post_DAO pst = new Post_DAO(db);
-    ArrayList<Post> arr_post=pst.selectAll();
+    String s = request.getParameter("page");
+    char t= s.charAt(s.length() - 1);
+    String c = Character.toString(t);
     
+    int id=Integer.valueOf(c);
+    
+    
+    
+   
+    Post arr_post=pst.getPostDetail(id);
+    ArrayList<Post> arr_post1=pst.selectAll();
+    
+
 %>
 
 <!DOCTYPE html>
@@ -40,48 +51,14 @@
         <section class="ftco-section ftco-degree-bg">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 ftco-animate fadeInUp ftco-animated">
-                        <div class="row">
-                            <tbody>
-                                                
-                                                <%
-                                                    for(int i=arr_post.size()-1;i>-1;i--){
-                                                        if(arr_post.get(i).getStatus().equals("1")){
-                                                %>
-                                                <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
-                                                    <div class="blog-entry align-self-stretch d-md-flex">
-                                                        <a href="#" class="block-20" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>');">
-                                                        </a>
-                                                        <div class="text d-block pl-md-4">
-                                                            <div class="meta mb-3">
-                                                                <div><a href="#"><%=arr_post.get(i).getDatePost()%></a></div>
-                                                               
-                                                                <div><a href="#"><%=arr_post.get(i).getKey().equals("0")?pst.getUser(arr_post.get(i).getIdPost()):"Admin" %></a></div>
-                                                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                                            </div>
-                                                                <h3 class="heading"><a href="HomePage?page=newsdetail?id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
-                                                                <div style="height: 112px ; overflow: hidden">
-                                                                    <p><%=arr_post.get(i).getSummary()%></p>
-                                                                </div>
-                                                                
-                                                                <p><a href="HomePage?page=newsdetail?id=<%=arr_post.get(i).getIdPost()%>" class="btn btn-primary py-2 px-3">Đọc thêm...</a></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <%
-                                                    }
-                                                }
-                                                %>
-                                            </tbody>
-                            
-
-
-                            
-                            
-                            
-                        </div>
-                    </div> <!-- .col-md-8 -->
+                    <div class="col-lg-8 ftco-animate"> 
+                        <h2 class="mb-3" ><%=arr_post.getTitle()%></h2>
+                        <p style="font-weight: bold;"><%=arr_post.getSummary()%></p>
+                            <p>
+                                <img src="resources/images/<%=arr_post.getImage()%>" alt="" class="img-fluid">
+                            </p>
+                            <p><%=arr_post.getDetail()%></p>
+                    </div>
                     <div class="col-lg-4 sidebar ftco-animate fadeInUp ftco-animated">
                         <div class="sidebar-box">
                             <form action="#" class="search-form">
@@ -103,16 +80,16 @@
                         <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
                             <h3 class="heading">Tin tức mới nhất</h3>
                             <%
-                                                    for(int i=arr_post.size()-1;i>arr_post.size()-5;i--){
-                                                        if(arr_post.get(i).getStatus().equals("1")){
+                                                    for(int i=arr_post1.size()-1;i>arr_post1.size()-5;i--){
+                                                        if(arr_post1.get(i).getStatus().equals("1")){
                                                 %>
                                                 <div class="block-21 mb-4 d-flex">
-                                                    <a class="blog-img mr-4" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>')"></a>
+                                                    <a class="blog-img mr-4" style="background-image: url('resources/images/<%=arr_post1.get(i).getImage()%>')"></a>
                                                     <div class="text">
-                                                        <h3 class="heading-1"><a href="HomePage?page=newsdetail?id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
+                                                        <h3 class="heading-1"><a href="HomePage?page=newsdetail?id=<%=arr_post1.get(i).getIdPost()%>"><%=arr_post1.get(i).getTitle()%></a></h3>
                                                         <div class="meta">
-                                                            <div><a href="#"><span class="icon-calendar"></span><%=arr_post.get(i).getDatePost()%></a></div>
-                                                            <div><a href="#"><span class="icon-person"></span><%=arr_post.get(i).getKey().equals("0")?pst.getUser(arr_post.get(i).getIdPost()):"Admin" %></a></div>
+                                                            <div><a href="#"><span class="icon-calendar"></span><%=arr_post1.get(i).getDatePost()%></a></div>
+                                                            <div><a href="#"><span class="icon-person"></span><%=arr_post1.get(i).getKey().equals("0")?pst.getUser(arr_post1.get(i).getIdPost()):"Admin" %></a></div>
                                                             <div><a href="#"><span class="icon-chat"></span> 3</a></div>
                                                         </div>
                                                     </div>
@@ -123,7 +100,7 @@
                                                     }
                                                 }
                                                 %>
-                             
+                            
                         </div>
                         <div class="sidebar-box ftco-animate">
                             <h3 class="heading">Từ khoá tìm kiếm nhiều nhất</h3>
