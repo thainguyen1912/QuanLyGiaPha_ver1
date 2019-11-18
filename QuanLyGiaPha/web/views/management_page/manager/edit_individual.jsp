@@ -1,9 +1,7 @@
-<%@page import="java.sql.Blob"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="java.sql.Date"%>
 <%@page import="Model.DBConnection"%>
 <%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page import="Enity.Individual"%>
 <%@page import="Enity.Parentage"%>
 

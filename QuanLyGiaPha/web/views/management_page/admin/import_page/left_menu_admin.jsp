@@ -43,9 +43,15 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Quản Lý</li>
                 <li>
-                    <a href="ParentageInfo?title=parentage_info" class="<%=title.equals("list_parentage")?"mm-active":"" %>">
+                    <a href="AdminControl?page=list_parentage" class="<%=title.equals("list_parentage")?"mm-active":"" %>">
                         <i class="metismenu-icon pe-7s-notebook"></i>
                         Dòng Họ Đang Quản Lý
+                    </a>
+                </li>
+                <li>
+                    <a href="AdminControl?page=process_post" class="<%=title.equals("process_post")?"mm-active":"" %>">
+                        <i class="metismenu-icon pe-7s-next-2"></i>
+                        Phê Duyệt Bài Viết
                     </a>
                 </li>
             </ul>

@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -144,6 +145,33 @@ public class Post_DAO {
             Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return pos;
+    }
+    
+    public ArrayList<Post> getListPostByStatusAndKey(String sta, String k){
+        ArrayList<Post> arr_pos=new ArrayList<>();
+        String sql="select * from quanlygiapha.post where post.status=? and post.key=?";
+        try {
+            PreparedStatement pre=connect.prepareStatement(sql);
+            pre.setString(1, sta);
+            pre.setString(2, k);
+            ResultSet rs=pre.executeQuery();
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String title = rs.getString("title");
+                String summary = rs.getString("summary");
+                String detail = rs.getString("detail");
+                String status = rs.getString("status");
+                String key = rs.getString("key");
+                String image = rs.getString("image");
+                Date datePost = rs.getDate("datepost");
+                String userName = rs.getString("username");
+                Post pos = new Post(id,title, summary, detail, status, key, image, datePost, userName);
+                arr_pos.add(pos);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr_pos;
     }
 
 //    -----------------------------------------------------------------------------------------------------

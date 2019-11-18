@@ -1,18 +1,23 @@
-<%@page import="java.sql.Date"%>
 <%@page import="Model.DBConnection"%>
 <%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
+    ServletContext cont=getServletContext();
     Parentage par = (Parentage) session.getAttribute("Parentage");
-    ArrayList<Individual> arr_ind = (ArrayList<Individual>) request.getAttribute("arr_ind");
+    ArrayList<Individual> arr_ind = (ArrayList<Individual>) cont.getAttribute("arr_ind");
     DBConnection db = new DBConnection();
     Individual_DAO ind_dao = new Individual_DAO(db);
     int maxFloor=Integer.valueOf(request.getAttribute("maxFloor").toString());
+    
+//    set mac dinh 
+    int floor=maxFloor;
+    try {
+            floor = Integer.valueOf(cont.getAttribute("floor").toString());
+        } catch (Exception e) {
+        }
 %>
 <!doctype html>
 <html lang="en">
@@ -29,7 +34,7 @@
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>
                         <div class="main-card mb-3 card">
-                            <div style="float: left; width: 75%">
+                            <div style="float: left; width: 74%">
                                 <div style="text-align: center; margin-bottom: 2%">
                                     <h6 style="color: red">
                                         <%=request.getAttribute("delete-error") == null ? "" : request.getAttribute("delete-error")%>
@@ -40,12 +45,12 @@
                                 </div>
                                 <div class="mb-3 ml-4" style="overflow: auto">
                                     <span style="float: left; margin-top: 1%">Từ đời 1 tới đời &emsp; </span>
-                                    <select onchange="selectFloor(this)" name="select" id="exampleSelect" class="form-control" style="float: left; width: 10%">
+                                    <select onchange="selectFloor(this)" name="select" id="exampleSelect" class="form-control" style="float: left; width: 10%; height: 10%">
                                         <option></option>
                                         <%
                                             for(int i=1;i<=maxFloor;i++){
                                         %>
-                                        <option value="<%=i %>"><%=i %></option>
+                                        <option value="<%=i %>" <%=i==floor?"selected":"" %>  ><%=i %></option>
                                         <%}%>
                                     </select>
                                 </div>

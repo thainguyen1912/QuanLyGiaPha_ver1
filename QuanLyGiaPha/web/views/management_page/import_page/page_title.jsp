@@ -30,6 +30,9 @@
         case "list_parentage":
             title="Danh Sách Gia Phả Đang Quản Lý";
             break;
+        case "process_post":
+            title="Danh Sách Bài Viết Chờ Phê Duyệt";
+            break;
         case "add_post":
             title="Thêm Bài Viết";
             break;

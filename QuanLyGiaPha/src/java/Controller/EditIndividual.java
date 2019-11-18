@@ -3,7 +3,6 @@ package Controller;
 import Enity.Individual;
 import Model.DBConnection;
 import Model.Individual_DAO;
-import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;

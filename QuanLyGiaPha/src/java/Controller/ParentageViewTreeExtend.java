@@ -73,13 +73,16 @@ public class ParentageViewTreeExtend extends HttpServlet {
                 Logger.getLogger(ParentageViewTree.class.getName()).log(Level.SEVERE, null, ex);
             }
         //
-        request.setAttribute("arr_ind", arr_ind);
-        
-        
         int id=Integer.valueOf(request.getParameter("id"));
         Individual ind=ind_dao.getIndividualById(id);
-        
         request.setAttribute("individual", ind);
+        
+        
+        //
+        int maxFloor=ind_dao.getMaxFloor(idParentageSession);
+        request.setAttribute("maxFloor", maxFloor);
+        
+        
         RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/parentage_treeview_extend.jsp");
         rd.forward(request, response);
     }

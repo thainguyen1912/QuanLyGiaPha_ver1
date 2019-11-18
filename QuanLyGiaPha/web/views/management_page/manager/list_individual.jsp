@@ -1,11 +1,5 @@
-<%@page import="java.sql.Date"%>
-<%@page import="Model.DBConnection"%>
-<%@page import="Model.Individual_DAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="Enity.Individual"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Enity.Parentage"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     ArrayList<Individual> arr_ind=(ArrayList<Individual>)request.getAttribute("arr_ind");
