@@ -47,13 +47,9 @@ public class HomePage extends HttpServlet {
                 rd.forward(request, response);
                 break;
             default:
-                rd = request.getRequestDispatcher("views/home_page/newsdetail.jsp");
+                rd = request.getRequestDispatcher("views/home_page/index.jsp");
                 rd.forward(request, response);
                 break;
-            //default:
-               // rd = request.getRequestDispatcher("views/home_page/index.jsp");
-               // rd.forward(request, response);
-               // break;
         }
         
     }
