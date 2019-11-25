@@ -76,7 +76,7 @@
                                                 <div class="block-21 mb-4 d-flex">
                                                     <a class="blog-img mr-4" style="background-image: url('resources/images/<%=arr_post1.get(i).getImage()%>')"></a>
                                                     <div class="text">
-                                                        <h3 class="heading-1"><a href="HomePage?page=newsdetail?id=<%=arr_post1.get(i).getIdPost()%>"><%=arr_post1.get(i).getTitle()%></a></h3>
+                                                        <h3 class="heading-1"><a href="HomePage?page=newsdetail&id=<%=arr_post1.get(i).getIdPost()%>"><%=arr_post1.get(i).getTitle()%></a></h3>
                                                         <div class="meta">
                                                             <div><a href="#"><span class="icon-calendar"></span><%=arr_post1.get(i).getDatePost()%></a></div>
                                                             <div><a href="#"><span class="icon-person"></span><%=arr_post1.get(i).getKey().equals("0")?pst.getUser(arr_post1.get(i).getIdPost()):"Admin" %></a></div>
