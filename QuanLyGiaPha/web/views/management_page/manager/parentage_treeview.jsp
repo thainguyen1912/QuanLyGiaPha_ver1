@@ -34,7 +34,7 @@
                     <div class="app-main__inner">
                         <jsp:include page="../import_page/page_title.jsp" flush="true"/>
                         <div class="main-card mb-3 card">
-                            <div style="float: left; width: 74%">
+                            <div style="float: left">
                                 <div style="text-align: center; margin-bottom: 2%">
                                     <h6 style="color: red">
                                         <%=request.getAttribute("delete-error") == null ? "" : request.getAttribute("delete-error")%>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="mb-3 ml-4" style="overflow: auto">
                                     <span style="float: left; margin-top: 1%">Từ đời 1 tới đời &emsp; </span>
-                                    <select onchange="selectFloor(this)" name="select" id="exampleSelect" class="form-control" style="float: left; width: 10%; height: 10%">
+                                    <select onchange="selectFloor(this)" name="select" id="exampleSelect" class="form-control" style="float: left; width: 65px; height: 10%">
                                         <option></option>
                                         <%
                                             for(int i=1;i<=maxFloor;i++){
@@ -112,7 +112,7 @@
                                         //số đời
                                         temp += "<button class=\"btn-transition btn btn-outline-warning\" type=\"button\" data-toggle=\"collapse\" data-target='" + target + "' aria-expanded=\"false\" aria-controls=\"collapseExample\" style=\"margin-left:4%\">" + doiThu + "</button>";
                                         //button tên        
-                                        temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"min-width: 18%; width:auto; margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources//images//" + (check==false ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
+                                        temp += "<a href=\"ParentageViewTreeExtend?id=" + arr_ind.get(i).getIdIndividual() + " \"><button onclick=\"showInfo()\" class=\"mb-2 mr-2 btn-transition btn btn-outline-info\" style=\"min-width: 18%; width:auto; margin-left:" + margin + "%;\"><div class=\"\" style=\"float:left; margin-left: -3%;\"><img style=\"width:35px; height:35px\" src=\"resources/images/" + (check==false ? "imagenotfound.png" : arr_ind.get(i).getAvatar()) + "\"></div><p style=\"float:right; margin-bottom:0; margin-top:5.5%\">" + arr_ind.get(i).getName() + "</p></button></a>";
                                         //nhóm lựa chọn        
                                         temp += "<div class=\"dropdown d-inline-block\"><button type=\button\" aria-haspopup=\"true\" aria-expanded=\"false\" data-toggle=\"dropdown\" class=\"mb-2 mr-2 dropdown-toggle btn btn-outline-info\"></button><div tabindex=\"-1\" role=\"menu\" aria-hidden=\"true\" class=\"dropdown-menu\">";
 

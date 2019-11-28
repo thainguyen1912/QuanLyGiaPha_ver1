@@ -69,7 +69,7 @@ public class EditIndividual extends HttpServlet {
                     } catch (InterruptedException ex) {
                         Logger.getLogger(EditIndividual.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    response.sendRedirect("EditIndividual?value=Redirect&idIndividual=" + id);
+                    response.sendRedirect("ParentageViewTree");
                 }
             }
         }

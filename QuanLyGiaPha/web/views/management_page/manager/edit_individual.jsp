@@ -39,8 +39,8 @@
                                                             Họ Và Tên
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=ind.getIdIndividual() %>" name="id" id="id" placeholder="" type="text" class="form-control" hidden="true">
-                                                            <input value="<%=ind.getName()%>" name="name" id="name" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=ind.getIdIndividual()%>" name="id" id="id" placeholder="" type="text" class="form-control" hidden="true">
+                                                            <input value="<%=ind.getName()%>" name="name" id="name" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -59,7 +59,7 @@
                                                             Con Thứ
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=ind.getChildth()%>" name="childth" id="childth" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=ind.getChildth()%>" name="childth" id="childth" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -67,7 +67,7 @@
                                                             Tên Vợ
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=ind.getWifeOrHusbandName()%>" name="wifeorhusbandname" id="wifeorhusbandname" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=ind.getWifeOrHusbandName()%>" name="wifeorhusbandname" id="wifeorhusbandname" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -75,7 +75,7 @@
                                                             Ngày Sinh
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=ind.getDateBirth()%>" name="datebirth" id="datebirth" placeholder="" type="date" class="form-control">
+                                                            <input value="<%=ind.getDateBirth()%>" name="datebirth" id="datebirth" placeholder="" type="date" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -83,7 +83,7 @@
                                                             Ngày Mất
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=ind.getDateDeath()%>" name="datedeath" id="datedeath" placeholder="" type="date" class="form-control">
+                                                            <input value="<%=ind.getDateDeath()%>" name="datedeath" id="datedeath" placeholder="" type="date" class="form-control" required="true">
                                                         </div>
                                                     </div>
 
@@ -96,46 +96,43 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div>
                                                     <div style="float: left; width: 40%">
-                                                        <div>
-                                                            <div class="file-upload" style="width: 85%;">
-                                                                <%
-                                                                    boolean check=true;
-                                                                    if(ind.getAvatar()==null || ind.getAvatar().equals("")) check=false;
-                                                                %>
-                                                                <div style="margin-bottom: 10%">
-                                                                    <img style="max-width: 100%" src="resources/images/<%=(check==false?"imagenotfound.png":ind.getAvatar()) %>" alt="your image" />
-                                                                </div>
+                                                        <div class="file-upload" style="width: 85%;">
+                                                            <%
+                                                                boolean check = true;
+                                                                if (ind.getAvatar() == null || ind.getAvatar().equals("")) {
+                                                                    check = false;
+                                                                }
+                                                            %>
+                                                            <div style="margin-bottom: 10%">
+                                                                <img style="max-width: 100%" src="resources/images/<%=(check == false ? "imagenotfound.png" : ind.getAvatar())%>" alt="your image" />
+                                                            </div>
 
-                                                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Thay Đổi Ảnh</button>
+                                                            <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Thay đổi ảnh</button>
 
-                                                                <div class="image-upload-wrap">
-                                                                    <input class="file-upload-input" type="file" name="avatar" size="50" onchange="readURL(this);" accept="image/*" />
-                                                                    <div class="drag-text">
-                                                                        <h3>
-                                                                            Kéo Và Thả một File Vào Đây
-                                                                        </h3>
-                                                                    </div>
+                                                            <div class="image-upload-wrap">
+                                                                <input class="file-upload-input" type="file" name="avatar" size="50" onchange="readURL(this);" accept="image/*" />
+                                                                <div class="drag-text">
+                                                                    <h5>
+                                                                        Kéo và thả file
+                                                                    </h5>
                                                                 </div>
-                                                                <div class="file-upload-content">
-                                                                    <img class="file-upload-image" src="#" style="max-width: 100%"  alt="your image" />
-                                                                    <div class="image-title-wrap">
-                                                                        <button type="button" onclick="removeUpload()" class="remove-image">Xóa Bỏ  <span class="image-title">Uploaded Image</span></button>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="file-upload-content">
+                                                                <img class="file-upload-image" src="#" style="max-width: 100%"  alt="your image" />
+                                                                <div class="image-title-wrap">
+                                                                    <button type="button" onclick="removeUpload()" class="remove-image">Xóa Bỏ</button>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-check" style="clear: both">
-                                                        <div class="col-sm-10 offset-sm-2">
-                                                            <button style="margin-left: 30%;" class="btn btn-primary" type="submit">
+                                                        <div class="col-sm-10" style="padding-left: 0px">
+                                                            <button style="" class="btn btn-primary" type="submit">
                                                                 Cập Nhật Thông Tin
                                                             </button>
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
                                         </form>
                                     </div>

@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body">
+                                    <div class="card-body" style="overflow: auto">
                                         <div style="text-align: center; margin-bottom: 2%">
                                             <h6 style="color: red">
                                                 <%=request.getAttribute("delete-error")==null?"": request.getAttribute("delete-error")%>

@@ -18,7 +18,7 @@
     <jsp:include page="../import_page/import.jsp" flush="true"/>
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <jsp:include page="../import_page/header.jsp" flush="true"/> 
+            <jsp:include page="import_page/header_admin.jsp" flush="true"/> 
             <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main" style="overflow: auto">
                 <jsp:include page="import_page/left_menu_admin.jsp" flush="true"/>

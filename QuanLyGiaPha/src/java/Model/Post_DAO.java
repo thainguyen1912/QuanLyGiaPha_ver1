@@ -57,6 +57,19 @@ public class Post_DAO {
         }
         return n;
     }
+    public int updateStatus(int id, String status){
+        int n=0;
+        String sql="update quanlygiapha.post set post.status=? where id=?";
+        try {
+            PreparedStatement pre = connect.prepareStatement(sql);
+            pre.setString(1, status);
+            pre.setInt(2, id);
+            n = pre.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Post_DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+    }
     public int delete(int id){
         int n=0;
         String sql="delete from quanlygiapha.post where id=?";

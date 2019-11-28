@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="" style="margin-bottom: 4%; width: 30%; margin-left: 36%;">
+                                    <div class="" style="margin-bottom: 4%; width: 80%;">
                                         <div class="mb-5">
                                             <label>Mật Khẩu Cũ</label>
                                             <input style="" type="text" class="form-control" name="old_pass" required>
@@ -43,7 +43,7 @@
                                             <input type="password" class="form-control" name="renew_pass" required>
                                         </div>
                                     </div>
-                                    <button style="margin-left: 45%;" class="btn btn-primary" type="submit">Cập Nhật Thông Tin</button>
+                                    <button style="" class="btn btn-primary" type="submit">Cập Nhật Thông Tin</button>
                                 </form>
                             </div>
                         </div>

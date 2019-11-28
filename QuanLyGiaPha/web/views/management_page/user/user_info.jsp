@@ -19,17 +19,17 @@
                         <div class="main-card mb-3 card" style="width: 100%">
                             <div class="card-body">
                                 <div class="position-relative form-row" style="margin-bottom: 4%">
-                                    <div class="col-md-3 mb-2 mr-2">
+                                    <div class="col-md-3 mb-2 mr-2" style="margin-bottom: 16%;">
                                         <label>Tên Tài Khoản</label>
                                         <hr>
                                         <p><%=acc.getUserName()%></p>
                                     </div>
-                                    <div class="col-md-3 mb-2 mr-2">
+                                    <div class="col-md-3 mb-2 mr-2" style="margin-bottom: 16%;">
                                         <label>Ngày Đăng Ký</label>
                                         <hr>
                                         <p><%=acc.getDateCreate()%></p>
                                     </div>
-                                    <div class="col-md-3 mb-2 mr-2">
+                                    <div class="col-md-3 mb-2 mr-2" style="margin-bottom: 16%;">
                                         <label>Quyền Hạn</label>
                                         <hr>
                                         <p><%=acc.getRole()==1?"Tạo Lập Gia Phả":"Admin Quản Trị"%></p>

@@ -11,7 +11,7 @@
         <jsp:include page="import_page/header1.jsp" flush="true" />
         <jsp:include page="import_page/header2.jsp" flush="true" />
 
-        <div class="hero-wrap hero-bread mb-3" style="background-image: url('resources/images/58005.jpg');">
+        <div class="hero-wrap hero-bread mb-3" style="background-image: url('resources/images/home/58005.jpg');">
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
@@ -23,7 +23,7 @@
         <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(resources/images/aboutVN.jpg);">
+                    <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(resources/images/home/aboutVN.jpg);">
                         
                         <iframe class="" width="420" height="315"
                             src="https://www.youtube.com/embed/fpUfIisBhIs">

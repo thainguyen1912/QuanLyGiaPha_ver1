@@ -1368,6 +1368,11 @@ pre code {
 		flex: 0 0 20%;
 		max-width: 20%;
 	}
+        
+        .mb-8xx{
+            margin-bottom: 8%;
+            
+        }
 
 	.col-md-3 {
 		flex: 0 0 25%;

@@ -62,7 +62,7 @@
             </div>
         </nav>
         <!-- END nav -->
-        <div class="hero-wrap hero-bread" style="background-image: url('resources/images/58005.jpg');">
+        <div class="hero-wrap hero-bread" style="background-image: url('resources/images/home/58005.jpg');">
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">

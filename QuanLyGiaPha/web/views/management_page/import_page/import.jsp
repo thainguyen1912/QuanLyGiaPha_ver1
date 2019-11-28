@@ -13,6 +13,7 @@
         <link href="resources/css/main-management.css" rel="stylesheet">
         <link href="resources/css/treeview.css" rel="stylesheet">
         <script src="resources/js/ckeditor.js"></script>
+        <script src="resources/js/upload_image.js"></script>
         <script type="text/javascript">
             function xacNhan() {
                 var re = confirm("Bạn có muốn tiếp tục không ?")

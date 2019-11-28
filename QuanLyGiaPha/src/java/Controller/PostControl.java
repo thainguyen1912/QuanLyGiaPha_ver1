@@ -133,6 +133,11 @@ public class PostControl extends HttpServlet {
                 rd=request.getRequestDispatcher("views/management_page/manager/list_post.jsp");
                 rd.forward(request, response);
                 break;
+            case "processpost":
+                int id_p=Integer.valueOf(request.getParameter("id"));
+                pos_dao.updateStatus(id_p, "1");
+                response.sendRedirect("AdminControl?page=process_post");
+                break;
         }
         
     }

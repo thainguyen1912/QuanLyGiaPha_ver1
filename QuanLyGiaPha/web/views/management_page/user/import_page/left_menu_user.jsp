@@ -1,3 +1,4 @@
+<%@page import="Enity.Account"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
     String title="";
@@ -56,7 +57,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="ParentageInfo" class="<%=title.equals("")?"mm-active":"" %>"> 
+                    <%
+                        Account acc=(Account)session.getAttribute("Account");
+                        
+                    %>
+                    <a href="<%=acc.getUserName().equalsIgnoreCase("admin")?"AdminControl?page=list_parentage":"ParentageInfo" %>" class="<%=title.equals("")?"mm-active":"" %>"> 
                         <i class="metismenu-icon pe-7s-left-arrow"></i>
                         Quay Lại
                     </a>

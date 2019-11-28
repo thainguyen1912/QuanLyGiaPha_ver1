@@ -37,8 +37,8 @@
         </span>
     </div>   
     <div class="app-header__content">
-        <div class="app-header-left" style="width: 75%">
-            <div class="tenho" style="font-weight: bold;margin-left: 55%;font-size: 25px;">
+        <div class="app-header-left" style="width: 60%">
+            <div class="tenho" style="font-weight: bold;font-size: 20px;">
                 <%
                     Parentage par = null;//cho truong hop trang admin khong co par
                     try {
@@ -61,9 +61,9 @@
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
                                     <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                        <a href="UserAction?page=info"><button type="button" tabindex="0" class="dropdown-item">Thông tin</button></a>
-                                        <a href="UserAction?page=change_pass"><button type="button" tabindex="0" class="dropdown-item">Đổi mật khẩu</button></a>
-                                        <a href="UserAction?page=logout"><button type="button" tabindex="0" class="dropdown-item">Đăng xuất</button></a>
+                                        <a href="UserAction?page=info"><button type="button" tabindex="0" class="dropdown-item"><i class="metismenu-icon pe-7s-notebook"> </i>&nbsp;Thông tin</button></a>
+                                        <a href="UserAction?page=change_pass"><button type="button" tabindex="0" class="dropdown-item"><i class="metismenu-icon pe-7s-network"> </i>&nbsp;Đổi mật khẩu</button></a>
+                                        <a href="UserAction?page=logout"><button type="button" tabindex="0" class="dropdown-item"><i class="metismenu-icon pe-7s-left-arrow"> </i>&nbsp;Đăng xuất</button></a>
 
                                     </div>
                                 </div>

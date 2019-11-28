@@ -26,7 +26,7 @@
                                                             Tiêu Đề
                                                         </label>
                                                         <div class="col-sm-5">
-                                                            <input value="" name="title" id="name" placeholder="" type="text" class="form-control" >
+                                                            <input value="" name="title" id="name" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -34,7 +34,7 @@
                                                             Tóm Tắt
                                                         </label>
                                                         <div class="col-sm-8">
-                                                            <input value="" name="summary" id="name" placeholder="" type="text" class="form-control">
+                                                            <input value="" name="summary" id="name" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -42,21 +42,21 @@
                                                             Chi Tiết
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <textarea rows="20" name="detail" id="moreinfo" class="form-control"></textarea>
+                                                            <textarea rows="20" name="detail" id="moreinfo" class="form-control" required="true"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div style="width: 40%; float: left">
                                                     <div>
                                                         <div class="file-upload" style="width: 85%;">
-                                                            <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Chọn Ảnh</button>
+                                                            <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger('click')">Chọn ảnh</button>
 
                                                             <div class="image-upload-wrap">
                                                                 <input class="file-upload-input" type="file" name="avatar" size="50" onchange="readURL(this);" accept="image/*" />
                                                                 <div class="drag-text">
-                                                                    <h3>
-                                                                        Kéo Và Thả một File Vào Đây
-                                                                    </h3>
+                                                                    <h5>
+                                                                        Kéo và thả file
+                                                                    </h5>
                                                                 </div>
                                                             </div>
                                                             <div class="file-upload-content">
@@ -71,8 +71,8 @@
                                                 </div>
                                             </div>
                                             <div class="position-relative row form-check" style="clear: both">
-                                                <div class="col-sm-10 offset-sm-2">
-                                                    <button style="margin-left: 30%;" class="btn btn-primary" type="submit">
+                                                <div class="col-sm-10" style="padding-left: 0px">
+                                                    <button style="" class="btn btn-primary" type="submit">
                                                         Cập Nhật Thông Tin
                                                     </button>
                                                 </div>

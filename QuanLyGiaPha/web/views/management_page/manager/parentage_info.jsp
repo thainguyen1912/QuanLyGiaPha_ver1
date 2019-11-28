@@ -40,16 +40,16 @@
                                         </div>
                                     </div>
                                     <h5 class="card-title mt-2" style="text-align: center">-----Thông Tin Cơ Bản-----</h5>        
-                                    <div class="position-relative form-row" style="margin-bottom: 8%">
-                                        <div class="col-md-2-5 mb-2 mr-2">
+                                    <div class="position-relative form-row" style="margin-bottom: 16px">
+                                        <div class="col-md-2-5 mb-2 mr-2" style="margin-bottom: 8%">
                                             <label>Tên Dòng Họ</label>
                                             <input style="" type="text" class="form-control" name="name" value="<%=par.getName() == null ? "" : par.getName()%>" required>
                                         </div>
-                                        <div class="col-md-2-5 mb-2 mr-2">
+                                        <div class="col-md-2-5 mb-2 mr-2" style="margin-bottom: 8%">
                                             <label>Tổ Tiên</label>
                                             <input style="" type="text" class="form-control" name="ancestor" value="<%=par.getAncestor() == null ? "" : par.getAncestor()%>" required>
                                         </div>
-                                        <div class="col-md-4 mb-2 mr-2">
+                                        <div class="col-md-4 mb-2 mr-2" style="margin-bottom: 8%">
                                             <label>Địa Chỉ</label>
                                             <input type="text" class="form-control" name="address" value="<%=par.getAddress() == null ? "" : par.getAddress()%>" required>
                                         </div>
@@ -59,16 +59,16 @@
                                         </div>
                                     </div>
                                     <h5 class="card-title mt-2" style="text-align: center">-----Trưởng Họ Hiện Tại-----</h5> 
-                                    <div class="position-relative form-row" style="margin-bottom: 4%">
-                                        <div class="col-md-3 mb-2 mr-4">
+                                    <div class="position-relative form-row" style="margin-bottom: 8px">
+                                        <div class="col-md-3 mb-2 mr-4" style="margin-bottom: 8%">
                                             <label>Tên Trưởng Họ</label>
                                             <input type="text" class="form-control" name="headname" value="<%=par.getHeadName() == null ? "" : par.getHeadName()%>" required>
                                         </div>
-                                        <div class="col-md-5 mb-2 mr-4">
+                                        <div class="col-md-5 mb-2 mr-4" style="margin-bottom: 8%">
                                             <label>Địa Chỉ Trưởng Họ</label>
                                             <input type="text" class="form-control" name="headaddress" value="<%=par.getHeadAddress() == null ? "" : par.getHeadAddress()%>" required>
                                         </div>
-                                        <div class="col-md-3 mb-2">
+                                        <div class="col-md-3 mb-2" style="margin-bottom: 8%">
                                             <label>Số Điện Thoại Trưởng Họ</label>
                                             <input type="text" class="form-control" name="headnumberphone" value="<%=par.getHeadNumberPhone() == null ? "" : par.getHeadNumberPhone()%>">
                                         </div>
@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
 
-                                    <button style="margin-left: 45%;" class="btn btn-primary" type="submit">Cập Nhật Thông Tin</button>
+                                    <button style="" class="btn btn-primary" type="submit">Cập Nhật Thông Tin</button>
                                 </form>
                             </div>
                         </div>

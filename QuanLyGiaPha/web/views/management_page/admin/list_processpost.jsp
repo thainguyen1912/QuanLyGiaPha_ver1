@@ -9,7 +9,7 @@
     <jsp:include page="../import_page/import.jsp" flush="true"/>
     <body>
         <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-            <jsp:include page="../import_page/header.jsp" flush="true"/> 
+            <jsp:include page="import_page/header_admin.jsp" flush="true"/> 
             <jsp:include page="../import_page/setting_ui.jsp" flush="true"/>
             <div class="app-main" style="overflow: auto">
                 <jsp:include page="import_page/left_menu_admin.jsp" flush="true"/>
@@ -49,13 +49,13 @@
                                                                 <div class="text-muted opacity-6">Tóm Tắt: <%= arr_post.get(i).getSummary()%></div>
                                                             </div>
                                                             <div class="mt-2" style="margin-left: 32%">
-                                                                <div class="mr-2" style="float: left">
+                                                                <div class="mr-2" style="float: left; margin-bottom: 4px">
                                                                     <a href="ComingSoon"><button class="btn-wide btn btn-success">Xem Chi Tiết</button></a>
                                                                 </div>
-                                                                <div class="mr-2" style="float: left">
-                                                                    <a href="ComingSoon"><button class="btn-wide btn btn-primary">Duyệt</button></a>
+                                                                <div class="mr-2 mb-2" style="float: left; margin-bottom: 4px">
+                                                                    <a href="PostControl?page=processpost&id=<%=arr_post.get(i).getIdPost() %>"><button class="btn-wide btn btn-primary">Duyệt</button></a>
                                                                 </div>
-                                                                <div class="mr-2" style="float: left">
+                                                                <div class="mr-2 mb-2" style="float: left; margin-bottom: 4px">
                                                                     <a href="ComingSoon"><button class="btn-wide btn btn-danger">Xóa</button></a>
                                                                 </div>
                                                             </div>

@@ -27,7 +27,7 @@
         <jsp:include page="import_page/header1.jsp" flush="true" />
         <jsp:include page="import_page/header2.jsp" flush="true" />
 
-        <div class="hero-wrap hero-bread" style="background-image: url('resources/images/58005.jpg');">
+        <div class="hero-wrap hero-bread" style="background-image: url('resources/images/home/58005.jpg');">
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-center">
                     <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
@@ -49,7 +49,7 @@
                                 %>
                             <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="#" class="block-20" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>');">
+                                    <a href="#" class="block-20" style="background-image: url('resources/images/home/<%=arr_post.get(i).getImage()%>');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -106,7 +106,7 @@
                                     if (arr_post.get(i).getStatus().equals("1")) {
                             %>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url('resources/images/<%=arr_post.get(i).getImage()%>')"></a>
+                                <a class="blog-img mr-4" style="background-image: url('resources/images/home/<%=arr_post.get(i).getImage()%>')"></a>
                                 <div class="text">
                                     <h3 class="heading-1"><a href="HomePage?page=newsdetail&id=<%=arr_post.get(i).getIdPost()%>"><%=arr_post.get(i).getTitle()%></a></h3>
                                     <div class="meta">

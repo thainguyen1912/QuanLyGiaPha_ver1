@@ -2,7 +2,7 @@
 
 <section id="home-section" class="hero">
     <div class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image: url(resources/images/bia1.jpg);">
+        <div class="slider-item" style="background-image: url(resources/images/home/bia1.jpg);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="slider-item" style="background-image: url(resources/images/bia2.jpg);">
+        <div class="slider-item" style="background-image: url(resources/images/home/bia2.jpg);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -32,7 +32,7 @@
             </div>
         </div>
         
-        <div class="slider-item" style="background-image: url(resources/images/bia3.jpg);">
+        <div class="slider-item" style="background-image: url(resources/images/home/bia3.jpg);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -47,7 +47,7 @@
             </div>
         </div>
         
-        <div class="slider-item" style="background-image: url(resources/images/bia4.jpg);">
+        <div class="slider-item" style="background-image: url(resources/images/home/bia4.jpg);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">

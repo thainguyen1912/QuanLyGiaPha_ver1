@@ -1,9 +1,11 @@
 
 package Controller;
 
+import Enity.Image;
 import Enity.Individual;
 import Enity.Parentage;
 import Model.DBConnection;
+import Model.Image_DAO;
 import Model.Individual_DAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,12 +28,12 @@ public class ListAvatar extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         
         DBConnection db=new DBConnection();
-        Individual_DAO ind_dao=new Individual_DAO(db);
+        Image_DAO ava_dao=new Image_DAO(db);
         HttpSession session = request.getSession();
         Parentage par = (Parentage) session.getAttribute("Parentage");
         int idPar = par.getId();
-        ArrayList<Individual> arr_ind=ind_dao.getListChildByIdParentageAvatar(idPar);
-        request.setAttribute("arr_ind", arr_ind);
+        ArrayList<Image> arr_ava=ava_dao.selectAll(idPar);
+        request.setAttribute("arr_ava", arr_ava);
         request.setAttribute("title", "list_avatar");
         RequestDispatcher rd=request.getRequestDispatcher("views/management_page/manager/list_avatar.jsp");
         rd.forward(request, response);

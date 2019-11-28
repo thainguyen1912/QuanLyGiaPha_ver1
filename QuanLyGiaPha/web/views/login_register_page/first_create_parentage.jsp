@@ -25,25 +25,25 @@
                     <div class="text-center p-t-13 p-b-23">
                         </div>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Chưa Nhập Tên Dòng họ">
-                        <input class="input100" type="text" name="parentagename" placeholder="Tên Dòng họ">
+                        <input class="input100" type="text" name="parentagename" placeholder="Tên Dòng họ" required="true">
                         <span class="focus-input100"></span>
                     </div>
                     
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Chưa Nhập Tên Tổ Tiên">
-                        <input class="input100" type="text" name="individualname" placeholder="Tên Tổ Tiên">
+                        <input class="input100" type="text" name="individualname" placeholder="Tên Tổ Tiên" required="true">
                         <span class="focus-input100"></span>
                     </div>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Chưa Nhập Năm Sinh">
-                        <input class="input100" type="text" name="datebirth" placeholder="Ngày Sinh (yyyy-MM-dd)">
+                        <input class="input100" type="text" name="datebirth" placeholder="Ngày Sinh (yyyy-MM-dd)" required="true">
                         <span class="focus-input100"></span>
                     </div>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Chưa Nhập Năm Mất">
-                        <input class="input100" type="text" name="datedeath" placeholder="Ngày Mất (yyyy-MM-dd)">
+                        <input class="input100" type="text" name="datedeath" placeholder="Ngày Mất (yyyy-MM-dd)" required="true">
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-16" data-validate = "Chưa Nhập Địa Chỉ">
-                        <input class="input100" type="text" name="address" placeholder="Nhập Địa Chỉ">
+                        <input class="input100" type="text" name="address" placeholder="Nhập Địa Chỉ" required="true">
                         <span class="focus-input100"></span>
                     </div>
 

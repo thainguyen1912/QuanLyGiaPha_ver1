@@ -30,7 +30,7 @@
                                                             Tiêu Đề
                                                         </label>
                                                         <div class="col-sm-8">
-                                                            <input value="<%=pos.getTitle() %>" name="title" id="name" placeholder="" type="text" class="form-control" >
+                                                            <input value="<%=pos.getTitle() %>" name="title" id="name" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -38,7 +38,7 @@
                                                             Tóm Tắt
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <input value="<%=pos.getSummary()%>" name="summary" id="name" placeholder="" type="text" class="form-control">
+                                                            <input value="<%=pos.getSummary()%>" name="summary" id="name" placeholder="" type="text" class="form-control" required="true">
                                                         </div>
                                                     </div>
                                                     <div class="position-relative row form-group">
@@ -46,7 +46,7 @@
                                                             Chi Tiết
                                                         </label>
                                                         <div class="col-sm-10">
-                                                            <textarea rows="20" name="detail" id="moreinfo" class="form-control"><%=pos.getDetail()%></textarea>
+                                                            <textarea rows="20" name="detail" id="moreinfo" class="form-control" required="true"><%=pos.getDetail()%></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
